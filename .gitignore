@@ -29,6 +29,7 @@ Thumbs.db
 dist/
 build/
 *.egg-info/
+.jac/
 
 # Demo recordings (too large for git)
 demo/*.mp4

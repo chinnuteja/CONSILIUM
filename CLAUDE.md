@@ -58,7 +58,7 @@ Every architectural decision must answer YES to all three.
 | Runtime | **Jaseci** (`jaseci` Python package) | Required for walkers + graph runtime |
 | LLM integration | **`byllm`** (Jac plugin) | Native `by llm()` support |
 | LLM (specialists) | **Gemini 2.5 Pro** via Google AI Studio API | Strong reasoning quality for specialist hypotheses and adversarial critique |
-| LLM (moderator/triage) | **Gemini 2.5 Flash-Lite** via Google AI Studio API | Fast, cheap orchestration |
+| LLM (moderator/triage) | **Gemini 3 Flash Preview** via Google AI Studio API | Fast orchestration with stronger current-generation reasoning |
 | Frontend | **Lovable** → React via `jac-client` | Sponsor prize + unified stack |
 | Graph storage | **Jac built-in (in-process graph)** | Built into Jac runtime; DO NOT add Neo4j or external DB |
 | Dataset (benchmark) | **DDXPlus** (`aai530-group6/ddxplus` on HuggingFace) | Ground-truth differentials, audit corpus |
@@ -131,7 +131,7 @@ These rules exist because Jac is a new language and you (the AI agent) likely ha
 
 ### 5.2 Walker Roster
 
-**Moderator Walker** (Gemini 2.5 Flash-Lite, temperature 0.2):
+**Moderator Walker** (Gemini 3 Flash Preview, temperature 0.2):
 - Spawns specialist walkers in parallel
 - Enforces the **blinded initial round** (no walker sees others' Hypothesis nodes until ALL post)
 - Triggers the **adversarial round** (Devil's Advocate)
@@ -299,6 +299,7 @@ consilium/
 │   │   ├── gastroenterology.jac
 │   │   └── psychiatry.jac
 │   ├── devils_advocate.jac
+│   ├── models.jac             # Single source of truth for LLM model selection
 │   ├── prompts.jac              # All specialist system prompts (centralized)
 │   └── ingest.jac               # Dataset → graph converters
 ├── eval/
