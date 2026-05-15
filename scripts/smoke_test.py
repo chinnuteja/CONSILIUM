@@ -8,11 +8,20 @@ from litellm import AuthenticationError, completion
 
 load_dotenv()
 
-api_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
+candidate_keys = [
+    os.getenv("GEMINI_API_KEY"),
+    os.getenv("GOOGLE_API_KEY"),
+]
+api_key = next(
+    (
+        key.strip()
+        for key in candidate_keys
+        if key and key.strip() and key.strip() != "your-google-api-key-here"
+    ),
+    None,
+)
 if not api_key:
     raise RuntimeError("Missing GEMINI_API_KEY or GOOGLE_API_KEY in .env")
-if api_key.strip() == "your-google-api-key-here":
-    raise RuntimeError("Gemini API key is still the placeholder value in .env")
 
 os.environ["GEMINI_API_KEY"] = api_key
 os.environ["GOOGLE_API_KEY"] = api_key
@@ -28,10 +37,13 @@ for role, model in MODELS.items():
         response = completion(
             model=model,
             messages=[{"role": "user", "content": "Reply with exactly: CONSILIUM_OK"}],
-            max_tokens=20,
+            max_tokens=1024,
             temperature=0,
+            reasoning_effort="low",
         )
-        text = response.choices[0].message.content
+        text = response.choices[0].message.content or ""
+        if "CONSILIUM" not in text:
+            raise RuntimeError(f"Unexpected response content: {text!r}")
         print(f"  output: {text}")
     except AuthenticationError:
         print("  ERROR: authentication failed. Check the Gemini key in .env.")
