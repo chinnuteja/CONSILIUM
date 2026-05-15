@@ -7,7 +7,6 @@ dependencies = [
     "jaclang",
     "jaseci",
     "byllm",
-    "anthropic",
     "pandas",
     "datasets",
     "python-dotenv",

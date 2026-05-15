@@ -18,7 +18,7 @@
 | Buffer reserved for Phase 6 polish/submission | **16** |
 | Effective build time | **56** |
 
-If you fall behind, cut Phase 5 scope (frontend can be ugly), not Phase 1 or Phase 4 (the benchmark and the consensus-bias defense). The benchmark number is what wins the pitch — never let it slip.
+If you fall behind, cut Phase 5 scope (frontend can be ugly), not Phase 1 or Phase 4 (the benchmark and the consensus-bias defense). The benchmark number is what wins the pitch — never let it slip.i guess we can finish this two days before the deadline.
 
 ---
 
@@ -36,10 +36,10 @@ If you fall behind, cut Phase 5 scope (frontend can be ugly), not Phase 1 or Pha
 4. Set up Python environment:
    ```
    python -m venv .venv && source .venv/bin/activate
-   pip install jaclang jaseci byllm anthropic pandas datasets python-dotenv
+   pip install jaclang jaseci byllm pandas datasets python-dotenv google-generativeai
    ```
 5. Confirm Jac is installed: `jac --version`
-6. Create `.env` from `.env.example`, set `ANTHROPIC_API_KEY`.
+6. Create `.env` from `.env.example`, set `GOOGLE_API_KEY` / `GEMINI_API_KEY`.
 7. Download datasets:
    ```python
    from datasets import load_dataset

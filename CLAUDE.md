@@ -57,8 +57,8 @@ Every architectural decision must answer YES to all three.
 | Primary language | **Jac** (latest stable, via `jaclang`) | Hackathon requirement; superset of Python |
 | Runtime | **Jaseci** (`jaseci` Python package) | Required for walkers + graph runtime |
 | LLM integration | **`byllm`** (Jac plugin) | Native `by llm()` support |
-| LLM (specialists) | **Claude Sonnet 4.6** via Anthropic API | Reasoning quality; JacHacks provides $500 credits |
-| LLM (moderator/triage) | **Claude Haiku 4.5** via Anthropic API | Fast, cheap orchestration |
+| LLM (specialists) | **Gemini 2.5 Pro** via Google AI Studio API | Strong reasoning quality for specialist hypotheses and adversarial critique |
+| LLM (moderator/triage) | **Gemini 2.5 Flash-Lite** via Google AI Studio API | Fast, cheap orchestration |
 | Frontend | **Lovable** → React via `jac-client` | Sponsor prize + unified stack |
 | Graph storage | **Jac built-in (in-process graph)** | Built into Jac runtime; DO NOT add Neo4j or external DB |
 | Dataset (benchmark) | **DDXPlus** (`aai530-group6/ddxplus` on HuggingFace) | Ground-truth differentials, audit corpus |
@@ -90,7 +90,7 @@ These rules exist because Jac is a new language and you (the AI agent) likely ha
 ### NEVER invent:
 
 - Dataset schemas (the actual schemas are in §7 of this file)
-- Anthropic API parameter names (verify against https://docs.claude.com)
+- Gemini API parameter names (verify against https://ai.google.dev/gemini-api/docs)
 - Library function signatures (read the source or docs)
 - Jac standard library functions
 
@@ -131,13 +131,13 @@ These rules exist because Jac is a new language and you (the AI agent) likely ha
 
 ### 5.2 Walker Roster
 
-**Moderator Walker** (Claude Haiku 4.5, temperature 0.2):
+**Moderator Walker** (Gemini 2.5 Flash-Lite, temperature 0.2):
 - Spawns specialist walkers in parallel
 - Enforces the **blinded initial round** (no walker sees others' Hypothesis nodes until ALL post)
 - Triggers the **adversarial round** (Devil's Advocate)
 - Triggers final convergence and ranks the differential
 
-**Specialist Walkers** (Claude Sonnet 4.6, specialty-specific system prompts and temperatures):
+**Specialist Walkers** (Gemini 2.5 Pro, specialty-specific system prompts and temperatures):
 
 | Walker | Temperature | Bias |
 |---|---|---|
@@ -149,7 +149,7 @@ These rules exist because Jac is a new language and you (the AI agent) likely ha
 | `GIWalker` | 0.5 | Consider GI mimics of other presentations |
 | `PsychiatryWalker` | 0.5 | Consider functional/somatic overlay |
 
-**DevilsAdvocateWalker** (Claude Sonnet 4.6, temperature 0.8):
+**DevilsAdvocateWalker** (Gemini 2.5 Pro, temperature 0.8):
 - Fires AFTER initial convergence
 - Job: produce a credible alternative to the leading hypothesis
 - Must cite specific evidence nodes (citation-locked)
@@ -266,7 +266,7 @@ When implementing: do NOT feed entire patient context into any single `by llm()`
 
 **For MedQA:**
 1. Load JSON
-2. Use Claude (via `by llm()`) to extract structured `Symptom`/`Lab`/`History` items from the vignette text. This is a one-time extraction per case — **cache the result** to disk so you don't re-pay every run.
+2. Use Gemini (via `by llm()`) to extract structured `Symptom`/`Lab`/`History` items from the vignette text. This is a one-time extraction per case — **cache the result** to disk so you don't re-pay every run.
 3. Build the patient graph from the extraction
 
 ---
@@ -279,8 +279,8 @@ consilium/
 ├── PROJECT.md                   # This file
 ├── BUILD_LOG.md                 # Phase checkpoints
 ├── CLAUDE.md                    # Symlink or copy of PROJECT.md (for Claude Code)
-├── pyproject.toml               # Python deps: jaclang, jaseci, byllm, anthropic, pandas, datasets
-├── .env.example                 # ANTHROPIC_API_KEY=
+├── pyproject.toml               # Python deps: jaclang, jaseci, byllm, google-generativeai, pandas, datasets
+├── .env.example                 # GOOGLE_API_KEY= / GEMINI_API_KEY=
 ├── .gitignore                   # Ignore .env, data/, __pycache__
 ├── data/
 │   ├── ddxplus_validate_sample.csv     # 200-case audited subset
@@ -336,7 +336,7 @@ Full acceptance criteria for each phase: see `BUILD_LOG.md`.
 |---|---|
 | Jac syntax | https://github.com/jaseci-labs/agentic-ai-tutorial (the `CLAUDE.md` in that repo) |
 | Jac runtime | https://github.com/jaseci-labs/jaseci |
-| Anthropic API | https://docs.claude.com |
+| Gemini API | https://ai.google.dev/gemini-api/docs |
 | DDXPlus schema | The `README.md` at https://huggingface.co/datasets/aai530-group6/ddxplus |
 | MedQA schema | https://huggingface.co/datasets/GBaker/MedQA-USMLE-4-options |
 | Hackathon rules | https://jachacks-spring.devpost.com/rules |
