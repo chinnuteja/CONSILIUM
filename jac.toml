@@ -1,0 +1,2 @@
+[plugins.byllm.model]
+default_model = "gemini/gemini-2.5-flash"

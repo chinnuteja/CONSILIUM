@@ -1,0 +1,34 @@
+# Environment
+.env
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Data (too large for git)
+data/ddxplus_validate.csv
+data/ddxplus_validate_sample.csv
+data/medqa_test.json
+data/medqa_demo_cases.json
+data/evidence_map.json
+data/release_evidences.json
+data/release_conditions.json
+data/medqa_extracted_cache/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build
+dist/
+build/
+*.egg-info/
+
+# Demo recordings (too large for git)
+demo/*.mp4

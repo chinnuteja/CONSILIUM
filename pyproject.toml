@@ -1,0 +1,19 @@
+[project]
+name = "consilium"
+version = "0.1.0"
+description = "Multi-specialist diagnostic deliberation agent — the multi-specialty second opinion that didn't exist before agents could debate."
+requires-python = ">=3.11"
+dependencies = [
+    "jaclang",
+    "jaseci",
+    "byllm",
+    "anthropic",
+    "pandas",
+    "datasets",
+    "python-dotenv",
+    "google-generativeai",
+]
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.backends._legacy:_Backend"
