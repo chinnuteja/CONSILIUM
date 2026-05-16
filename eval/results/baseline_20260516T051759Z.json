@@ -1,0 +1,3345 @@
+{
+  "label": "baseline",
+  "timestamp": "2026-05-16T05:17:59.990539+00:00",
+  "n": 50,
+  "top_1_accuracy": 0.54,
+  "top_3_accuracy": 0.76,
+  "mrr": 0.6333333333333333,
+  "wall_clock_seconds": 627.5228353000002,
+  "estimated_cost_usd": 0.48476625,
+  "cases": [
+    {
+      "case_id": 75493,
+      "pathology": "Acute dystonic reactions",
+      "initial_evidence": "Do you have trouble keeping your tongue in your mouth?",
+      "predicted": [
+        {
+          "diagnosis": "Acute dystonic reactions",
+          "confidence": 0.95
+        },
+        {
+          "diagnosis": "Myasthenia gravis",
+          "confidence": 0.03
+        },
+        {
+          "diagnosis": "Guillain-Barré syndrome",
+          "confidence": 0.01
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Acute dystonic reactions\",\n    \"confidence\": 0.95\n  },\n  {\n    \"diagnosis\": \"Myasthenia gravis\",\n    \"confidence\": 0.03\n  },\n  {\n    \"diagnosis\": \"Guillain-Barré syndrome\",\n    \"confidence\": 0.01\n  }\n]\n```",
+      "cost_usd": 0.008828750000000002,
+      "target": "Acute dystonic reactions",
+      "predictions": [
+        "Acute dystonic reactions",
+        "Myasthenia gravis",
+        "Guillain-Barré syndrome"
+      ],
+      "top_1_correct": true,
+      "top_3_correct": true,
+      "mrr": 1.0,
+      "rank": 1,
+      "ground_truth_differential": [
+        [
+          "Acute dystonic reactions",
+          1.0
+        ]
+      ]
+    },
+    {
+      "case_id": 124409,
+      "pathology": "Pulmonary neoplasm",
+      "initial_evidence": "Have you been coughing up blood?",
+      "predicted": [
+        {
+          "diagnosis": "Pulmonary neoplasm",
+          "confidence": 0.85
+        },
+        {
+          "diagnosis": "Tuberculosis",
+          "confidence": 0.1
+        },
+        {
+          "diagnosis": "Bronchiectasis",
+          "confidence": 0.05
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Pulmonary neoplasm\",\n    \"confidence\": 0.85\n  },\n  {\n    \"diagnosis\": \"Tuberculosis\",\n    \"confidence\": 0.1\n  },\n  {\n    \"diagnosis\": \"Bronchiectasis\",\n    \"confidence\": 0.05\n  }\n]\n```",
+      "cost_usd": 0.0078975,
+      "target": "Pulmonary neoplasm",
+      "predictions": [
+        "Pulmonary neoplasm",
+        "Tuberculosis",
+        "Bronchiectasis"
+      ],
+      "top_1_correct": true,
+      "top_3_correct": true,
+      "mrr": 1.0,
+      "rank": 1,
+      "ground_truth_differential": [
+        [
+          "Pulmonary neoplasm",
+          0.12391709951421595
+        ],
+        [
+          "Tuberculosis",
+          0.10369305227008174
+        ],
+        [
+          "Bronchitis",
+          0.09952558494091525
+        ],
+        [
+          "Pneumonia",
+          0.09660626601773016
+        ],
+        [
+          "Pulmonary embolism",
+          0.0890129287802988
+        ],
+        [
+          "Bronchiectasis",
+          0.06923003558395661
+        ],
+        [
+          "Acute pulmonary edema",
+          0.06739044843724092
+        ],
+        [
+          "Guillain-Barré syndrome",
+          0.061598795336313655
+        ],
+        [
+          "Possible NSTEMI / STEMI",
+          0.06048238973720692
+        ],
+        [
+          "Bronchospasm / acute asthma exacerbation",
+          0.05977711774803558
+        ],
+        [
+          "Atrial fibrillation",
+          0.058837988589401355
+        ],
+        [
+          "Acute dystonic reactions",
+          0.04337851109393222
+        ],
+        [
+          "Myocarditis",
+          0.04337851109393222
+        ],
+        [
+          "PSVT",
+          0.02317127085673875
+        ]
+      ]
+    },
+    {
+      "case_id": 101404,
+      "pathology": "Myocarditis",
+      "initial_evidence": "Have you noticed any new fatigue, generalized and vague discomfort, diffuse (widespread) muscle aches or a change in your general well-being related to your consultation today?",
+      "predicted": [
+        {
+          "diagnosis": "Myocarditis",
+          "confidence": 0.45
+        },
+        {
+          "diagnosis": "Pericarditis",
+          "confidence": 0.35
+        },
+        {
+          "diagnosis": "Panic attack",
+          "confidence": 0.1
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Myocarditis\",\n    \"confidence\": 0.45\n  },\n  {\n    \"diagnosis\": \"Pericarditis\",\n    \"confidence\": 0.35\n  },\n  {\n    \"diagnosis\": \"Panic attack\",\n    \"confidence\": 0.1\n  }\n]\n```",
+      "cost_usd": 0.010190000000000001,
+      "target": "Panic attack",
+      "predictions": [
+        "Myocarditis",
+        "Pericarditis",
+        "Panic attack"
+      ],
+      "top_1_correct": false,
+      "top_3_correct": true,
+      "mrr": 0.3333333333333333,
+      "rank": 3,
+      "ground_truth_differential": [
+        [
+          "Panic attack",
+          0.10943885807189667
+        ],
+        [
+          "Myocarditis",
+          0.10031375792007674
+        ],
+        [
+          "PSVT",
+          0.09722882605030236
+        ],
+        [
+          "Guillain-Barré syndrome",
+          0.09343628527556891
+        ],
+        [
+          "Pericarditis",
+          0.09067306911380546
+        ],
+        [
+          "Boerhaave",
+          0.08848238345751598
+        ],
+        [
+          "GERD",
+          0.08361036647623168
+        ],
+        [
+          "Acute dystonic reactions",
+          0.06579880199398454
+        ],
+        [
+          "Myasthenia gravis",
+          0.06579880199398454
+        ],
+        [
+          "Anaphylaxis",
+          0.06579880199398454
+        ],
+        [
+          "Chagas",
+          0.05507455505515718
+        ],
+        [
+          "Sarcoidosis",
+          0.053883788193189446
+        ],
+        [
+          "SLE",
+          0.030461704404301595
+        ],
+        [
+          "Pulmonary embolism",
+          0.0
+        ]
+      ]
+    },
+    {
+      "case_id": 110495,
+      "pathology": "Influenza",
+      "initial_evidence": "Have you had significantly increased sweating?",
+      "predicted": [
+        {
+          "diagnosis": "HIV (initial infection)",
+          "confidence": 0.7
+        },
+        {
+          "diagnosis": "SLE",
+          "confidence": 0.15
+        },
+        {
+          "diagnosis": "Viral pharyngitis",
+          "confidence": 0.1
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"HIV (initial infection)\",\n    \"confidence\": 0.7\n  },\n  {\n    \"diagnosis\": \"SLE\",\n    \"confidence\": 0.15\n  },\n  {\n    \"diagnosis\": \"Viral pharyngitis\",\n    \"confidence\": 0.1\n  }\n]\n```",
+      "cost_usd": 0.010050000000000002,
+      "target": "URTI",
+      "predictions": [
+        "HIV (initial infection)",
+        "SLE",
+        "Viral pharyngitis"
+      ],
+      "top_1_correct": false,
+      "top_3_correct": false,
+      "mrr": 0.0,
+      "rank": null,
+      "ground_truth_differential": [
+        [
+          "URTI",
+          0.1666671257197593
+        ],
+        [
+          "Bronchitis",
+          0.14588748198857496
+        ],
+        [
+          "Acute rhinosinusitis",
+          0.1322706889130598
+        ],
+        [
+          "Cluster headache",
+          0.12312158520942412
+        ],
+        [
+          "Chronic rhinosinusitis",
+          0.10957146513494372
+        ],
+        [
+          "Anaphylaxis",
+          0.10882053674893538
+        ],
+        [
+          "Scombroid food poisoning",
+          0.08502823301529717
+        ],
+        [
+          "Chagas",
+          0.06929831955143304
+        ],
+        [
+          "Influenza",
+          0.033849053732889336
+        ],
+        [
+          "Anemia",
+          0.025485509985683136
+        ]
+      ]
+    },
+    {
+      "case_id": 2448,
+      "pathology": "Anemia",
+      "initial_evidence": "Have you recently had stools that were black (like coal)?",
+      "predicted": [
+        {
+          "diagnosis": "Anemia",
+          "confidence": 0.95
+        },
+        {
+          "diagnosis": "GERD",
+          "confidence": 0.04
+        },
+        {
+          "diagnosis": "Cluster headache",
+          "confidence": 0.01
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Anemia\",\n    \"confidence\": 0.95\n  },\n  {\n    \"diagnosis\": \"GERD\",\n    \"confidence\": 0.04\n  },\n  {\n    \"diagnosis\": \"Cluster headache\",\n    \"confidence\": 0.01\n  }\n]\n```",
+      "cost_usd": 0.01040625,
+      "target": "Anemia",
+      "predictions": [
+        "Anemia",
+        "GERD",
+        "Cluster headache"
+      ],
+      "top_1_correct": true,
+      "top_3_correct": true,
+      "mrr": 1.0,
+      "rank": 1,
+      "ground_truth_differential": [
+        [
+          "Anemia",
+          0.29210816676676377
+        ],
+        [
+          "HIV (initial infection)",
+          0.17870652392582073
+        ],
+        [
+          "Anaphylaxis",
+          0.17467419335805087
+        ],
+        [
+          "Chagas",
+          0.16899127949614762
+        ],
+        [
+          "Cluster headache",
+          0.1418261284447867
+        ],
+        [
+          "Scombroid food poisoning",
+          0.043693708008430227
+        ]
+      ]
+    },
+    {
+      "case_id": 93335,
+      "pathology": "Pericarditis",
+      "initial_evidence": "Do you feel your heart is beating fast (racing), irregularly (missing a beat) or do you feel palpitations?",
+      "predicted": [
+        {
+          "diagnosis": "Pericarditis",
+          "confidence": 0.85
+        },
+        {
+          "diagnosis": "Myocarditis",
+          "confidence": 0.1
+        },
+        {
+          "diagnosis": "Panic attack",
+          "confidence": 0.03
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Pericarditis\",\n    \"confidence\": 0.85\n  },\n  {\n    \"diagnosis\": \"Myocarditis\",\n    \"confidence\": 0.1\n  },\n  {\n    \"diagnosis\": \"Panic attack\",\n    \"confidence\": 0.03\n  }\n]\n```",
+      "cost_usd": 0.010013750000000002,
+      "target": "Pericarditis",
+      "predictions": [
+        "Pericarditis",
+        "Myocarditis",
+        "Panic attack"
+      ],
+      "top_1_correct": true,
+      "top_3_correct": true,
+      "mrr": 1.0,
+      "rank": 1,
+      "ground_truth_differential": [
+        [
+          "Pericarditis",
+          0.42653019390260233
+        ],
+        [
+          "GERD",
+          0.33308294899424135
+        ],
+        [
+          "Anaphylaxis",
+          0.15425690261544697
+        ],
+        [
+          "Myocarditis",
+          0.08612995448770937
+        ]
+      ]
+    },
+    {
+      "case_id": 22296,
+      "pathology": "Chronic rhinosinusitis",
+      "initial_evidence": "Have you lost your sense of smell?",
+      "predicted": [
+        {
+          "diagnosis": "Acute rhinosinusitis",
+          "confidence": 0.85
+        },
+        {
+          "diagnosis": "Chronic rhinosinusitis",
+          "confidence": 0.1
+        },
+        {
+          "diagnosis": "Allergic sinusitis",
+          "confidence": 0.04
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Acute rhinosinusitis\",\n    \"confidence\": 0.85\n  },\n  {\n    \"diagnosis\": \"Chronic rhinosinusitis\",\n    \"confidence\": 0.1\n  },\n  {\n    \"diagnosis\": \"Allergic sinusitis\",\n    \"confidence\": 0.04\n  }\n]\n```",
+      "cost_usd": 0.009875000000000002,
+      "target": "Chronic rhinosinusitis",
+      "predictions": [
+        "Acute rhinosinusitis",
+        "Chronic rhinosinusitis",
+        "Allergic sinusitis"
+      ],
+      "top_1_correct": false,
+      "top_3_correct": true,
+      "mrr": 0.5,
+      "rank": 2,
+      "ground_truth_differential": [
+        [
+          "Chronic rhinosinusitis",
+          0.20450608356146505
+        ],
+        [
+          "Bronchitis",
+          0.19169592416292036
+        ],
+        [
+          "Acute rhinosinusitis",
+          0.1825484304267558
+        ],
+        [
+          "URTI",
+          0.15555555042624075
+        ],
+        [
+          "Cluster headache",
+          0.11823533271820301
+        ],
+        [
+          "Chagas",
+          0.0737293393522075
+        ],
+        [
+          "Anemia",
+          0.0737293393522075
+        ]
+      ]
+    },
+    {
+      "case_id": 72426,
+      "pathology": "Inguinal hernia",
+      "initial_evidence": "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?",
+      "predicted": [
+        {
+          "diagnosis": "Inguinal hernia",
+          "confidence": 0.7
+        },
+        {
+          "diagnosis": "SLE",
+          "confidence": 0.15
+        },
+        {
+          "diagnosis": "HIV (initial infection)",
+          "confidence": 0.1
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Inguinal hernia\",\n    \"confidence\": 0.7\n  },\n  {\n    \"diagnosis\": \"SLE\",\n    \"confidence\": 0.15\n  },\n  {\n    \"diagnosis\": \"HIV (initial infection)\",\n    \"confidence\": 0.1\n  }\n]\n```",
+      "cost_usd": 0.00992375,
+      "target": "Inguinal hernia",
+      "predictions": [
+        "Inguinal hernia",
+        "SLE",
+        "HIV (initial infection)"
+      ],
+      "top_1_correct": true,
+      "top_3_correct": true,
+      "mrr": 1.0,
+      "rank": 1,
+      "ground_truth_differential": [
+        [
+          "Inguinal hernia",
+          0.49628288804870224
+        ],
+        [
+          "Anaphylaxis",
+          0.3154970139362023
+        ],
+        [
+          "Scombroid food poisoning",
+          0.1882200980150955
+        ]
+      ]
+    },
+    {
+      "case_id": 94092,
+      "pathology": "Influenza",
+      "initial_evidence": "Do you have a fever (either felt or measured with a thermometer)?",
+      "predicted": [
+        {
+          "diagnosis": "Influenza",
+          "confidence": 0.7
+        },
+        {
+          "diagnosis": "URTI",
+          "confidence": 0.2
+        },
+        {
+          "diagnosis": "Viral pharyngitis",
+          "confidence": 0.05
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Influenza\",\n    \"confidence\": 0.7\n  },\n  {\n    \"diagnosis\": \"URTI\",\n    \"confidence\": 0.2\n  },\n  {\n    \"diagnosis\": \"Viral pharyngitis\",\n    \"confidence\": 0.05\n  }\n]\n```",
+      "cost_usd": 0.00954,
+      "target": "Influenza",
+      "predictions": [
+        "Influenza",
+        "URTI",
+        "Viral pharyngitis"
+      ],
+      "top_1_correct": true,
+      "top_3_correct": true,
+      "mrr": 1.0,
+      "rank": 1,
+      "ground_truth_differential": [
+        [
+          "Influenza",
+          0.18433136613245812
+        ],
+        [
+          "URTI",
+          0.17918327376694648
+        ],
+        [
+          "HIV (initial infection)",
+          0.15072385074427552
+        ],
+        [
+          "Bronchitis",
+          0.12695595264939658
+        ],
+        [
+          "Chagas",
+          0.10119896304706825
+        ],
+        [
+          "Anemia",
+          0.07206002874515166
+        ],
+        [
+          "Tuberculosis",
+          0.06902996660724094
+        ],
+        [
+          "Pneumonia",
+          0.05879097405791286
+        ],
+        [
+          "Scombroid food poisoning",
+          0.057725624249549794
+        ]
+      ]
+    },
+    {
+      "case_id": 19174,
+      "pathology": "Influenza",
+      "initial_evidence": "Do you have a fever (either felt or measured with a thermometer)?",
+      "predicted": [
+        {
+          "diagnosis": "HIV (initial infection)",
+          "confidence": 0.75
+        },
+        {
+          "diagnosis": "Influenza",
+          "confidence": 0.15
+        },
+        {
+          "diagnosis": "Viral pharyngitis",
+          "confidence": 0.05
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"HIV (initial infection)\",\n    \"confidence\": 0.75\n  },\n  {\n    \"diagnosis\": \"Influenza\",\n    \"confidence\": 0.15\n  },\n  {\n    \"diagnosis\": \"Viral pharyngitis\",\n    \"confidence\": 0.05\n  }\n]\n```",
+      "cost_usd": 0.010256250000000001,
+      "target": "URTI",
+      "predictions": [
+        "HIV (initial infection)",
+        "Influenza",
+        "Viral pharyngitis"
+      ],
+      "top_1_correct": false,
+      "top_3_correct": false,
+      "mrr": 0.0,
+      "rank": null,
+      "ground_truth_differential": [
+        [
+          "URTI",
+          0.17025924290489325
+        ],
+        [
+          "Influenza",
+          0.16587529343091065
+        ],
+        [
+          "HIV (initial infection)",
+          0.13101754826749706
+        ],
+        [
+          "Bronchitis",
+          0.12060823558578834
+        ],
+        [
+          "Chagas",
+          0.10155309387746166
+        ],
+        [
+          "Chronic rhinosinusitis",
+          0.0948537645810853
+        ],
+        [
+          "Tuberculosis",
+          0.0923223479158686
+        ],
+        [
+          "Scombroid food poisoning",
+          0.06237464213998336
+        ],
+        [
+          "Anemia",
+          0.06113583129651169
+        ]
+      ]
+    },
+    {
+      "case_id": 62213,
+      "pathology": "Anaphylaxis",
+      "initial_evidence": "Have you been in contact with or ate something that you have an allergy to?",
+      "predicted": [
+        {
+          "diagnosis": "Anaphylaxis",
+          "confidence": 0.95
+        },
+        {
+          "diagnosis": "Scombroid food poisoning",
+          "confidence": 0.04
+        },
+        {
+          "diagnosis": "Localized edema",
+          "confidence": 0.01
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Anaphylaxis\",\n    \"confidence\": 0.95\n  },\n  {\n    \"diagnosis\": \"Scombroid food poisoning\",\n    \"confidence\": 0.04\n  },\n  {\n    \"diagnosis\": \"Localized edema\",\n    \"confidence\": 0.01\n  }\n]\n```",
+      "cost_usd": 0.0097125,
+      "target": "Anaphylaxis",
+      "predictions": [
+        "Anaphylaxis",
+        "Scombroid food poisoning",
+        "Localized edema"
+      ],
+      "top_1_correct": true,
+      "top_3_correct": true,
+      "mrr": 1.0,
+      "rank": 1,
+      "ground_truth_differential": [
+        [
+          "Anaphylaxis",
+          0.11940849743050616
+        ],
+        [
+          "Unstable angina",
+          0.08193323474549953
+        ],
+        [
+          "GERD",
+          0.08169548293988313
+        ],
+        [
+          "Localized edema",
+          0.07972508715006107
+        ],
+        [
+          "Pancreatic neoplasm",
+          0.07759444606043601
+        ],
+        [
+          "HIV (initial infection)",
+          0.07521915690153241
+        ],
+        [
+          "Boerhaave",
+          0.07245608561954475
+        ],
+        [
+          "Panic attack",
+          0.06934499058906846
+        ],
+        [
+          "Inguinal hernia",
+          0.06790379267197835
+        ],
+        [
+          "Possible NSTEMI / STEMI",
+          0.06024958093761685
+        ],
+        [
+          "Anemia",
+          0.058678823791556
+        ],
+        [
+          "PSVT",
+          0.05308012676541715
+        ],
+        [
+          "Chagas",
+          0.05308012676541715
+        ],
+        [
+          "Stable angina",
+          0.04891737135687387
+        ],
+        [
+          "Pericarditis",
+          0.000713196274608949
+        ]
+      ]
+    },
+    {
+      "case_id": 74721,
+      "pathology": "Acute otitis media",
+      "initial_evidence": "Do you have pain somewhere, related to your reason for consulting?",
+      "predicted": [
+        {
+          "diagnosis": "Acute otitis media",
+          "confidence": 0.75
+        },
+        {
+          "diagnosis": "URTI",
+          "confidence": 0.15
+        },
+        {
+          "diagnosis": "Acute rhinosinusitis",
+          "confidence": 0.05
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Acute otitis media\",\n    \"confidence\": 0.75\n  },\n  {\n    \"diagnosis\": \"URTI\",\n    \"confidence\": 0.15\n  },\n  {\n    \"diagnosis\": \"Acute rhinosinusitis\",\n    \"confidence\": 0.05\n  }\n]\n```",
+      "cost_usd": 0.008915000000000001,
+      "target": "Acute otitis media",
+      "predictions": [
+        "Acute otitis media",
+        "URTI",
+        "Acute rhinosinusitis"
+      ],
+      "top_1_correct": true,
+      "top_3_correct": true,
+      "mrr": 1.0,
+      "rank": 1,
+      "ground_truth_differential": [
+        [
+          "Acute otitis media",
+          0.37353425270355334
+        ],
+        [
+          "Bronchitis",
+          0.3422468372990823
+        ],
+        [
+          "URTI",
+          0.28421890999736443
+        ]
+      ]
+    },
+    {
+      "case_id": 39337,
+      "pathology": "Inguinal hernia",
+      "initial_evidence": "Are the symptoms or pain increased with coughing, with an effort like lifting a weight or from forcing a bowel movement?",
+      "predicted": [
+        {
+          "diagnosis": "Inguinal hernia",
+          "confidence": 0.85
+        },
+        {
+          "diagnosis": "Localized edema",
+          "confidence": 0.1
+        },
+        {
+          "diagnosis": "Sarcoidosis",
+          "confidence": 0.02
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Inguinal hernia\",\n    \"confidence\": 0.85\n  },\n  {\n    \"diagnosis\": \"Localized edema\",\n    \"confidence\": 0.1\n  },\n  {\n    \"diagnosis\": \"Sarcoidosis\",\n    \"confidence\": 0.02\n  }\n]\n```",
+      "cost_usd": 0.010417500000000001,
+      "target": "Inguinal hernia",
+      "predictions": [
+        "Inguinal hernia",
+        "Localized edema",
+        "Sarcoidosis"
+      ],
+      "top_1_correct": true,
+      "top_3_correct": true,
+      "mrr": 1.0,
+      "rank": 1,
+      "ground_truth_differential": [
+        [
+          "Inguinal hernia",
+          0.30740730028959434
+        ],
+        [
+          "Bronchitis",
+          0.24452716933492108
+        ],
+        [
+          "Anaphylaxis",
+          0.17814313131339718
+        ],
+        [
+          "Whooping cough",
+          0.16686225836709345
+        ],
+        [
+          "Scombroid food poisoning",
+          0.10306014069499393
+        ]
+      ]
+    },
+    {
+      "case_id": 132159,
+      "pathology": "Pulmonary neoplasm",
+      "initial_evidence": "Do you constantly feel fatigued or do you have non-restful sleep?",
+      "predicted": [
+        {
+          "diagnosis": "Anemia",
+          "confidence": 0.3
+        },
+        {
+          "diagnosis": "SLE",
+          "confidence": 0.2
+        },
+        {
+          "diagnosis": "Sarcoidosis",
+          "confidence": 0.15
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Anemia\",\n    \"confidence\": 0.3\n  },\n  {\n    \"diagnosis\": \"SLE\",\n    \"confidence\": 0.2\n  },\n  {\n    \"diagnosis\": \"Sarcoidosis\",\n    \"confidence\": 0.15\n  }\n]\n```",
+      "cost_usd": 0.009393750000000001,
+      "target": "Pulmonary neoplasm",
+      "predictions": [
+        "Anemia",
+        "SLE",
+        "Sarcoidosis"
+      ],
+      "top_1_correct": false,
+      "top_3_correct": false,
+      "mrr": 0.0,
+      "rank": null,
+      "ground_truth_differential": [
+        [
+          "Pulmonary neoplasm",
+          0.1733659444149985
+        ],
+        [
+          "Pulmonary embolism",
+          0.13675150022082336
+        ],
+        [
+          "Myocarditis",
+          0.10635883299395994
+        ],
+        [
+          "Acute pulmonary edema",
+          0.10353265588073148
+        ],
+        [
+          "Anemia",
+          0.10353265588073148
+        ],
+        [
+          "Guillain-Barré syndrome",
+          0.09463487820772357
+        ],
+        [
+          "Atrial fibrillation",
+          0.09039342171782555
+        ],
+        [
+          "Acute dystonic reactions",
+          0.06664286357864234
+        ],
+        [
+          "Myasthenia gravis",
+          0.06664286357864234
+        ],
+        [
+          "Pancreatic neoplasm",
+          0.05814438352592125
+        ]
+      ]
+    },
+    {
+      "case_id": 96120,
+      "pathology": "Cluster headache",
+      "initial_evidence": "Do you feel that your eyes produce excessive tears?",
+      "predicted": [
+        {
+          "diagnosis": "Cluster headache",
+          "confidence": 0.85
+        },
+        {
+          "diagnosis": "Acute rhinosinusitis",
+          "confidence": 0.1
+        },
+        {
+          "diagnosis": "Allergic sinusitis",
+          "confidence": 0.05
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Cluster headache\",\n    \"confidence\": 0.85\n  },\n  {\n    \"diagnosis\": \"Acute rhinosinusitis\",\n    \"confidence\": 0.1\n  },\n  {\n    \"diagnosis\": \"Allergic sinusitis\",\n    \"confidence\": 0.05\n  }\n]\n```",
+      "cost_usd": 0.0098825,
+      "target": "Cluster headache",
+      "predictions": [
+        "Cluster headache",
+        "Acute rhinosinusitis",
+        "Allergic sinusitis"
+      ],
+      "top_1_correct": true,
+      "top_3_correct": true,
+      "mrr": 1.0,
+      "rank": 1,
+      "ground_truth_differential": [
+        [
+          "Cluster headache",
+          0.5925398490980863
+        ],
+        [
+          "Chagas",
+          0.20373007545095687
+        ],
+        [
+          "Anemia",
+          0.20373007545095687
+        ]
+      ]
+    },
+    {
+      "case_id": 61911,
+      "pathology": "Bronchitis",
+      "initial_evidence": "Do you have a cough?",
+      "predicted": [
+        {
+          "diagnosis": "Bronchospasm / acute asthma exacerbation",
+          "confidence": 0.8
+        },
+        {
+          "diagnosis": "Bronchitis",
+          "confidence": 0.15
+        },
+        {
+          "diagnosis": "Pneumonia",
+          "confidence": 0.05
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Bronchospasm / acute asthma exacerbation\",\n    \"confidence\": 0.8\n  },\n  {\n    \"diagnosis\": \"Bronchitis\",\n    \"confidence\": 0.15\n  },\n  {\n    \"diagnosis\": \"Pneumonia\",\n    \"confidence\": 0.05\n  }\n]\n```",
+      "cost_usd": 0.0107975,
+      "target": "Allergic sinusitis",
+      "predictions": [
+        "Bronchospasm / acute asthma exacerbation",
+        "Bronchitis",
+        "Pneumonia"
+      ],
+      "top_1_correct": false,
+      "top_3_correct": false,
+      "mrr": 0.0,
+      "rank": null,
+      "ground_truth_differential": [
+        [
+          "Allergic sinusitis",
+          0.07107140788690557
+        ],
+        [
+          "Pneumonia",
+          0.07105719778878107
+        ],
+        [
+          "Bronchitis",
+          0.06922812168026496
+        ],
+        [
+          "Panic attack",
+          0.06441987550294499
+        ],
+        [
+          "Spontaneous pneumothorax",
+          0.06440049813212934
+        ],
+        [
+          "Croup",
+          0.06432282622329405
+        ],
+        [
+          "GERD",
+          0.06197274650693858
+        ],
+        [
+          "Tuberculosis",
+          0.05087676918351963
+        ],
+        [
+          "URTI",
+          0.05071456045027072
+        ],
+        [
+          "Myocarditis",
+          0.050453189818579505
+        ],
+        [
+          "Influenza",
+          0.050453189818579505
+        ],
+        [
+          "Anaphylaxis",
+          0.049587787471656014
+        ],
+        [
+          "Guillain-Barré syndrome",
+          0.04532612621641454
+        ],
+        [
+          "Atrial fibrillation",
+          0.043294646957989735
+        ],
+        [
+          "Acute dystonic reactions",
+          0.0319191285834223
+        ],
+        [
+          "Myasthenia gravis",
+          0.0319191285834223
+        ],
+        [
+          "Anemia",
+          0.0319191285834223
+        ],
+        [
+          "Scombroid food poisoning",
+          0.02949056522825308
+        ],
+        [
+          "Sarcoidosis",
+          0.026139131895707546
+        ],
+        [
+          "PSVT",
+          0.017050072841734907
+        ],
+        [
+          "SLE",
+          0.014777032868166728
+        ],
+        [
+          "Chagas",
+          0.009606867777602553
+        ]
+      ]
+    },
+    {
+      "case_id": 36933,
+      "pathology": "Anemia",
+      "initial_evidence": "Do you constantly feel fatigued or do you have non-restful sleep?",
+      "predicted": [
+        {
+          "diagnosis": "Anemia",
+          "confidence": 0.85
+        },
+        {
+          "diagnosis": "Tuberculosis",
+          "confidence": 0.1
+        },
+        {
+          "diagnosis": "Influenza",
+          "confidence": 0.04
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Anemia\",\n    \"confidence\": 0.85\n  },\n  {\n    \"diagnosis\": \"Tuberculosis\",\n    \"confidence\": 0.1\n  },\n  {\n    \"diagnosis\": \"Influenza\",\n    \"confidence\": 0.04\n  }\n]\n```",
+      "cost_usd": 0.00945625,
+      "target": "Anemia",
+      "predictions": [
+        "Anemia",
+        "Tuberculosis",
+        "Influenza"
+      ],
+      "top_1_correct": true,
+      "top_3_correct": true,
+      "mrr": 1.0,
+      "rank": 1,
+      "ground_truth_differential": [
+        [
+          "Anemia",
+          0.2932653870360636
+        ],
+        [
+          "Ebola",
+          0.1820875099615649
+        ],
+        [
+          "Guillain-Barré syndrome",
+          0.156530322011897
+        ],
+        [
+          "Myocarditis",
+          0.14765622578455173
+        ],
+        [
+          "Acute dystonic reactions",
+          0.11023027760296136
+        ],
+        [
+          "Myasthenia gravis",
+          0.11023027760296136
+        ]
+      ]
+    },
+    {
+      "case_id": 39736,
+      "pathology": "Myasthenia gravis",
+      "initial_evidence": "Do you have the perception of seeing two images of a single object seen overlapping or adjacent to each other (double vision)?",
+      "predicted": [
+        {
+          "diagnosis": "Myasthenia gravis",
+          "confidence": 0.95
+        },
+        {
+          "diagnosis": "Guillain-Barré syndrome",
+          "confidence": 0.04
+        },
+        {
+          "diagnosis": "Acute dystonic reactions",
+          "confidence": 0.01
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Myasthenia gravis\",\n    \"confidence\": 0.95\n  },\n  {\n    \"diagnosis\": \"Guillain-Barré syndrome\",\n    \"confidence\": 0.04\n  },\n  {\n    \"diagnosis\": \"Acute dystonic reactions\",\n    \"confidence\": 0.01\n  }\n]\n```",
+      "cost_usd": 0.010043750000000002,
+      "target": "Myasthenia gravis",
+      "predictions": [
+        "Myasthenia gravis",
+        "Guillain-Barré syndrome",
+        "Acute dystonic reactions"
+      ],
+      "top_1_correct": true,
+      "top_3_correct": true,
+      "mrr": 1.0,
+      "rank": 1,
+      "ground_truth_differential": [
+        [
+          "Myasthenia gravis",
+          0.23329498062875742
+        ],
+        [
+          "Pulmonary embolism",
+          0.1452498048822298
+        ],
+        [
+          "Acute dystonic reactions",
+          0.13605609208354313
+        ],
+        [
+          "Acute pulmonary edema",
+          0.13605609208354313
+        ],
+        [
+          "Atrial fibrillation",
+          0.11878933853638267
+        ],
+        [
+          "Myocarditis",
+          0.08757785170904961
+        ],
+        [
+          "Anaphylaxis",
+          0.08757785170904961
+        ],
+        [
+          "Scombroid food poisoning",
+          0.05539798836744471
+        ]
+      ]
+    },
+    {
+      "case_id": 121107,
+      "pathology": "Cluster headache",
+      "initial_evidence": "Do you have nasal congestion or a clear runny nose?",
+      "predicted": [
+        {
+          "diagnosis": "Cluster headache",
+          "confidence": 0.9
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Cluster headache\",\n    \"confidence\": 0.9\n  },\n  {\n    \"diagnosis\": \"Acute rhinosinusitis\",\n    \"confidence\": 0.0",
+      "cost_usd": 0.01099625,
+      "target": "Cluster headache",
+      "predictions": [
+        "Cluster headache"
+      ],
+      "top_1_correct": true,
+      "top_3_correct": true,
+      "mrr": 1.0,
+      "rank": 1,
+      "ground_truth_differential": [
+        [
+          "Cluster headache",
+          0.6850030416248103
+        ],
+        [
+          "Anemia",
+          0.31499695837518965
+        ]
+      ]
+    },
+    {
+      "case_id": 87067,
+      "pathology": "Acute pulmonary edema",
+      "initial_evidence": "Are you experiencing shortness of breath or difficulty breathing in a significant way?",
+      "predicted": [
+        {
+          "diagnosis": "Possible NSTEMI / STEMI",
+          "confidence": 0.9
+        },
+        {
+          "diagnosis": "Acute pulmonary edema",
+          "confidence": 0.75
+        },
+        {
+          "diagnosis": "Unstable angina",
+          "confidence": 0.6
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Possible NSTEMI / STEMI\",\n    \"confidence\": 0.9\n  },\n  {\n    \"diagnosis\": \"Acute pulmonary edema\",\n    \"confidence\": 0.75\n  },\n  {\n    \"diagnosis\": \"Unstable angina\",\n    \"confidence\": 0.6\n  }\n]\n```",
+      "cost_usd": 0.01082625,
+      "target": "Acute pulmonary edema",
+      "predictions": [
+        "Possible NSTEMI / STEMI",
+        "Acute pulmonary edema",
+        "Unstable angina"
+      ],
+      "top_1_correct": false,
+      "top_3_correct": true,
+      "mrr": 0.5,
+      "rank": 2,
+      "ground_truth_differential": [
+        [
+          "Acute pulmonary edema",
+          0.07971556172683937
+        ],
+        [
+          "Unstable angina",
+          0.0671265181523857
+        ],
+        [
+          "Possible NSTEMI / STEMI",
+          0.06709382661320185
+        ],
+        [
+          "Pulmonary embolism",
+          0.06661803174110953
+        ],
+        [
+          "Pericarditis",
+          0.06504333489839871
+        ],
+        [
+          "Myocarditis",
+          0.06485780827139193
+        ],
+        [
+          "Panic attack",
+          0.06432774356925285
+        ],
+        [
+          "SLE",
+          0.05987759326363263
+        ],
+        [
+          "Anaphylaxis",
+          0.057016216169905785
+        ],
+        [
+          "Spontaneous pneumothorax",
+          0.05669812989594095
+        ],
+        [
+          "Stable angina",
+          0.05620246604616665
+        ],
+        [
+          "Atrial fibrillation",
+          0.04754782318602099
+        ],
+        [
+          "Pulmonary neoplasm",
+          0.043179686762164014
+        ],
+        [
+          "Guillain-Barré syndrome",
+          0.04099259663352579
+        ],
+        [
+          "Chagas",
+          0.03520011363075172
+        ],
+        [
+          "Acute dystonic reactions",
+          0.028867412067524727
+        ],
+        [
+          "Myasthenia gravis",
+          0.028867412067524727
+        ],
+        [
+          "Anemia",
+          0.028867412067524727
+        ],
+        [
+          "Sarcoidosis",
+          0.023640027939630708
+        ],
+        [
+          "Scombroid food poisoning",
+          0.01826028529710691
+        ]
+      ]
+    },
+    {
+      "case_id": 78162,
+      "pathology": "Chagas",
+      "initial_evidence": "Do you have pain somewhere, related to your reason for consulting?",
+      "predicted": [
+        {
+          "diagnosis": "URTI",
+          "confidence": 0.5
+        },
+        {
+          "diagnosis": "Viral pharyngitis",
+          "confidence": 0.3
+        },
+        {
+          "diagnosis": "Influenza",
+          "confidence": 0.15
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"URTI\",\n    \"confidence\": 0.5\n  },\n  {\n    \"diagnosis\": \"Viral pharyngitis\",\n    \"confidence\": 0.3\n  },\n  {\n    \"diagnosis\": \"Influenza\",\n    \"confidence\": 0.15\n  }\n]\n```",
+      "cost_usd": 0.008771250000000001,
+      "target": "Anemia",
+      "predictions": [
+        "URTI",
+        "Viral pharyngitis",
+        "Influenza"
+      ],
+      "top_1_correct": false,
+      "top_3_correct": false,
+      "mrr": 0.0,
+      "rank": null,
+      "ground_truth_differential": [
+        [
+          "Anemia",
+          0.4267159578849475
+        ],
+        [
+          "Sarcoidosis",
+          0.3017877363325183
+        ],
+        [
+          "SLE",
+          0.1397133160242784
+        ],
+        [
+          "Chagas",
+          0.13178298975825586
+        ]
+      ]
+    },
+    {
+      "case_id": 123464,
+      "pathology": "Acute rhinosinusitis",
+      "initial_evidence": "Do you have greenish or yellowish nasal discharge?",
+      "predicted": [
+        {
+          "diagnosis": "Acute rhinosinusitis",
+          "confidence": 0.9
+        },
+        {
+          "diagnosis": "URTI",
+          "confidence": 0.07
+        },
+        {
+          "diagnosis": "Allergic sinusitis",
+          "confidence": 0.03
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Acute rhinosinusitis\",\n    \"confidence\": 0.9\n  },\n  {\n    \"diagnosis\": \"URTI\",\n    \"confidence\": 0.07\n  },\n  {\n    \"diagnosis\": \"Allergic sinusitis\",\n    \"confidence\": 0.03\n  }\n]\n```",
+      "cost_usd": 0.009410000000000002,
+      "target": "Acute rhinosinusitis",
+      "predictions": [
+        "Acute rhinosinusitis",
+        "URTI",
+        "Allergic sinusitis"
+      ],
+      "top_1_correct": true,
+      "top_3_correct": true,
+      "mrr": 1.0,
+      "rank": 1,
+      "ground_truth_differential": [
+        [
+          "Acute rhinosinusitis",
+          0.5319955759203665
+        ],
+        [
+          "Chronic rhinosinusitis",
+          0.46800442407963344
+        ]
+      ]
+    },
+    {
+      "case_id": 131716,
+      "pathology": "Anemia",
+      "initial_evidence": "Is your skin much paler than usual?",
+      "predicted": [
+        {
+          "diagnosis": "Anemia",
+          "confidence": 0.9
+        },
+        {
+          "diagnosis": "Panic attack",
+          "confidence": 0.06
+        },
+        {
+          "diagnosis": "Influenza",
+          "confidence": 0.03
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Anemia\",\n    \"confidence\": 0.9\n  },\n  {\n    \"diagnosis\": \"Panic attack\",\n    \"confidence\": 0.06\n  },\n  {\n    \"diagnosis\": \"Influenza\",\n    \"confidence\": 0.03\n  }\n]\n```",
+      "cost_usd": 0.0096825,
+      "target": "Anemia",
+      "predictions": [
+        "Anemia",
+        "Panic attack",
+        "Influenza"
+      ],
+      "top_1_correct": true,
+      "top_3_correct": true,
+      "mrr": 1.0,
+      "rank": 1,
+      "ground_truth_differential": [
+        [
+          "Anemia",
+          0.285132238199212
+        ],
+        [
+          "Guillain-Barré syndrome",
+          0.1542666414139221
+        ],
+        [
+          "Cluster headache",
+          0.13513300693899272
+        ],
+        [
+          "Acute dystonic reactions",
+          0.10863617022803214
+        ],
+        [
+          "Anaphylaxis",
+          0.10863617022803214
+        ],
+        [
+          "Myocarditis",
+          0.08918383553448193
+        ],
+        [
+          "Scombroid food poisoning",
+          0.06871857641096249
+        ],
+        [
+          "Chagas",
+          0.050293361046364365
+        ]
+      ]
+    },
+    {
+      "case_id": 22175,
+      "pathology": "Anaphylaxis",
+      "initial_evidence": "Do you have pain somewhere, related to your reason for consulting?",
+      "predicted": [
+        {
+          "diagnosis": "Anaphylaxis",
+          "confidence": 0.85
+        },
+        {
+          "diagnosis": "Scombroid food poisoning",
+          "confidence": 0.1
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Anaphylaxis\",\n    \"confidence\": 0.85\n  },\n  {\n    \"diagnosis\": \"Scombroid food poisoning\",\n    \"confidence\": 0.1\n  },\n",
+      "cost_usd": 0.011314999999999999,
+      "target": "Anaphylaxis",
+      "predictions": [
+        "Anaphylaxis",
+        "Scombroid food poisoning"
+      ],
+      "top_1_correct": true,
+      "top_3_correct": true,
+      "mrr": 1.0,
+      "rank": 1,
+      "ground_truth_differential": [
+        [
+          "Anaphylaxis",
+          0.1186954266465465
+        ],
+        [
+          "Pulmonary embolism",
+          0.10116159593291987
+        ],
+        [
+          "Croup",
+          0.09063318149823214
+        ],
+        [
+          "GERD",
+          0.08047436435161288
+        ],
+        [
+          "Inguinal hernia",
+          0.07664195421607008
+        ],
+        [
+          "Anemia",
+          0.07393496775000943
+        ],
+        [
+          "Larygospasm",
+          0.06750945513831096
+        ],
+        [
+          "PSVT",
+          0.06143022312353693
+        ],
+        [
+          "Guillain-Barré syndrome",
+          0.057801739773062216
+        ],
+        [
+          "Atrial fibrillation",
+          0.05521111389673661
+        ],
+        [
+          "Myocarditis",
+          0.0545248142913965
+        ],
+        [
+          "SLE",
+          0.04650166279928248
+        ],
+        [
+          "Acute dystonic reactions",
+          0.040704585151460415
+        ],
+        [
+          "Myasthenia gravis",
+          0.040704585151460415
+        ],
+        [
+          "Chagas",
+          0.03407033027936267
+        ]
+      ]
+    },
+    {
+      "case_id": 75556,
+      "pathology": "Acute laryngitis",
+      "initial_evidence": "Do you have a cough?",
+      "predicted": [
+        {
+          "diagnosis": "Acute laryngitis",
+          "confidence": 0.8
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Acute laryngitis\",\n    \"confidence\": 0.8\n  },\n  {\n    \"diagnosis\": \"Croup\",\n    \"confidence\": ",
+      "cost_usd": 0.010976250000000002,
+      "target": "Acute laryngitis",
+      "predictions": [
+        "Acute laryngitis"
+      ],
+      "top_1_correct": true,
+      "top_3_correct": true,
+      "mrr": 1.0,
+      "rank": 1,
+      "ground_truth_differential": [
+        [
+          "Acute laryngitis",
+          0.20759165272569638
+        ],
+        [
+          "Bronchitis",
+          0.20586185637905563
+        ],
+        [
+          "Pneumonia",
+          0.18190145312879358
+        ],
+        [
+          "Tuberculosis",
+          0.13074461095474538
+        ],
+        [
+          "Viral pharyngitis",
+          0.12280072923337555
+        ],
+        [
+          "Epiglottitis",
+          0.10179193201583743
+        ],
+        [
+          "Chagas",
+          0.04930776556249612
+        ]
+      ]
+    },
+    {
+      "case_id": 47739,
+      "pathology": "URTI",
+      "initial_evidence": "Do you have a fever (either felt or measured with a thermometer)?",
+      "predicted": [
+        {
+          "diagnosis": "Influenza",
+          "confidence": 0.8
+        },
+        {
+          "diagnosis": "Acute rhinosinusitis",
+          "confidence": 0.75
+        },
+        {
+          "diagnosis": "URTI",
+          "confidence": 0.7
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Influenza\",\n    \"confidence\": 0.8\n  },\n  {\n    \"diagnosis\": \"Acute rhinosinusitis\",\n    \"confidence\": 0.75\n  },\n  {\n    \"diagnosis\": \"URTI\",\n    \"confidence\": 0.7\n  }\n]\n```",
+      "cost_usd": 0.010747500000000002,
+      "target": "URTI",
+      "predictions": [
+        "Influenza",
+        "Acute rhinosinusitis",
+        "URTI"
+      ],
+      "top_1_correct": false,
+      "top_3_correct": true,
+      "mrr": 0.3333333333333333,
+      "rank": 3,
+      "ground_truth_differential": [
+        [
+          "URTI",
+          0.21267417559041027
+        ],
+        [
+          "Influenza",
+          0.19333412295065788
+        ],
+        [
+          "Bronchitis",
+          0.18718642498618296
+        ],
+        [
+          "Tuberculosis",
+          0.1391105951422268
+        ],
+        [
+          "Pneumonia",
+          0.12338666172331796
+        ],
+        [
+          "Chronic rhinosinusitis",
+          0.08331181761393282
+        ],
+        [
+          "Chagas",
+          0.060996201993271396
+        ]
+      ]
+    },
+    {
+      "case_id": 78298,
+      "pathology": "PSVT",
+      "initial_evidence": "Do you feel slightly dizzy or lightheaded?",
+      "predicted": [
+        {
+          "diagnosis": "Atrial fibrillation",
+          "confidence": 0.6
+        },
+        {
+          "diagnosis": "PSVT",
+          "confidence": 0.2
+        },
+        {
+          "diagnosis": "Possible NSTEMI / STEMI",
+          "confidence": 0.1
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Atrial fibrillation\",\n    \"confidence\": 0.6\n  },\n  {\n    \"diagnosis\": \"PSVT\",\n    \"confidence\": 0.2\n  },\n  {\n    \"diagnosis\": \"Possible NSTEMI / STEMI\",\n    \"confidence\": 0.1\n  }\n]\n```",
+      "cost_usd": 0.00963375,
+      "target": "PSVT",
+      "predictions": [
+        "Atrial fibrillation",
+        "PSVT",
+        "Possible NSTEMI / STEMI"
+      ],
+      "top_1_correct": false,
+      "top_3_correct": true,
+      "mrr": 0.5,
+      "rank": 2,
+      "ground_truth_differential": [
+        [
+          "PSVT",
+          0.12323646320500814
+        ],
+        [
+          "Anemia",
+          0.10127416644323348
+        ],
+        [
+          "Panic attack",
+          0.1006773074462876
+        ],
+        [
+          "Atrial fibrillation",
+          0.09210857476847084
+        ],
+        [
+          "Anaphylaxis",
+          0.0815184027017244
+        ],
+        [
+          "Pulmonary embolism",
+          0.08060929716332393
+        ],
+        [
+          "Acute pulmonary edema",
+          0.07550706155189245
+        ],
+        [
+          "Myocarditis",
+          0.07080867541477645
+        ],
+        [
+          "Guillain-Barré syndrome",
+          0.06901785251233279
+        ],
+        [
+          "Scombroid food poisoning",
+          0.056278459262841696
+        ],
+        [
+          "Acute dystonic reactions",
+          0.048603088169820896
+        ],
+        [
+          "Myasthenia gravis",
+          0.048603088169820896
+        ],
+        [
+          "SLE",
+          0.022500909744536765
+        ],
+        [
+          "Possible NSTEMI / STEMI",
+          0.014628326722964867
+        ],
+        [
+          "Chagas",
+          0.014628326722964867
+        ]
+      ]
+    },
+    {
+      "case_id": 57171,
+      "pathology": "Anaphylaxis",
+      "initial_evidence": "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?",
+      "predicted": [
+        {
+          "diagnosis": "Anaphylaxis",
+          "confidence": 0.85
+        },
+        {
+          "diagnosis": "Scombroid food poisoning",
+          "confidence": 0.1
+        },
+        {
+          "diagnosis": "Localized edema",
+          "confidence": 0.04
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Anaphylaxis\",\n    \"confidence\": 0.85\n  },\n  {\n    \"diagnosis\": \"Scombroid food poisoning\",\n    \"confidence\": 0.1\n  },\n  {\n    \"diagnosis\": \"Localized edema\",\n    \"confidence\": 0.04\n  }\n]\n```",
+      "cost_usd": 0.009253750000000002,
+      "target": "Anaphylaxis",
+      "predictions": [
+        "Anaphylaxis",
+        "Scombroid food poisoning",
+        "Localized edema"
+      ],
+      "top_1_correct": true,
+      "top_3_correct": true,
+      "mrr": 1.0,
+      "rank": 1,
+      "ground_truth_differential": [
+        [
+          "Anaphylaxis",
+          0.10062479022413537
+        ],
+        [
+          "Acute pulmonary edema",
+          0.07454093671030759
+        ],
+        [
+          "Pancreatic neoplasm",
+          0.07033174795548944
+        ],
+        [
+          "GERD",
+          0.06914718554401893
+        ],
+        [
+          "Unstable angina",
+          0.06630710091122648
+        ],
+        [
+          "Pulmonary embolism",
+          0.06460922422857882
+        ],
+        [
+          "Stable angina",
+          0.0611483534336933
+        ],
+        [
+          "Inguinal hernia",
+          0.0574738771602223
+        ],
+        [
+          "Possible NSTEMI / STEMI",
+          0.05610054676212858
+        ],
+        [
+          "Pericarditis",
+          0.050708746101393906
+        ],
+        [
+          "Guillain-Barré syndrome",
+          0.04966584895771129
+        ],
+        [
+          "Atrial fibrillation",
+          0.047439866937365786
+        ],
+        [
+          "Myocarditis",
+          0.04685016751530023
+        ],
+        [
+          "Chagas",
+          0.0404984704040385
+        ],
+        [
+          "Panic attack",
+          0.03962751799711549
+        ],
+        [
+          "Acute dystonic reactions",
+          0.03497520638575805
+        ],
+        [
+          "Myasthenia gravis",
+          0.03497520638575805
+        ],
+        [
+          "Anemia",
+          0.03497520638575805
+        ]
+      ]
+    },
+    {
+      "case_id": 75084,
+      "pathology": "Viral pharyngitis",
+      "initial_evidence": "Do you have nasal congestion or a clear runny nose?",
+      "predicted": [
+        {
+          "diagnosis": "Viral pharyngitis",
+          "confidence": 0.85
+        },
+        {
+          "diagnosis": "URTI",
+          "confidence": 0.1
+        },
+        {
+          "diagnosis": "Influenza",
+          "confidence": 0.04
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Viral pharyngitis\",\n    \"confidence\": 0.85\n  },\n  {\n    \"diagnosis\": \"URTI\",\n    \"confidence\": 0.1\n  },\n  {\n    \"diagnosis\": \"Influenza\",\n    \"confidence\": 0.04\n  }\n]\n```",
+      "cost_usd": 0.008997500000000002,
+      "target": "Viral pharyngitis",
+      "predictions": [
+        "Viral pharyngitis",
+        "URTI",
+        "Influenza"
+      ],
+      "top_1_correct": true,
+      "top_3_correct": true,
+      "mrr": 1.0,
+      "rank": 1,
+      "ground_truth_differential": [
+        [
+          "Viral pharyngitis",
+          0.22702125813983617
+        ],
+        [
+          "Bronchitis",
+          0.1912654070852552
+        ],
+        [
+          "Acute laryngitis",
+          0.15085918490950553
+        ],
+        [
+          "URTI",
+          0.15016052286161333
+        ],
+        [
+          "Possible NSTEMI / STEMI",
+          0.12330607944417536
+        ],
+        [
+          "Unstable angina",
+          0.11508451588988682
+        ],
+        [
+          "Stable angina",
+          0.04230303166972759
+        ]
+      ]
+    },
+    {
+      "case_id": 49619,
+      "pathology": "PSVT",
+      "initial_evidence": "Do you feel your heart is beating fast (racing), irregularly (missing a beat) or do you feel palpitations?",
+      "predicted": [
+        {
+          "diagnosis": "Atrial fibrillation",
+          "confidence": 0.85
+        },
+        {
+          "diagnosis": "PSVT",
+          "confidence": 0.1
+        },
+        {
+          "diagnosis": "Panic attack",
+          "confidence": 0.03
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Atrial fibrillation\",\n    \"confidence\": 0.85\n  },\n  {\n    \"diagnosis\": \"PSVT\",\n    \"confidence\": 0.1\n  },\n  {\n    \"diagnosis\": \"Panic attack\",\n    \"confidence\": 0.03\n  }\n]\n```",
+      "cost_usd": 0.008966250000000002,
+      "target": "PSVT",
+      "predictions": [
+        "Atrial fibrillation",
+        "PSVT",
+        "Panic attack"
+      ],
+      "top_1_correct": false,
+      "top_3_correct": true,
+      "mrr": 0.5,
+      "rank": 2,
+      "ground_truth_differential": [
+        [
+          "PSVT",
+          0.19144234846364486
+        ],
+        [
+          "Anemia",
+          0.14140130346805618
+        ],
+        [
+          "Guillain-Barré syndrome",
+          0.1292490279349947
+        ],
+        [
+          "Myocarditis",
+          0.11347781559431024
+        ],
+        [
+          "Atrial fibrillation",
+          0.09978048531415688
+        ],
+        [
+          "Scombroid food poisoning",
+          0.09101850712416298
+        ],
+        [
+          "Acute dystonic reactions",
+          0.09101850712416298
+        ],
+        [
+          "Myasthenia gravis",
+          0.09101850712416298
+        ],
+        [
+          "Possible NSTEMI / STEMI",
+          0.027394318142843804
+        ],
+        [
+          "Panic attack",
+          0.024199179709504387
+        ]
+      ]
+    },
+    {
+      "case_id": 25003,
+      "pathology": "Acute dystonic reactions",
+      "initial_evidence": "Do you feel that muscle spasms or soreness in your neck are keeping you from turning your head to one side?",
+      "predicted": [
+        {
+          "diagnosis": "Acute dystonic reactions",
+          "confidence": 0.95
+        },
+        {
+          "diagnosis": "Larygospasm",
+          "confidence": 0.75
+        },
+        {
+          "diagnosis": "Panic attack",
+          "confidence": 0.1
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Acute dystonic reactions\",\n    \"confidence\": 0.95\n  },\n  {\n    \"diagnosis\": \"Larygospasm\",\n    \"confidence\": 0.75\n  },\n  {\n    \"diagnosis\": \"Panic attack\",\n    \"confidence\": 0.1\n  }\n]\n```",
+      "cost_usd": 0.008751250000000002,
+      "target": "Acute dystonic reactions",
+      "predictions": [
+        "Acute dystonic reactions",
+        "Larygospasm",
+        "Panic attack"
+      ],
+      "top_1_correct": true,
+      "top_3_correct": true,
+      "mrr": 1.0,
+      "rank": 1,
+      "ground_truth_differential": [
+        [
+          "Acute dystonic reactions",
+          0.2238557222647973
+        ],
+        [
+          "Pulmonary embolism",
+          0.1368815068055655
+        ],
+        [
+          "Guillain-Barré syndrome",
+          0.11719823867501435
+        ],
+        [
+          "Atrial fibrillation",
+          0.11194551114530124
+        ],
+        [
+          "Myocarditis",
+          0.11055397682012333
+        ],
+        [
+          "Anemia",
+          0.0825322162356701
+        ],
+        [
+          "Anaphylaxis",
+          0.0825322162356701
+        ],
+        [
+          "Scombroid food poisoning",
+          0.05220633602834352
+        ],
+        [
+          "PSVT",
+          0.04408579936417288
+        ],
+        [
+          "SLE",
+          0.03820847642534168
+        ]
+      ]
+    },
+    {
+      "case_id": 80335,
+      "pathology": "Spontaneous pneumothorax",
+      "initial_evidence": "Do you have pain that is increased when you breathe in deeply?",
+      "predicted": [
+        {
+          "diagnosis": "Spontaneous pneumothorax",
+          "confidence": 0.5
+        },
+        {
+          "diagnosis": "Pneumonia",
+          "confidence": 0.3
+        },
+        {
+          "diagnosis": "Pericarditis",
+          "confidence": 0.1
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Spontaneous pneumothorax\",\n    \"confidence\": 0.5\n  },\n  {\n    \"diagnosis\": \"Pneumonia\",\n    \"confidence\": 0.3\n  },\n  {\n    \"diagnosis\": \"Pericarditis\",\n    \"confidence\": 0.1\n  }\n]\n```",
+      "cost_usd": 0.00979125,
+      "target": "Spontaneous pneumothorax",
+      "predictions": [
+        "Spontaneous pneumothorax",
+        "Pneumonia",
+        "Pericarditis"
+      ],
+      "top_1_correct": true,
+      "top_3_correct": true,
+      "mrr": 1.0,
+      "rank": 1,
+      "ground_truth_differential": [
+        [
+          "Spontaneous pneumothorax",
+          0.15475626499186199
+        ],
+        [
+          "Pulmonary embolism",
+          0.15258151504481277
+        ],
+        [
+          "Myocarditis",
+          0.11495008056018913
+        ],
+        [
+          "Guillain-Barré syndrome",
+          0.09653000060920099
+        ],
+        [
+          "Atrial fibrillation",
+          0.09220360631031405
+        ],
+        [
+          "GERD",
+          0.08637874143950465
+        ],
+        [
+          "Acute dystonic reactions",
+          0.0679774284458287
+        ],
+        [
+          "Myasthenia gravis",
+          0.0679774284458287
+        ],
+        [
+          "Anemia",
+          0.0679774284458287
+        ],
+        [
+          "Sarcoidosis",
+          0.055667903446442575
+        ],
+        [
+          "Scombroid food poisoning",
+          0.04299960226018759
+        ]
+      ]
+    },
+    {
+      "case_id": 67739,
+      "pathology": "PSVT",
+      "initial_evidence": "Do you feel your heart is beating fast (racing), irregularly (missing a beat) or do you feel palpitations?",
+      "predicted": [
+        {
+          "diagnosis": "Panic attack",
+          "confidence": 0.6
+        },
+        {
+          "diagnosis": "PSVT",
+          "confidence": 0.3
+        },
+        {
+          "diagnosis": "Anemia",
+          "confidence": 0.05
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Panic attack\",\n    \"confidence\": 0.6\n  },\n  {\n    \"diagnosis\": \"PSVT\",\n    \"confidence\": 0.3\n  },\n  {\n    \"diagnosis\": \"Anemia\",\n    \"confidence\": 0.05\n  }\n]\n```",
+      "cost_usd": 0.00958375,
+      "target": "Atrial fibrillation",
+      "predictions": [
+        "Panic attack",
+        "PSVT",
+        "Anemia"
+      ],
+      "top_1_correct": false,
+      "top_3_correct": false,
+      "mrr": 0.0,
+      "rank": null,
+      "ground_truth_differential": [
+        [
+          "Atrial fibrillation",
+          0.26970954599245806
+        ],
+        [
+          "Anemia",
+          0.20644262583165837
+        ],
+        [
+          "Cluster headache",
+          0.18161389437339287
+        ],
+        [
+          "PSVT",
+          0.14289755974088558
+        ],
+        [
+          "Chagas",
+          0.11141520446101055
+        ],
+        [
+          "Scombroid food poisoning",
+          0.07798970720878434
+        ],
+        [
+          "HIV (initial infection)",
+          0.009931462391810288
+        ]
+      ]
+    },
+    {
+      "case_id": 26792,
+      "pathology": "Myocarditis",
+      "initial_evidence": "Do you feel out of breath with minimal physical effort?",
+      "predicted": [
+        {
+          "diagnosis": "Pericarditis",
+          "confidence": 0.5
+        },
+        {
+          "diagnosis": "Myocarditis",
+          "confidence": 0.35
+        },
+        {
+          "diagnosis": "Pneumonia",
+          "confidence": 0.1
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Pericarditis\",\n    \"confidence\": 0.5\n  },\n  {\n    \"diagnosis\": \"Myocarditis\",\n    \"confidence\": 0.35\n  },\n  {\n    \"diagnosis\": \"Pneumonia\",\n    \"confidence\": 0.1\n  }\n]\n```",
+      "cost_usd": 0.008682500000000001,
+      "target": "Myocarditis",
+      "predictions": [
+        "Pericarditis",
+        "Myocarditis",
+        "Pneumonia"
+      ],
+      "top_1_correct": false,
+      "top_3_correct": true,
+      "mrr": 0.5,
+      "rank": 2,
+      "ground_truth_differential": [
+        [
+          "Myocarditis",
+          0.08765153137048369
+        ],
+        [
+          "Acute pulmonary edema",
+          0.08299838007089437
+        ],
+        [
+          "Unstable angina",
+          0.08278776059629826
+        ],
+        [
+          "Possible NSTEMI / STEMI",
+          0.07645356653698926
+        ],
+        [
+          "PSVT",
+          0.0745618869619739
+        ],
+        [
+          "Stable angina",
+          0.07436912705761094
+        ],
+        [
+          "Pericarditis",
+          0.07382610057891716
+        ],
+        [
+          "Atrial fibrillation",
+          0.06813588473155564
+        ],
+        [
+          "GERD",
+          0.06734393914930378
+        ],
+        [
+          "Boerhaave",
+          0.062297334197574855
+        ],
+        [
+          "Panic attack",
+          0.04300892137739415
+        ],
+        [
+          "Scombroid food poisoning",
+          0.03647057863267058
+        ],
+        [
+          "Acute dystonic reactions",
+          0.03647057863267058
+        ],
+        [
+          "Myasthenia gravis",
+          0.03647057863267058
+        ],
+        [
+          "Anemia",
+          0.03647057863267058
+        ],
+        [
+          "Guillain-Barré syndrome",
+          0.030816859003766267
+        ],
+        [
+          "Sarcoidosis",
+          0.0298663938365556
+        ]
+      ]
+    },
+    {
+      "case_id": 118189,
+      "pathology": "Bronchospasm / acute asthma exacerbation",
+      "initial_evidence": "Do you have a cough?",
+      "predicted": [
+        {
+          "diagnosis": "Bronchospasm / acute asthma exacerbation",
+          "confidence": 0.9
+        },
+        {
+          "diagnosis": "Bronchitis",
+          "confidence": 0.5
+        },
+        {
+          "diagnosis": "URTI",
+          "confidence": 0.4
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Bronchospasm / acute asthma exacerbation\",\n    \"confidence\": 0.9\n  },\n  {\n    \"diagnosis\": \"Bronchitis\",\n    \"confidence\": 0.5\n  },\n  {\n    \"diagnosis\": \"URTI\",\n    \"confidence\": 0.4\n  }\n]\n```",
+      "cost_usd": 0.00903875,
+      "target": "Bronchitis",
+      "predictions": [
+        "Bronchospasm / acute asthma exacerbation",
+        "Bronchitis",
+        "URTI"
+      ],
+      "top_1_correct": false,
+      "top_3_correct": true,
+      "mrr": 0.5,
+      "rank": 2,
+      "ground_truth_differential": [
+        [
+          "Bronchitis",
+          0.41250510103707977
+        ],
+        [
+          "Bronchospasm / acute asthma exacerbation",
+          0.32592395811728986
+        ],
+        [
+          "Anaphylaxis",
+          0.18342543041984744
+        ],
+        [
+          "Scombroid food poisoning",
+          0.07814551042578294
+        ]
+      ]
+    },
+    {
+      "case_id": 124791,
+      "pathology": "Viral pharyngitis",
+      "initial_evidence": "Do you have nasal congestion or a clear runny nose?",
+      "predicted": [
+        {
+          "diagnosis": "Viral pharyngitis",
+          "confidence": 0.7
+        },
+        {
+          "diagnosis": "URTI",
+          "confidence": 0.2
+        },
+        {
+          "diagnosis": "Influenza",
+          "confidence": 0.05
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Viral pharyngitis\",\n    \"confidence\": 0.7\n  },\n  {\n    \"diagnosis\": \"URTI\",\n    \"confidence\": 0.2\n  },\n  {\n    \"diagnosis\": \"Influenza\",\n    \"confidence\": 0.05\n  }\n]\n```",
+      "cost_usd": 0.009901250000000002,
+      "target": "Viral pharyngitis",
+      "predictions": [
+        "Viral pharyngitis",
+        "URTI",
+        "Influenza"
+      ],
+      "top_1_correct": true,
+      "top_3_correct": true,
+      "mrr": 1.0,
+      "rank": 1,
+      "ground_truth_differential": [
+        [
+          "Viral pharyngitis",
+          0.5443005643618235
+        ],
+        [
+          "Croup",
+          0.2701000674563433
+        ],
+        [
+          "URTI",
+          0.18559936818183315
+        ]
+      ]
+    },
+    {
+      "case_id": 110289,
+      "pathology": "Pulmonary embolism",
+      "initial_evidence": "Did you lose consciousness?",
+      "predicted": [
+        {
+          "diagnosis": "Pulmonary embolism",
+          "confidence": 0.9
+        },
+        {
+          "diagnosis": "Spontaneous pneumothorax",
+          "confidence": 0.07
+        },
+        {
+          "diagnosis": "Panic attack",
+          "confidence": 0.02
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Pulmonary embolism\",\n    \"confidence\": 0.9\n  },\n  {\n    \"diagnosis\": \"Spontaneous pneumothorax\",\n    \"confidence\": 0.07\n  },\n  {\n    \"diagnosis\": \"Panic attack\",\n    \"confidence\": 0.02\n  }\n]\n```",
+      "cost_usd": 0.009705000000000002,
+      "target": "Pulmonary embolism",
+      "predictions": [
+        "Pulmonary embolism",
+        "Spontaneous pneumothorax",
+        "Panic attack"
+      ],
+      "top_1_correct": true,
+      "top_3_correct": true,
+      "mrr": 1.0,
+      "rank": 1,
+      "ground_truth_differential": [
+        [
+          "Pulmonary embolism",
+          0.17466247166643273
+        ],
+        [
+          "Panic attack",
+          0.13746730486168318
+        ],
+        [
+          "Myocarditis",
+          0.10766341865590802
+        ],
+        [
+          "Guillain-Barré syndrome",
+          0.09672263974658164
+        ],
+        [
+          "Atrial fibrillation",
+          0.09238761152186391
+        ],
+        [
+          "Pericarditis",
+          0.06965493883019437
+        ],
+        [
+          "Acute dystonic reactions",
+          0.0681130869260371
+        ],
+        [
+          "Myasthenia gravis",
+          0.0681130869260371
+        ],
+        [
+          "Anemia",
+          0.0681130869260371
+        ],
+        [
+          "Sarcoidosis",
+          0.05577899654529303
+        ],
+        [
+          "PSVT",
+          0.036383608986352796
+        ],
+        [
+          "Anaphylaxis",
+          0.02493974840757899
+        ]
+      ]
+    },
+    {
+      "case_id": 102417,
+      "pathology": "Sarcoidosis",
+      "initial_evidence": "Have you lost consciousness associated with violent and sustained muscle contractions or had an absence episode?",
+      "predicted": [
+        {
+          "diagnosis": "SLE",
+          "confidence": 0.55
+        },
+        {
+          "diagnosis": "HIV (initial infection)",
+          "confidence": 0.35
+        },
+        {
+          "diagnosis": "Guillain-Barré syndrome",
+          "confidence": 0.05
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"SLE\",\n    \"confidence\": 0.55\n  },\n  {\n    \"diagnosis\": \"HIV (initial infection)\",\n    \"confidence\": 0.35\n  },\n  {\n    \"diagnosis\": \"Guillain-Barré syndrome\",\n    \"confidence\": 0.05\n  }\n]\n```",
+      "cost_usd": 0.009205000000000001,
+      "target": "Possible NSTEMI / STEMI",
+      "predictions": [
+        "SLE",
+        "HIV (initial infection)",
+        "Guillain-Barré syndrome"
+      ],
+      "top_1_correct": false,
+      "top_3_correct": false,
+      "mrr": 0.0,
+      "rank": null,
+      "ground_truth_differential": [
+        [
+          "Possible NSTEMI / STEMI",
+          0.5691488364243255
+        ],
+        [
+          "Sarcoidosis",
+          0.43085116357567455
+        ]
+      ]
+    },
+    {
+      "case_id": 104225,
+      "pathology": "URTI",
+      "initial_evidence": "Do you have pain somewhere, related to your reason for consulting?",
+      "predicted": [
+        {
+          "diagnosis": "Acute rhinosinusitis",
+          "confidence": 0.6
+        },
+        {
+          "diagnosis": "Chronic rhinosinusitis",
+          "confidence": 0.25
+        },
+        {
+          "diagnosis": "Allergic sinusitis",
+          "confidence": 0.1
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Acute rhinosinusitis\",\n    \"confidence\": 0.6\n  },\n  {\n    \"diagnosis\": \"Chronic rhinosinusitis\",\n    \"confidence\": 0.25\n  },\n  {\n    \"diagnosis\": \"Allergic sinusitis\",\n    \"confidence\": 0.1\n  }\n]\n```",
+      "cost_usd": 0.009442500000000001,
+      "target": "URTI",
+      "predictions": [
+        "Acute rhinosinusitis",
+        "Chronic rhinosinusitis",
+        "Allergic sinusitis"
+      ],
+      "top_1_correct": false,
+      "top_3_correct": false,
+      "mrr": 0.0,
+      "rank": null,
+      "ground_truth_differential": [
+        [
+          "URTI",
+          0.17474677900039237
+        ],
+        [
+          "Bronchitis",
+          0.16349975799130084
+        ],
+        [
+          "Pneumonia",
+          0.14630869924055767
+        ],
+        [
+          "Influenza",
+          0.11578279220987825
+        ],
+        [
+          "Bronchiectasis",
+          0.10931817684880811
+        ],
+        [
+          "Tuberculosis",
+          0.09997865102940778
+        ],
+        [
+          "HIV (initial infection)",
+          0.08665110868251687
+        ],
+        [
+          "Chronic rhinosinusitis",
+          0.05987612324807516
+        ],
+        [
+          "Chagas",
+          0.04383791174906283
+        ]
+      ]
+    },
+    {
+      "case_id": 54726,
+      "pathology": "Viral pharyngitis",
+      "initial_evidence": "Do you have pain somewhere, related to your reason for consulting?",
+      "predicted": [
+        {
+          "diagnosis": "Viral pharyngitis",
+          "confidence": 0.7
+        },
+        {
+          "diagnosis": "URTI",
+          "confidence": 0.2
+        },
+        {
+          "diagnosis": "Influenza",
+          "confidence": 0.09
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Viral pharyngitis\",\n    \"confidence\": 0.7\n  },\n  {\n    \"diagnosis\": \"URTI\",\n    \"confidence\": 0.2\n  },\n  {\n    \"diagnosis\": \"Influenza\",\n    \"confidence\": 0.09\n  }\n]\n```",
+      "cost_usd": 0.009478750000000001,
+      "target": "Bronchitis",
+      "predictions": [
+        "Viral pharyngitis",
+        "URTI",
+        "Influenza"
+      ],
+      "top_1_correct": false,
+      "top_3_correct": false,
+      "mrr": 0.0,
+      "rank": null,
+      "ground_truth_differential": [
+        [
+          "Bronchitis",
+          0.3061971453153097
+        ],
+        [
+          "Tuberculosis",
+          0.2945307970500091
+        ],
+        [
+          "Viral pharyngitis",
+          0.20856852580218138
+        ],
+        [
+          "Influenza",
+          0.15465674501291246
+        ],
+        [
+          "Pneumonia",
+          0.036046786819587284
+        ]
+      ]
+    },
+    {
+      "case_id": 113648,
+      "pathology": "Localized edema",
+      "initial_evidence": "Do you have swelling in one or more areas of your body?",
+      "predicted": [
+        {
+          "diagnosis": "Localized edema",
+          "confidence": 0.75
+        },
+        {
+          "diagnosis": "Myocarditis",
+          "confidence": 0.1
+        },
+        {
+          "diagnosis": "SLE",
+          "confidence": 0.08
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Localized edema\",\n    \"confidence\": 0.75\n  },\n  {\n    \"diagnosis\": \"Myocarditis\",\n    \"confidence\": 0.1\n  },\n  {\n    \"diagnosis\": \"SLE\",\n    \"confidence\": 0.08\n  }\n]\n```",
+      "cost_usd": 0.009971250000000001,
+      "target": "Localized edema",
+      "predictions": [
+        "Localized edema",
+        "Myocarditis",
+        "SLE"
+      ],
+      "top_1_correct": true,
+      "top_3_correct": true,
+      "mrr": 1.0,
+      "rank": 1,
+      "ground_truth_differential": [
+        [
+          "Localized edema",
+          0.6962440370572797
+        ],
+        [
+          "Chagas",
+          0.19239132923750693
+        ],
+        [
+          "Anaphylaxis",
+          0.11136463370521343
+        ]
+      ]
+    },
+    {
+      "case_id": 38925,
+      "pathology": "Bronchitis",
+      "initial_evidence": "Do you have a sore throat?",
+      "predicted": [
+        {
+          "diagnosis": "GERD",
+          "confidence": 0.7
+        },
+        {
+          "diagnosis": "Viral pharyngitis",
+          "confidence": 0.2
+        },
+        {
+          "diagnosis": "Bronchitis",
+          "confidence": 0.05
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"GERD\",\n    \"confidence\": 0.7\n  },\n  {\n    \"diagnosis\": \"Viral pharyngitis\",\n    \"confidence\": 0.2\n  },\n  {\n    \"diagnosis\": \"Bronchitis\",\n    \"confidence\": 0.05\n  }\n]\n```",
+      "cost_usd": 0.009988750000000003,
+      "target": "Bronchitis",
+      "predictions": [
+        "GERD",
+        "Viral pharyngitis",
+        "Bronchitis"
+      ],
+      "top_1_correct": false,
+      "top_3_correct": true,
+      "mrr": 0.3333333333333333,
+      "rank": 3,
+      "ground_truth_differential": [
+        [
+          "Bronchitis",
+          0.11154801854466319
+        ],
+        [
+          "Pneumonia",
+          0.09799625438529813
+        ],
+        [
+          "GERD",
+          0.08474974639782851
+        ],
+        [
+          "Influenza",
+          0.08086580067489144
+        ],
+        [
+          "URTI",
+          0.07467852749713297
+        ],
+        [
+          "Bronchiectasis",
+          0.07333271668307897
+        ],
+        [
+          "Tuberculosis",
+          0.06706758474792401
+        ],
+        [
+          "Acute laryngitis",
+          0.06465034286192721
+        ],
+        [
+          "Possible NSTEMI / STEMI",
+          0.06435093291239087
+        ],
+        [
+          "Unstable angina",
+          0.06048078208319881
+        ],
+        [
+          "Viral pharyngitis",
+          0.058069692432829785
+        ],
+        [
+          "Boerhaave",
+          0.057080836494936636
+        ],
+        [
+          "Epiglottitis",
+          0.04813510653564313
+        ],
+        [
+          "Stable angina",
+          0.033677128614925854
+        ],
+        [
+          "Chagas",
+          0.023316529133330453
+        ]
+      ]
+    },
+    {
+      "case_id": 14805,
+      "pathology": "Unstable angina",
+      "initial_evidence": "Are you feeling nauseous or do you feel like vomiting?",
+      "predicted": [
+        {
+          "diagnosis": "Unstable angina",
+          "confidence": 0.8
+        },
+        {
+          "diagnosis": "Possible NSTEMI / STEMI",
+          "confidence": 0.75
+        },
+        {
+          "diagnosis": "Myocarditis",
+          "confidence": 0.1
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Unstable angina\",\n    \"confidence\": 0.8\n  },\n  {\n    \"diagnosis\": \"Possible NSTEMI / STEMI\",\n    \"confidence\": 0.75\n  },\n  {\n    \"diagnosis\": \"Myocarditis\",\n    \"confidence\": 0.1\n  }\n]\n```",
+      "cost_usd": 0.00952,
+      "target": "Unstable angina",
+      "predictions": [
+        "Unstable angina",
+        "Possible NSTEMI / STEMI",
+        "Myocarditis"
+      ],
+      "top_1_correct": true,
+      "top_3_correct": true,
+      "mrr": 1.0,
+      "rank": 1,
+      "ground_truth_differential": [
+        [
+          "Unstable angina",
+          0.09134471517458825
+        ],
+        [
+          "Acute pulmonary edema",
+          0.0776449220580565
+        ],
+        [
+          "Possible NSTEMI / STEMI",
+          0.0747705791597394
+        ],
+        [
+          "Spontaneous pneumothorax",
+          0.07390921657509866
+        ],
+        [
+          "SLE",
+          0.07230231529176287
+        ],
+        [
+          "Stable angina",
+          0.07035007670258776
+        ],
+        [
+          "Panic attack",
+          0.06401925405180302
+        ],
+        [
+          "Atrial fibrillation",
+          0.057414092919474136
+        ],
+        [
+          "Anemia",
+          0.054152614001607965
+        ],
+        [
+          "Pulmonary embolism",
+          0.051982693426834606
+        ],
+        [
+          "Guillain-Barré syndrome",
+          0.04949864356397528
+        ],
+        [
+          "Anaphylaxis",
+          0.04477585107065651
+        ],
+        [
+          "Chagas",
+          0.040362127970923554
+        ],
+        [
+          "Acute dystonic reactions",
+          0.034857458611835805
+        ],
+        [
+          "Myasthenia gravis",
+          0.034857458611835805
+        ],
+        [
+          "Epiglottitis",
+          0.03448833295475974
+        ],
+        [
+          "Scombroid food poisoning",
+          0.03220533274261648
+        ],
+        [
+          "PSVT",
+          0.018619625120913568
+        ],
+        [
+          "Acute laryngitis",
+          0.017126753229881494
+        ],
+        [
+          "Myocarditis",
+          0.005317936761048434
+        ]
+      ]
+    },
+    {
+      "case_id": 63592,
+      "pathology": "SLE",
+      "initial_evidence": "Do you have pain somewhere, related to your reason for consulting?",
+      "predicted": [
+        {
+          "diagnosis": "SLE",
+          "confidence": 0.9
+        },
+        {
+          "diagnosis": "Sarcoidosis",
+          "confidence": 0.05
+        },
+        {
+          "diagnosis": "HIV (initial infection)",
+          "confidence": 0.03
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"SLE\",\n    \"confidence\": 0.9\n  },\n  {\n    \"diagnosis\": \"Sarcoidosis\",\n    \"confidence\": 0.05\n  },\n  {\n    \"diagnosis\": \"HIV (initial infection)\",\n    \"confidence\": 0.03\n  }\n]\n```",
+      "cost_usd": 0.00953875,
+      "target": "SLE",
+      "predictions": [
+        "SLE",
+        "Sarcoidosis",
+        "HIV (initial infection)"
+      ],
+      "top_1_correct": true,
+      "top_3_correct": true,
+      "mrr": 1.0,
+      "rank": 1,
+      "ground_truth_differential": [
+        [
+          "SLE",
+          0.0713331855534913
+        ],
+        [
+          "Possible NSTEMI / STEMI",
+          0.06986350752122324
+        ],
+        [
+          "Pulmonary neoplasm",
+          0.055584211936156216
+        ],
+        [
+          "Bronchospasm / acute asthma exacerbation",
+          0.055584211936156216
+        ],
+        [
+          "Pneumonia",
+          0.054910866559619874
+        ],
+        [
+          "Unstable angina",
+          0.053437189263832216
+        ],
+        [
+          "Pulmonary embolism",
+          0.05317145951652827
+        ],
+        [
+          "Stable angina",
+          0.04950138819232309
+        ],
+        [
+          "Acute COPD exacerbation / infection",
+          0.047936746519025596
+        ],
+        [
+          "Pancreatic neoplasm",
+          0.0457426540409396
+        ],
+        [
+          "Anemia",
+          0.04392198073088599
+        ],
+        [
+          "Scombroid food poisoning",
+          0.04365149224325
+        ],
+        [
+          "Bronchiectasis",
+          0.04251050249877248
+        ],
+        [
+          "Guillain-Barré syndrome",
+          0.0401472488245417
+        ],
+        [
+          "Myocarditis",
+          0.04001004920823299
+        ],
+        [
+          "Acute pulmonary edema",
+          0.03959452335776673
+        ],
+        [
+          "Atrial fibrillation",
+          0.038347882541165376
+        ],
+        [
+          "Anaphylaxis",
+          0.028321759207128525
+        ],
+        [
+          "Acute dystonic reactions",
+          0.028272109365417665
+        ],
+        [
+          "Myasthenia gravis",
+          0.028272109365417665
+        ],
+        [
+          "Bronchitis",
+          0.022225349988856734
+        ],
+        [
+          "Tuberculosis",
+          0.02036204765804601
+        ],
+        [
+          "PSVT",
+          0.01510196378983299
+        ],
+        [
+          "Chagas",
+          0.012195560181389543
+        ]
+      ]
+    },
+    {
+      "case_id": 31677,
+      "pathology": "Chronic rhinosinusitis",
+      "initial_evidence": "Have you lost your sense of smell?",
+      "predicted": [
+        {
+          "diagnosis": "Chronic rhinosinusitis",
+          "confidence": 0.6
+        },
+        {
+          "diagnosis": "Cluster headache",
+          "confidence": 0.25
+        },
+        {
+          "diagnosis": "Allergic sinusitis",
+          "confidence": 0.1
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Chronic rhinosinusitis\",\n    \"confidence\": 0.6\n  },\n  {\n    \"diagnosis\": \"Cluster headache\",\n    \"confidence\": 0.25\n  },\n  {\n    \"diagnosis\": \"Allergic sinusitis\",\n    \"confidence\": 0.1\n  }\n]\n```",
+      "cost_usd": 0.0094125,
+      "target": "Bronchitis",
+      "predictions": [
+        "Chronic rhinosinusitis",
+        "Cluster headache",
+        "Allergic sinusitis"
+      ],
+      "top_1_correct": false,
+      "top_3_correct": false,
+      "mrr": 0.0,
+      "rank": null,
+      "ground_truth_differential": [
+        [
+          "Bronchitis",
+          0.22550186048808746
+        ],
+        [
+          "Acute laryngitis",
+          0.16024415638012013
+        ],
+        [
+          "Viral pharyngitis",
+          0.14393317132169134
+        ],
+        [
+          "Chronic rhinosinusitis",
+          0.13642101700397713
+        ],
+        [
+          "Cluster headache",
+          0.10569834599461679
+        ],
+        [
+          "Chagas",
+          0.08256242543958507
+        ],
+        [
+          "Anemia",
+          0.08256242543958507
+        ],
+        [
+          "Acute rhinosinusitis",
+          0.06307659793233711
+        ]
+      ]
+    },
+    {
+      "case_id": 4232,
+      "pathology": "PSVT",
+      "initial_evidence": "Do you have pain somewhere, related to your reason for consulting?",
+      "predicted": [
+        {
+          "diagnosis": "Panic attack",
+          "confidence": 0.6
+        },
+        {
+          "diagnosis": "Atrial fibrillation",
+          "confidence": 0.25
+        },
+        {
+          "diagnosis": "Cluster headache",
+          "confidence": 0.1
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Panic attack\",\n    \"confidence\": 0.6\n  },\n  {\n    \"diagnosis\": \"Atrial fibrillation\",\n    \"confidence\": 0.25\n  },\n  {\n    \"diagnosis\": \"Cluster headache\",\n    \"confidence\": 0.1\n  }\n]\n```",
+      "cost_usd": 0.00923125,
+      "target": "PSVT",
+      "predictions": [
+        "Panic attack",
+        "Atrial fibrillation",
+        "Cluster headache"
+      ],
+      "top_1_correct": false,
+      "top_3_correct": false,
+      "mrr": 0.0,
+      "rank": null,
+      "ground_truth_differential": [
+        [
+          "PSVT",
+          0.301431050561942
+        ],
+        [
+          "Anemia",
+          0.23436454860461262
+        ],
+        [
+          "Cluster headache",
+          0.1817873031271713
+        ],
+        [
+          "Chagas",
+          0.14199655178203763
+        ],
+        [
+          "Scombroid food poisoning",
+          0.14042054592423636
+        ]
+      ]
+    },
+    {
+      "case_id": 61652,
+      "pathology": "Larygospasm",
+      "initial_evidence": "Have you noticed a high pitched sound when breathing in?",
+      "predicted": [
+        {
+          "diagnosis": "Epiglottitis",
+          "confidence": 0.5
+        },
+        {
+          "diagnosis": "Acute laryngitis",
+          "confidence": 0.3
+        },
+        {
+          "diagnosis": "Larygospasm",
+          "confidence": 0.15
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Epiglottitis\",\n    \"confidence\": 0.5\n  },\n  {\n    \"diagnosis\": \"Acute laryngitis\",\n    \"confidence\": 0.3\n  },\n  {\n    \"diagnosis\": \"Larygospasm\",\n    \"confidence\": 0.15\n  }\n]\n```",
+      "cost_usd": 0.00877,
+      "target": "Larygospasm",
+      "predictions": [
+        "Epiglottitis",
+        "Acute laryngitis",
+        "Larygospasm"
+      ],
+      "top_1_correct": false,
+      "top_3_correct": true,
+      "mrr": 0.3333333333333333,
+      "rank": 3,
+      "ground_truth_differential": [
+        [
+          "Larygospasm",
+          1.0
+        ]
+      ]
+    },
+    {
+      "case_id": 58623,
+      "pathology": "Guillain-Barré syndrome",
+      "initial_evidence": "Do you feel weakness in both arms and/or both legs?",
+      "predicted": [
+        {
+          "diagnosis": "Guillain-Barré syndrome",
+          "confidence": 0.9
+        },
+        {
+          "diagnosis": "Myasthenia gravis",
+          "confidence": 0.08
+        },
+        {
+          "diagnosis": "HIV (initial infection)",
+          "confidence": 0.02
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Guillain-Barré syndrome\",\n    \"confidence\": 0.9\n  },\n  {\n    \"diagnosis\": \"Myasthenia gravis\",\n    \"confidence\": 0.08\n  },\n  {\n    \"diagnosis\": \"HIV (initial infection)\",\n    \"confidence\": 0.02\n  }\n]\n```",
+      "cost_usd": 0.00995125,
+      "target": "Guillain-Barré syndrome",
+      "predictions": [
+        "Guillain-Barré syndrome",
+        "Myasthenia gravis",
+        "HIV (initial infection)"
+      ],
+      "top_1_correct": true,
+      "top_3_correct": true,
+      "mrr": 1.0,
+      "rank": 1,
+      "ground_truth_differential": [
+        [
+          "Guillain-Barré syndrome",
+          1.0
+        ]
+      ]
+    },
+    {
+      "case_id": 29352,
+      "pathology": "Boerhaave",
+      "initial_evidence": "Are you feeling nauseous or do you feel like vomiting?",
+      "predicted": [
+        {
+          "diagnosis": "Possible NSTEMI / STEMI",
+          "confidence": 0.5
+        },
+        {
+          "diagnosis": "Pulmonary embolism",
+          "confidence": 0.3
+        },
+        {
+          "diagnosis": "Boerhaave",
+          "confidence": 0.15
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Possible NSTEMI / STEMI\",\n    \"confidence\": 0.5\n  },\n  {\n    \"diagnosis\": \"Pulmonary embolism\",\n    \"confidence\": 0.3\n  },\n  {\n    \"diagnosis\": \"Boerhaave\",\n    \"confidence\": 0.15\n  }\n]\n```",
+      "cost_usd": 0.0090025,
+      "target": "Boerhaave",
+      "predictions": [
+        "Possible NSTEMI / STEMI",
+        "Pulmonary embolism",
+        "Boerhaave"
+      ],
+      "top_1_correct": false,
+      "top_3_correct": true,
+      "mrr": 0.3333333333333333,
+      "rank": 3,
+      "ground_truth_differential": [
+        [
+          "Boerhaave",
+          0.3563982030388349
+        ],
+        [
+          "Panic attack",
+          0.3233576340204973
+        ],
+        [
+          "Acute dystonic reactions",
+          0.1760630533990608
+        ],
+        [
+          "Sarcoidosis",
+          0.144181109541607
+        ]
+      ]
+    },
+    {
+      "case_id": 37894,
+      "pathology": "Acute otitis media",
+      "initial_evidence": "Do you have pain somewhere, related to your reason for consulting?",
+      "predicted": [
+        {
+          "diagnosis": "Acute otitis media",
+          "confidence": 0.85
+        },
+        {
+          "diagnosis": "URTI",
+          "confidence": 0.1
+        },
+        {
+          "diagnosis": "Viral pharyngitis",
+          "confidence": 0.04
+        }
+      ],
+      "raw_output": "```json\n[\n  {\n    \"diagnosis\": \"Acute otitis media\",\n    \"confidence\": 0.85\n  },\n  {\n    \"diagnosis\": \"URTI\",\n    \"confidence\": 0.1\n  },\n  {\n    \"diagnosis\": \"Viral pharyngitis\",\n    \"confidence\": 0.04\n  }\n]\n```",
+      "cost_usd": 0.01062375,
+      "target": "Bronchitis",
+      "predictions": [
+        "Acute otitis media",
+        "URTI",
+        "Viral pharyngitis"
+      ],
+      "top_1_correct": false,
+      "top_3_correct": false,
+      "mrr": 0.0,
+      "rank": null,
+      "ground_truth_differential": [
+        [
+          "Bronchitis",
+          0.5744711710103535
+        ],
+        [
+          "Acute otitis media",
+          0.4255288289896466
+        ]
+      ]
+    }
+  ]
+}

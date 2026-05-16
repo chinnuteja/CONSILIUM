@@ -2,7 +2,7 @@
 
 > **Read `PROJECT.md` FIRST.** This file assumes you have its context loaded.
 >
-> **The protocol:** complete one phase at a time. At each checkpoint, fill in the Summary Template at the end of the phase and paste it to Claude in chat. Wait for evaluator approval before moving to the next phase.
+> **The protocol:** complete one phase at a time. At each checkpoint, fill in the Summary Template at the end of the phase and paste it to the evaluator in chat. Wait for evaluator approval before moving to the next phase.
 >
 > **If you hit a blocker for >2 hours:** stop, fill out the Blocker Template at the bottom of this file, and ask for help. Do not grind alone.
 
@@ -61,7 +61,7 @@ If you fall behind, cut Phase 5 scope (frontend can be ugly), not Phase 1 or Pha
 - [ ] `.env` file present and gitignored
 - [ ] Repo is on GitHub, public, with first commit dated after May 15 10AM ET
 
-### Summary Template (paste this to Claude in chat)
+### Summary Template (paste this to the evaluator in chat)
 
 ```
 PHASE 0 COMPLETE
@@ -98,7 +98,7 @@ Most teams build agents first, then panic-benchmark on Day 4. We invert that. Kn
 
 2. **Build the single-prompt baseline** (`eval/baseline_single_prompt.py`):
    - Implements `baseline_get_differential(case) -> List[Tuple[str, float]]`
-   - Uses ONE Claude API call with prompt: "Act as a board of 7 medical specialists (cardiology, endocrinology, neurology, rheumatology, infectious disease, GI, psychiatry). Given this evidence, debate and produce a ranked top-3 differential diagnosis with confidence scores. Output as JSON: `[{diagnosis: ..., confidence: ...}, ...]`"
+   - Uses ONE Gemini API call with prompt: "Act as a board of 7 medical specialists (cardiology, endocrinology, neurology, rheumatology, infectious disease, GI, psychiatry). Given this evidence, debate and produce a ranked top-3 differential diagnosis with confidence scores. Output as JSON: `[{diagnosis: ..., confidence: ...}, ...]`"
 
 3. **Run baseline on 50 cases.** Record top-1 accuracy, top-3 accuracy, MRR.
 
@@ -112,8 +112,8 @@ Most teams build agents first, then panic-benchmark on Day 4. We invert that. Kn
 
 ### Common pitfalls
 
-- **Evidence-code translation:** DDXPlus uses codes like `E_55_@_V_18`. You MUST join them to readable text via `release_evidences.json` before feeding to Claude. Otherwise baseline accuracy collapses.
-- **JSON parsing fragility:** Claude sometimes wraps JSON in markdown fences. Use a robust extractor (try `json.loads` first, then strip ```` ``` ````, then regex).
+- **Evidence-code translation:** DDXPlus uses codes like `E_55_@_V_18`. You MUST join them to readable text via `release_evidences.json` before feeding to Gemini. Otherwise baseline accuracy collapses.
+- **JSON parsing fragility:** Gemini sometimes wraps JSON in markdown fences or truncates a closing fence. Use a robust extractor (try `json.loads` first, then strip ```` ``` ````, then regex).
 - **Rate limits:** Don't blast 50 concurrent requests. Use `asyncio.Semaphore(5)` or similar.
 
 ### Summary Template
@@ -520,7 +520,7 @@ BLOCKER REPORT
 
 ---
 
-## When to escalate to evaluator (Claude in chat)
+## When to escalate to evaluator
 
 - Every phase completion → paste Summary Template
 - Any blocker > 2 hours → paste Blocker Template
