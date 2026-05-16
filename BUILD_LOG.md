@@ -181,11 +181,18 @@ PHASE 1 COMPLETE
    - Both hypotheses have at least one `supports` edge to an evidence node
    - The two hypotheses are different (not "we both agree it's X")
 
+9. **Prepare closed-label benchmark mode.**
+   - Create `src/labels.py` containing the DDXPlus condition list.
+   - `Hypothesis.diagnosis_name` may be open-ended in Phase 2 MedQA demo mode, but the schema and prompts must be ready to map final benchmark hypotheses to labels from `src/labels.py`.
+   - Reserve DDXPlus case `110495` for Phase 4/demo analysis. Do not use it for Phase 2 walker debugging.
+
 ### Acceptance Criteria
 
 - [ ] Running `jac run src/consilium.jac` (or equivalent entry) on one case produces two `Hypothesis` nodes
 - [ ] Each hypothesis has ≥1 `supports` edge (citation lock works)
 - [ ] The hypotheses differ in diagnosis name (specialty bias works)
+- [ ] Closed-label constraint preparation exists via `src/labels.py`; final benchmark hypotheses can map to the DDXPlus condition list
+- [ ] DDXPlus case `110495` is reserved and was not used for Phase 2 development/debugging
 - [ ] No Jac syntax that doesn't appear in the tutorial — IF YOU MADE UP SYNTAX, FIX IT BEFORE REPORTING DONE
 
 ### Common pitfalls
