@@ -111,7 +111,7 @@ def _prediction_names(predicted_differential: Any) -> list[str]:
     return names
 
 
-def evaluate(predicted_differential: Any, ground_truth_differential: Any) -> dict[str, Any]:
+def evaluate(predicted_differential: Any, ground_truth_differential: Any, pathology: str = "") -> dict[str, Any]:
     predictions = _prediction_names(predicted_differential)
     if isinstance(ground_truth_differential, dict):
         target = str(
@@ -134,11 +134,18 @@ def evaluate(predicted_differential: Any, ground_truth_differential: Any) -> dic
         None,
     )
 
+    # Secondary metric: does the actual pathology appear in top-3 predictions?
+    pathology_in_top3 = False
+    if pathology:
+        normalized_pathology = normalize_diagnosis(pathology)
+        pathology_in_top3 = normalized_pathology in normalized_predictions[:3]
+
     return {
         "target": target,
         "predictions": predictions,
         "top_1_correct": rank == 1,
         "top_3_correct": rank is not None and rank <= 3,
+        "pathology_in_top3": pathology_in_top3,
         "mrr": 0.0 if rank is None else 1.0 / rank,
         "rank": rank,
     }
@@ -156,7 +163,10 @@ def run_benchmark(
     rows = []
     total_cost = 0.0
 
-    for case in cases:
+    stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    partial_path = RESULTS_DIR / f"{label}_partial_{stamp}.json"
+
+    for idx, case in enumerate(cases):
         prediction_result = differential_fn(case)
         if isinstance(prediction_result, dict) and "differential" in prediction_result:
             predicted = prediction_result["differential"]
@@ -167,7 +177,7 @@ def run_benchmark(
             cost = 0.0
             raw_output = None
 
-        metrics = evaluate(predicted, case.ground_truth_differential)
+        metrics = evaluate(predicted, case.ground_truth_differential, pathology=case.pathology)
         total_cost += cost
         rows.append(
             {
@@ -182,6 +192,18 @@ def run_benchmark(
             }
         )
 
+        # Partial save every 10 cases
+        if (idx + 1) % 10 == 0:
+            partial = {
+                "label": label, "n_completed": idx + 1, "n_total": n,
+                "top_1_accuracy": sum(r["top_1_correct"] for r in rows) / len(rows),
+                "top_3_accuracy": sum(r["top_3_correct"] for r in rows) / len(rows),
+                "cases": rows,
+            }
+            with open(partial_path, "w", encoding="utf-8") as f:
+                json.dump(partial, f, indent=2, ensure_ascii=False)
+            print(f"  [Partial save] {idx + 1}/{n} cases — top1={partial['top_1_accuracy']:.0%} top3={partial['top_3_accuracy']:.0%}")
+
     elapsed_seconds = time.perf_counter() - started
     summary = {
         "label": label,
@@ -189,6 +211,7 @@ def run_benchmark(
         "n": n,
         "top_1_accuracy": sum(row["top_1_correct"] for row in rows) / n,
         "top_3_accuracy": sum(row["top_3_correct"] for row in rows) / n,
+        "pathology_in_top3_accuracy": sum(row["pathology_in_top3"] for row in rows) / n,
         "mrr": sum(row["mrr"] for row in rows) / n,
         "wall_clock_seconds": elapsed_seconds,
         "estimated_cost_usd": total_cost,
