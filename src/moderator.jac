@@ -29,7 +29,7 @@ walker ModeratorWalker {
         rec_specs = self.triage.get("recommended_specialties", []);
 
         # SIMPLE: high confidence, no red flags -> return triage diagnosis directly
-        if complexity == "SIMPLE" and confidence >= 0.85 and len(red_flags) == 0 {
+        if complexity == "SIMPLE" and confidence >= 0.90 and len(red_flags) == 0 {
             self.num_specialists = 0;
             self.final_ranking = [(self.triage["confident_diagnosis"], confidence)];
             here.phase = "FINAL";
