@@ -1,53 +1,10 @@
-DDXPLUS_CONDITION_LABELS = [
-    'Acute COPD exacerbation / infection',
-    'Acute dystonic reactions',
-    'Acute laryngitis',
-    'Acute otitis media',
-    'Acute pulmonary edema',
-    'Acute rhinosinusitis',
-    'Allergic sinusitis',
-    'Anaphylaxis',
-    'Anemia',
-    'Atrial fibrillation',
-    'Boerhaave',
-    'Bronchiectasis',
-    'Bronchiolitis',
-    'Bronchitis',
-    'Bronchospasm / acute asthma exacerbation',
-    'Chagas',
-    'Chronic rhinosinusitis',
-    'Cluster headache',
-    'Croup',
-    'Ebola',
-    'Epiglottitis',
-    'GERD',
-    'Guillain-Barré syndrome',
-    'HIV (initial infection)',
-    'Influenza',
-    'Inguinal hernia',
-    'Larygospasm',
-    'Localized edema',
-    'Myasthenia gravis',
-    'Myocarditis',
-    'PSVT',
-    'Pancreatic neoplasm',
-    'Panic attack',
-    'Pericarditis',
-    'Pneumonia',
-    'Possible NSTEMI / STEMI',
-    'Pulmonary embolism',
-    'Pulmonary neoplasm',
-    'SLE',
-    'Sarcoidosis',
-    'Scombroid food poisoning',
-    'Spontaneous pneumothorax',
-    'Spontaneous rib fracture',
-    'Stable angina',
-    'Tuberculosis',
-    'URTI',
-    'Unstable angina',
-    'Viral pharyngitis',
-    'Whooping cough',
-]
+import json
+from pathlib import Path
 
-RESERVED_DEMO_CASE_IDS = [110495]
+ROOT = Path(__file__).resolve().parents[1]
+with open(ROOT / "data" / "release_conditions.json", "r", encoding="utf-8") as f:
+    CONDITION_LABELS = sorted(json.loads(f.read()))
+
+
+def get_labels_text() -> str:
+    return "\n".join(CONDITION_LABELS)

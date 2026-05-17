@@ -38,6 +38,15 @@ node Hypothesis {
     has benchmark_label: str = "";
 }
 
+node TriageDecision {
+    has case_complexity: str;
+    has confident_diagnosis: str;
+    has confidence: float;
+    has red_flags: list[str];
+    has recommended_specialties: list[str];
+    has reasoning: str;
+}
+
 obj EvidenceAssessment {
     has relevance_score: int;
     has assessment: str;
