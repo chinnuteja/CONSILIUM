@@ -226,6 +226,27 @@ PHASE 2 COMPLETE
 
 ---
 
+## Phase 2.5 — LLM-Derived Final Synthesis & Robust JSON
+
+**Goal:** Replace hardcoded specialist final hypotheses with deterministic, LLM-derived final synthesis and address the JSON parsing/citation lock issues.
+
+### Actions Taken
+1. **LLM-Derived Final Hypotheses:** Replaced hardcoded final hypotheses with real final synthesis LLM calls. Each specialist walker collects per-node string assessments and passes them to a `_synthesize_final` LLM function to derive the final hypothesis deterministically.
+2. **Robust JSON Parsing:** Built `src/json_utils.py::safe_json_parse` to handle JSON extraction and normalize LLM confidence strings (e.g., "High" -> 0.9).
+3. **LLM Settings & Retry Wrapper:** Restored `SPECIALIST_MODEL` to `gemini/gemini-2.5-pro`. To handle `WinError 10054` API connection drops natively, wrapped `by llm()` calls in a `try/except` loop with exponential backoff (`do_sleep(2 ** attempt)`).
+4. **Citation Lock Strategy:** Kept basic `++>` edges for citation lock to avoid Jac compiler syntax errors with custom edges. Added `validate_hypothesis()` in the Moderator to reject hypotheses with empty citation lists.
+5. **Known byLLM Issue Documented:** Pure typed `obj` returns worked in same-file isolated Jac tests but failed with `list index out of range` in byLLM MTIR generation when called from imported specialist modules (Issue to be filed on `jac-byllm`). The architectural fallback utilizes string responses for per-node assessments and JSON string generation for final synthesis, parsed via `safe_json_parse`.
+
+### Phase 2.5 Demo Results
+Verified end-to-end functionality across four distinct MedQA cases.
+- **Case 1 (medqa_test_51 - Aldosterone excess):** Cardiology (Aldosterone excess), Endo (Aldosterone excess).
+- **Case 2 (medqa_test_allergic_conjunctivitis):** Cardiology (Ketotifen eye drops), Endo (Fluorometholone eye drops). Hypotheses successfully differed based on specialist bias.
+- **Case 3 (medqa_test_cocaine_chest_pain):** Cardiology (Diltiazem), Endo (Diltiazem).
+- **Case 4 (medqa_test_ra - Rheumatoid arthritis):** Successfully generalized to an unseen case, producing sensible rationale and confidence scores natively.
+- All hypotheses passed citation validation in the Moderator.
+
+---
+
 ## Phase 3 — Full Specialist Council
 
 **Hours 12-24**
@@ -492,6 +513,42 @@ PHASE 6 COMPLETE — SUBMITTED
 Subjective demo "wow moment" (one sentence): <description>
 Anything you'd change if you had another day: <reflection>
 ```
+
+---
+
+## Phase 4 — TriageWalker (Addition 1)
+
+**Goal:** Add intelligent case-complexity routing to reduce cost/time on simple cases and prevent over-pathologizing benign presentations.
+
+### Implementation
+
+1. **TriageDecision node** added to `src/schema.jac` — classifies cases as SIMPLE, MODERATE, or COMPLEX
+2. **TRIAGE_MODEL** = `gemini/gemini-2.5-flash-lite` — verified available in litellm 1.82.6, ~3x cheaper than Flash for routing decisions
+3. **`src/triage_walker.jac`** — new walker implementing 3-tier classification with red-flag detection and fail-safe (defaults to COMPLEX on failure)
+4. **`src/moderator.jac`** — updated to spawn TriageWalker first, then route:
+   - SIMPLE (confidence ≥ 0.85, no red flags): return triage diagnosis directly, skip all specialists
+   - MODERATE: spawn only recommended specialist subset (1-3 walkers)
+   - COMPLEX (or any red flags): spawn all 7 specialists + Devil's Advocate (unchanged from baseline)
+5. **Dynamic agreement_score divisor** in `consilium_benchmark_runner.jac` — no longer hardcoded to 7.0
+
+### Smoke Test Results (5/5 PASS)
+
+| Vignette | Expected | Actual | Runtime |
+|---|---|---|---|
+| URTI (common cold) | SIMPLE | SIMPLE ✅ | 22s |
+| UTI (urinary) | SIMPLE | SIMPLE ✅ | ~20s |
+| Chest pain + diabetes | MODERATE | MODERATE ✅ | 30s |
+| Joint pain + rash | MODERATE | MODERATE ✅ | 28s |
+| Sepsis post-surgery | COMPLEX | COMPLEX ✅ | 157s |
+
+- SIMPLE cases: ~20s, no specialists spawned (vs 157s full pipeline)
+- COMPLEX case: correctly identified 4 red flags, refused confident diagnosis
+- Full results in `smoke_test_results/triage_vignettes.md`
+
+### Quick Benchmark (10 cases, Pro, seed=42)
+
+- **Status:** Awaiting run (smoke test approved by evaluator)
+- **Baseline (lean, no triage):** 70% top-1, 80% top-3, MRR 0.750
 
 ---
 
