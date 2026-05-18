@@ -19,7 +19,11 @@ with open(ROOT / "data" / "release_conditions.json", "r", encoding="utf-8") as f
     CONDITION_LABELS = sorted(json.loads(f.read()))
 
 
+case_counter = [0]
+
 def consilium_get_differential(case: Case):
+    case_counter[0] += 1
+    print(f"  [{case_counter[0]}/10] Processing case {case.case_id} ({case.pathology})...", flush=True)
     case_dict = {
         "case_id": f"ddxplus_{case.case_id}",
         "question": f"Age: {case.age}, Sex: {case.sex}. Chief complaint: {case.initial_evidence}. What is the most likely diagnosis?",
@@ -38,8 +42,7 @@ def consilium_get_differential(case: Case):
     jac_path = ROOT / ".venv" / "Scripts" / "jac.exe"
     jac_file = ROOT / "src" / "consilium_benchmark_runner.jac"
 
-    # pacing — respect rate limits
-    time.sleep(5)
+    time.sleep(1)
 
     result = subprocess.run([str(jac_path), "run", str(jac_file)], capture_output=True, text=True)
 
