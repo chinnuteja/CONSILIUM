@@ -52,6 +52,8 @@ export function usePlayback(trace: DemoTrace | null) {
   const [finalDifferential, setFinalDifferential] = useState<FinalDifferentialData | null>(null);
   const [isComplete, setIsComplete] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const isPlayingRef = useRef(false);
+  const speedRef = useRef(speed);
 
   const resetState = useCallback(() => {
     setCurrentEventIndex(-1);
@@ -166,6 +168,7 @@ export function usePlayback(trace: DemoTrace | null) {
       const nextIndex = prevIndex + 1;
       if (nextIndex >= trace.events.length) {
         setIsPlaying(false);
+        isPlayingRef.current = false;
         return prevIndex;
       }
 
@@ -174,20 +177,22 @@ export function usePlayback(trace: DemoTrace | null) {
 
       if (nextIndex + 1 < trace.events.length) {
         const nextEvent = trace.events[nextIndex + 1];
-        const delay = (nextEvent.timestamp_ms - event.timestamp_ms) / speed;
-        const minDelay = event.type === 'triage_decision' ? 2000 / speed : 200;
+        const currentSpeed = speedRef.current;
+        const delay = (nextEvent.timestamp_ms - event.timestamp_ms) / currentSpeed;
+        const minDelay = event.type === 'triage_decision' ? 2000 / currentSpeed : 200;
         const actualDelay = Math.max(delay, minDelay);
 
         timerRef.current = setTimeout(() => {
-          if (isPlaying) advanceEvent();
+          if (isPlayingRef.current) advanceEvent();
         }, actualDelay);
       } else {
         setIsPlaying(false);
+        isPlayingRef.current = false;
       }
 
       return nextIndex;
     });
-  }, [trace, speed, isPlaying, processEvent]);
+  }, [trace, processEvent]);
 
   useEffect(() => {
     if (isPlaying && trace) {
@@ -203,9 +208,13 @@ export function usePlayback(trace: DemoTrace | null) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isPlaying]);
 
-  const play = useCallback(() => setIsPlaying(true), []);
+  const play = useCallback(() => {
+    setIsPlaying(true);
+    isPlayingRef.current = true;
+  }, []);
   const pause = useCallback(() => {
     setIsPlaying(false);
+    isPlayingRef.current = false;
     if (timerRef.current) clearTimeout(timerRef.current);
   }, []);
 
@@ -219,8 +228,14 @@ export function usePlayback(trace: DemoTrace | null) {
   }, [trace, currentEventIndex, processEvent]);
 
   const reset = useCallback(() => {
+    isPlayingRef.current = false;
     resetState();
   }, [resetState]);
+
+  const changeSpeed = useCallback((newSpeed: number) => {
+    setSpeed(newSpeed);
+    speedRef.current = newSpeed;
+  }, []);
 
   const state: PlaybackState = {
     isPlaying,
@@ -235,5 +250,5 @@ export function usePlayback(trace: DemoTrace | null) {
     isComplete,
   };
 
-  return { state, play, pause, step, reset, setSpeed };
+  return { state, play, pause, step, reset, setSpeed: changeSpeed };
 }
