@@ -8,12 +8,14 @@ import from specialists.gastroenterology { GastroenterologyWalker }
 import from specialists.psychiatry { PsychiatryWalker }
 import from devils_advocate { DevilsAdvocateWalker }
 import from triage_walker { TriageWalker }
+import from cross_examination { run_cross_examination }
 import from sorter { sort_scores }
 
 walker ModeratorWalker {
     has cardiology: dict = {}; has endocrinology: dict = {}; has neurology: dict = {}; has rheumatology: dict = {}; has infectious_disease: dict = {}; has gastroenterology: dict = {}; has psychiatry: dict = {};
     has advocate: dict = {};
     has triage: dict = {};
+    has cross_exam_responses: list[dict] = [];
     has logs: list[str] = []; has validation: list[str] = []; has final_ranking: list[tuple] = [];
     has num_specialists: int = 0;
 
@@ -108,20 +110,57 @@ walker ModeratorWalker {
 
         self.num_specialists = len(specialist_hypotheses);
 
-        here.phase = "DEBATE";
-
         # Validate citations
         for hyp in specialist_hypotheses {
             self.validation = self.validation + [self.validate_hypothesis(hyp)];
         }
 
-        # Aggregate scores
+        # --- CROSS-EXAMINATION PHASE ---
+        # Only run if >=2 specialists were invoked
+        if len(specialist_hypotheses) >= 2 {
+            here.phase = "CROSS_EXAM";
+            evidence_summary = "\n".join(self.logs);
+            self.cross_exam_responses = run_cross_examination(
+                here, specialist_hypotheses, evidence_summary
+            );
+        }
+
+        here.phase = "DEBATE";
+
+        # Build revised maps from cross-exam responses
+        # revised_conf_map: specialist::original_diag -> revised_confidence
+        # revised_diag_map: specialist::original_diag -> revised_diagnosis (if conceded)
+        revised_conf_map: dict = {};
+        revised_diag_map: dict = {};
+        for resp in self.cross_exam_responses {
+            key = str(resp.get("responder", "")) + "::" + str(resp.get("original_diagnosis", ""));
+            revised_conf_map[key] = float(resp.get("revised_confidence", 0.0));
+            if bool(resp.get("conceded", False)) {
+                revised_diag_map[key] = str(resp.get("revised_diagnosis", ""));
+            }
+        }
+
+        # Aggregate scores — use revised confidence/diagnosis from cross-exam when available
         scores = {};
         for hyp in specialist_hypotheses {
             if "ACCEPTED" in self.validate_hypothesis(hyp) {
-                diag = hyp["diagnosis_name"];
+                spec = str(hyp.get("specialist", ""));
+                orig_diag = hyp["diagnosis_name"];
+                lookup_key = spec + "::" + orig_diag;
+                # Use revised diagnosis if specialist conceded
+                if lookup_key in revised_diag_map {
+                    diag = str(revised_diag_map[lookup_key]);
+                } else {
+                    diag = orig_diag;
+                }
+                # Use revised confidence if cross-exam produced one
+                if lookup_key in revised_conf_map {
+                    conf = float(revised_conf_map[lookup_key]);
+                } else {
+                    conf = float(hyp["confidence"]);
+                }
                 if diag not in scores { scores[diag] = 0.0; }
-                scores[diag] = scores[diag] + hyp["confidence"];
+                scores[diag] = scores[diag] + conf;
             }
         }
 

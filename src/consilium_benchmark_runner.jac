@@ -25,6 +25,10 @@ with entry {
     print("===TRIAGE_RESULT===");
     print(dumps_json(moderator.triage));
 
+    # print cross-exam results
+    print("===CROSS_EXAM_RESULT===");
+    print(dumps_json(moderator.cross_exam_responses));
+
     # print final output for python to parse
     num_specs = moderator.num_specialists;
     if num_specs < 1 { num_specs = 1; }
