@@ -1,0 +1,43 @@
+{
+  "case_id": "case_a",
+  "vignette": "25-year-old female, 2 days of runny nose, mild cough, low-grade fever (99.2F), sore throat. No travel, no contacts, exam unremarkable.",
+  "age": 25,
+  "sex": "F",
+  "ground_truth": "URTI",
+  "compute_time_seconds": 43.9,
+  "events": [
+    {
+      "timestamp_ms": 0,
+      "type": "case_received",
+      "data": {
+        "case_id": "case_a",
+        "vignette": "25-year-old female, 2 days of runny nose, mild cough, low-grade fever (99.2F), sore throat. No travel, no contacts, exam unremarkable.",
+        "evidence_count": 7
+      }
+    },
+    {
+      "timestamp_ms": 1500,
+      "type": "triage_decision",
+      "data": {
+        "case_complexity": "SIMPLE",
+        "confident_diagnosis": "URTI",
+        "confidence": 0.95,
+        "red_flags": [],
+        "recommended_specialties": [],
+        "reasoning": "The patient presents with classic symptoms of an upper respiratory tract infection (URTI): runny nose, mild cough, low-grade fever, and sore throat. The presentation is straightforward, with no red flags such as hemodynamic instability, neurological deficits, suspected malignancy, severe infection, multi-system involvement, atypical or rapidly progressive symptoms, or immunocompromise. The physical exam is also unremarkable. This presentation is common and confidently diagnosable by a general physician."
+      }
+    },
+    {
+      "timestamp_ms": 3500,
+      "type": "final_differential",
+      "data": {
+        "top_3": [
+          {
+            "diagnosis": "URTI",
+            "agreement_score": 0.95
+          }
+        ]
+      }
+    }
+  ]
+}
