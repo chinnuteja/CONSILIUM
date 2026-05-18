@@ -19,7 +19,7 @@ with entry {
     case_data = load_json("data/current_case.json");
     patient = build_benchmark_graph(case_data);
     root ++> patient;
-    moderator = patient spawn ModeratorWalker();
+    moderator = patient spawn ModeratorWalker(enable_cross_exam=False);
     
     # print triage decision for smoke test visibility
     print("===TRIAGE_RESULT===");

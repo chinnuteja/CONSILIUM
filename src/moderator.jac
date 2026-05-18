@@ -16,6 +16,7 @@ walker ModeratorWalker {
     has advocate: dict = {};
     has triage: dict = {};
     has cross_exam_responses: list[dict] = [];
+    has enable_cross_exam: bool = True;
     has logs: list[str] = []; has validation: list[str] = []; has final_ranking: list[tuple] = [];
     has num_specialists: int = 0;
 
@@ -116,8 +117,8 @@ walker ModeratorWalker {
         }
 
         # --- CROSS-EXAMINATION PHASE ---
-        # Only run if >=2 specialists were invoked
-        if len(specialist_hypotheses) >= 2 {
+        # Only run if enabled and >=2 specialists were invoked
+        if self.enable_cross_exam and len(specialist_hypotheses) >= 2 {
             here.phase = "CROSS_EXAM";
             evidence_summary = "\n".join(self.logs);
             self.cross_exam_responses = run_cross_examination(
