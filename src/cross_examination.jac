@@ -33,7 +33,7 @@ def generate_response(
     options_text: str
 ) -> str by cross_exam_model();
 
-sem generate_response = "You are a medical specialist defending or revising your diagnosis after receiving a challenge question from a peer. Consider the challenge carefully. You may: (1) defend your original diagnosis with additional reasoning, (2) revise your diagnosis to a different one from the allowed options, or (3) adjust your confidence. Be intellectually honest.\n\nOutput ONLY valid JSON:\n{\"revised_diagnosis\": \"<diagnosis from allowed options>\", \"revised_confidence\": <float 0.0-1.0>, \"response_text\": \"<your response addressing the challenge>\", \"conceded\": <true if you changed diagnosis, false if defending>}";
+sem generate_response = "You are a medical specialist defending your diagnosis. Your original hypothesis was the diagnosis you proposed with the confidence and reasoning provided.\n\nA colleague has challenged you with the question provided.\n\nCRITICAL INSTRUCTION: Specialists should DEFEND their position by default. You should only revise your hypothesis if BOTH conditions are met:\n\n1. The challenge cites SPECIFIC evidence from the patient case that you genuinely overlooked or underweighted, AND\n2. The alternative diagnosis they suggest is BETTER supported by the evidence than your original.\n\nIf the challenge is reasonable but your original hypothesis still has STRONGER evidentiary support, defend with additional reasoning. Do NOT revise just because the colleague disagrees.\n\nA specialist who concedes without strong evidence is failing their patient. Concession should be the EXCEPTION, not the default.\n\nOutput ONLY valid JSON:\n{\"action\": \"DEFEND\" or \"REVISE\", \"revised_diagnosis\": \"<diagnosis from labels - same as original if DEFEND>\", \"revised_confidence\": <float 0.0-1.0 - should DECREASE only modestly when defending, may shift more if REVISING>, \"response_text\": \"<one paragraph addressing the challenge with specific evidence>\", \"citations\": [\"<evidence node id>\"]}";
 
 # --- Safe wrappers with retry ---
 
@@ -145,13 +145,21 @@ def run_cross_examination(
             );
             r_parsed = safe_json_parse(raw_r);
 
+            action = str(r_parsed.get("action", "DEFEND")).upper();
+            did_concede = action == "REVISE";
+            revised_diag = str(r_parsed.get("revised_diagnosis", target_diag));
+            revised_conf = float(r_parsed.get("revised_confidence", target.get("confidence", 0.5)));
+
+            # Log DEFEND/REVISE action
+            print("[CROSS-EXAM] " + target_name + " " + action + " against " + challenger_name + " | orig=" + target_diag + " revised=" + revised_diag + " conf=" + str(revised_conf));
+
             rh = ResponseHypothesis(
                 responder_specialist=target_name,
                 original_diagnosis=target_diag,
-                revised_diagnosis=str(r_parsed.get("revised_diagnosis", target_diag)),
-                revised_confidence=float(r_parsed.get("revised_confidence", target.get("confidence", 0.5))),
+                revised_diagnosis=revised_diag,
+                revised_confidence=revised_conf,
                 response_text=str(r_parsed.get("response_text", "")),
-                conceded=bool(r_parsed.get("conceded", False))
+                conceded=did_concede
             );
             cq :Challenges:> rh;
 
@@ -159,9 +167,10 @@ def run_cross_examination(
                 "responder": target_name,
                 "challenger": challenger_name,
                 "original_diagnosis": target_diag,
-                "revised_diagnosis": str(r_parsed.get("revised_diagnosis", target_diag)),
-                "revised_confidence": float(r_parsed.get("revised_confidence", target.get("confidence", 0.5))),
-                "conceded": bool(r_parsed.get("conceded", False)),
+                "revised_diagnosis": revised_diag,
+                "revised_confidence": revised_conf,
+                "conceded": did_concede,
+                "action": action,
                 "question": str(q_parsed.get("question_text", "")),
                 "response": str(r_parsed.get("response_text", ""))
             }];
