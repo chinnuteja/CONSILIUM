@@ -1,0 +1,591 @@
+{
+  "label": "quick",
+  "timestamp": "2026-05-18T05:49:31.292793+00:00",
+  "n": 10,
+  "top_1_accuracy": 0.6,
+  "top_3_accuracy": 0.6,
+  "pathology_in_top3_accuracy": 0.6,
+  "mrr": 0.6,
+  "wall_clock_seconds": 1057.4794926999998,
+  "estimated_cost_usd": 0.0,
+  "cases": [
+    {
+      "case_id": 75493,
+      "pathology": "Acute dystonic reactions",
+      "ground_truth_differential": [
+        [
+          "Acute dystonic reactions",
+          1.0
+        ]
+      ],
+      "initial_evidence": "Do you have trouble keeping your tongue in your mouth?",
+      "predicted": [
+        {
+          "diagnosis": "Acute dystonic reactions",
+          "agreement_score": 0.9333333333333332
+        }
+      ],
+      "raw_output": "===TRIAGE_RESULT===\n{\"case_complexity\": \"MODERATE\", \"confident_diagnosis\": \"\", \"confidence\": 0.6, \"red_flags\": [], \"recommended_specialties\": [\"neurology\", \"psychiatry\", \"infectious_disease\"], \"reasoning\": \"The patient's chief complaint, \\\"Do you have trouble keeping your tongue in your mouth?\\\", in conjunction with the question about recent antipsychotic medication use, strongly suggests a possible extrapyramidal side effect, such as tardive dyskinesia or acute dystonic reaction. While this could be managed by a general physician, the potential for neurological or psychiatric causes, and the need to rule out other etiologies like certain infections or drug interactions, warrants specialist consultation. The question about stimulant drug use also adds a layer of complexity. Therefore, neurology and psychiatry are primary considerations, with infectious disease included to cover less common causes of such symptoms.\"}\n===CONSILIUM_RESULT===\n[{\"diagnosis\": \"Acute dystonic reactions\", \"agreement_score\": 0.9333333333333332}]\n",
+      "cost_usd": 0.0,
+      "target": "Acute dystonic reactions",
+      "predictions": [
+        "Acute dystonic reactions"
+      ],
+      "top_1_correct": true,
+      "top_3_correct": true,
+      "pathology_in_top3": true,
+      "mrr": 1.0,
+      "rank": 1
+    },
+    {
+      "case_id": 124409,
+      "pathology": "Pulmonary neoplasm",
+      "ground_truth_differential": [
+        [
+          "Pulmonary neoplasm",
+          0.12391709951421595
+        ],
+        [
+          "Tuberculosis",
+          0.10369305227008174
+        ],
+        [
+          "Bronchitis",
+          0.09952558494091525
+        ],
+        [
+          "Pneumonia",
+          0.09660626601773016
+        ],
+        [
+          "Pulmonary embolism",
+          0.0890129287802988
+        ],
+        [
+          "Bronchiectasis",
+          0.06923003558395661
+        ],
+        [
+          "Acute pulmonary edema",
+          0.06739044843724092
+        ],
+        [
+          "Guillain-Barré syndrome",
+          0.061598795336313655
+        ],
+        [
+          "Possible NSTEMI / STEMI",
+          0.06048238973720692
+        ],
+        [
+          "Bronchospasm / acute asthma exacerbation",
+          0.05977711774803558
+        ],
+        [
+          "Atrial fibrillation",
+          0.058837988589401355
+        ],
+        [
+          "Acute dystonic reactions",
+          0.04337851109393222
+        ],
+        [
+          "Myocarditis",
+          0.04337851109393222
+        ],
+        [
+          "PSVT",
+          0.02317127085673875
+        ]
+      ],
+      "initial_evidence": "Have you been coughing up blood?",
+      "predicted": [
+        {
+          "diagnosis": "Tuberculosis",
+          "agreement_score": 0.65
+        }
+      ],
+      "raw_output": "===TRIAGE_RESULT===\n{\"case_complexity\": \"MODERATE\", \"confident_diagnosis\": \"\", \"confidence\": 0.5, \"red_flags\": [], \"recommended_specialties\": [\"pulmonology\", \"infectious_disease\", \"oncology\"], \"reasoning\": \"The patient is an elderly male presenting with hemoptysis (coughing up blood). This is a concerning symptom that can be indicative of serious underlying conditions such as pulmonary embolism, pulmonary neoplasm, severe infection (like tuberculosis or pneumonia), or bronchiectasis. While a simple URI or bronchitis can sometimes cause blood-tinged sputum, in an elderly patient, hemoptysis warrants a thorough workup to rule out more sinister causes. The presence of potential risk factors like smoking history (E8) and family history of lung cancer (E14) further elevates concern for pulmonary neoplasm. Therefore, specialist consultation is recommended, specifically in pulmonology for direct evaluation of the respiratory system, infectious disease to rule out infections, and oncology given the potential for malignancy.\"}\n===CONSILIUM_RESULT===\n[{\"diagnosis\": \"Tuberculosis\", \"agreement_score\": 0.65}]\n",
+      "cost_usd": 0.0,
+      "target": "Pulmonary neoplasm",
+      "predictions": [
+        "Tuberculosis"
+      ],
+      "top_1_correct": false,
+      "top_3_correct": false,
+      "pathology_in_top3": false,
+      "mrr": 0.0,
+      "rank": null
+    },
+    {
+      "case_id": 101404,
+      "pathology": "Myocarditis",
+      "ground_truth_differential": [
+        [
+          "Panic attack",
+          0.10943885807189667
+        ],
+        [
+          "Myocarditis",
+          0.10031375792007674
+        ],
+        [
+          "PSVT",
+          0.09722882605030236
+        ],
+        [
+          "Guillain-Barré syndrome",
+          0.09343628527556891
+        ],
+        [
+          "Pericarditis",
+          0.09067306911380546
+        ],
+        [
+          "Boerhaave",
+          0.08848238345751598
+        ],
+        [
+          "GERD",
+          0.08361036647623168
+        ],
+        [
+          "Acute dystonic reactions",
+          0.06579880199398454
+        ],
+        [
+          "Myasthenia gravis",
+          0.06579880199398454
+        ],
+        [
+          "Anaphylaxis",
+          0.06579880199398454
+        ],
+        [
+          "Chagas",
+          0.05507455505515718
+        ],
+        [
+          "Sarcoidosis",
+          0.053883788193189446
+        ],
+        [
+          "SLE",
+          0.030461704404301595
+        ],
+        [
+          "Pulmonary embolism",
+          0.0
+        ]
+      ],
+      "initial_evidence": "Have you noticed any new fatigue, generalized and vague discomfort, diffuse (widespread) muscle aches or a change in your general well-being related to your consultation today?",
+      "predicted": [
+        {
+          "diagnosis": "Myocarditis",
+          "agreement_score": 0.5333333333333333
+        },
+        {
+          "diagnosis": "SLE",
+          "agreement_score": 0.26666666666666666
+        }
+      ],
+      "raw_output": "===TRIAGE_RESULT===\n{\"case_complexity\": \"MODERATE\", \"confident_diagnosis\": \"\", \"confidence\": 0.4, \"red_flags\": [], \"recommended_specialties\": [\"cardiology\", \"infectious_disease\", \"rheumatology\"], \"reasoning\": \"The patient presents with generalized fatigue, discomfort, and diffuse muscle aches, along with chest pain. While the pain intensity is moderate (4/10), its description as a \\\"knife stroke\\\" and location in the lower, side, and upper chest, as well as the left breast, warrants further investigation. The absence of radiating pain and the rapid onset (5/5) are noted. The patient denies shortness of breath and palpitations. Given the chest pain and systemic symptoms, cardiology is essential. The diffuse muscle aches and vague discomfort could indicate an infectious or inflammatory process, necessitating infectious disease and rheumatology consultations. The presentation is not overtly severe enough to be classified as COMPLEX, but it is too ambiguous for a SIMPLE diagnosis.\"}\n===CONSILIUM_RESULT===\n[{\"diagnosis\": \"Myocarditis\", \"agreement_score\": 0.5333333333333333}, {\"diagnosis\": \"SLE\", \"agreement_score\": 0.26666666666666666}]\n",
+      "cost_usd": 0.0,
+      "target": "Panic attack",
+      "predictions": [
+        "Myocarditis",
+        "SLE"
+      ],
+      "top_1_correct": false,
+      "top_3_correct": false,
+      "pathology_in_top3": true,
+      "mrr": 0.0,
+      "rank": null
+    },
+    {
+      "case_id": 110495,
+      "pathology": "Influenza",
+      "ground_truth_differential": [
+        [
+          "URTI",
+          0.1666671257197593
+        ],
+        [
+          "Bronchitis",
+          0.14588748198857496
+        ],
+        [
+          "Acute rhinosinusitis",
+          0.1322706889130598
+        ],
+        [
+          "Cluster headache",
+          0.12312158520942412
+        ],
+        [
+          "Chronic rhinosinusitis",
+          0.10957146513494372
+        ],
+        [
+          "Anaphylaxis",
+          0.10882053674893538
+        ],
+        [
+          "Scombroid food poisoning",
+          0.08502823301529717
+        ],
+        [
+          "Chagas",
+          0.06929831955143304
+        ],
+        [
+          "Influenza",
+          0.033849053732889336
+        ],
+        [
+          "Anemia",
+          0.025485509985683136
+        ]
+      ],
+      "initial_evidence": "Have you had significantly increased sweating?",
+      "predicted": [
+        {
+          "diagnosis": "SLE",
+          "agreement_score": 0.26666666666666666
+        },
+        {
+          "diagnosis": "HIV (initial infection)",
+          "agreement_score": 0.26666666666666666
+        },
+        {
+          "diagnosis": "Cluster headache",
+          "agreement_score": 0.2333333333333333
+        }
+      ],
+      "raw_output": "===TRIAGE_RESULT===\n{\"case_complexity\": \"MODERATE\", \"confident_diagnosis\": \"\", \"confidence\": 0.0, \"red_flags\": [], \"recommended_specialties\": [\"neurology\", \"infectious_disease\", \"rheumatology\"], \"reasoning\": \"The patient presents with significantly increased sweating and reports pain in the back of the head, neck, and forehead, with a rash on the neck and forehead. The rash is pink, swollen, larger than 1cm, and causes itching. While some symptoms like sweating and headache could be benign, the presence of a rash with these characteristics, coupled with localized pain, warrants further investigation. The combination of neurological symptoms (headache), potential systemic involvement (sweating, rash), and the need to rule out infectious or inflammatory causes makes this a moderate complexity case requiring specialist input. Neurology is recommended for the headache and potential neurological involvement. Infectious disease is recommended due to the rash and the need to rule out systemic infections. Rheumatology is considered due to the rash and systemic symptoms, to evaluate for inflammatory or autoimmune processes.\"}\n===CONSILIUM_RESULT===\n[{\"diagnosis\": \"SLE\", \"agreement_score\": 0.26666666666666666}, {\"diagnosis\": \"HIV (initial infection)\", \"agreement_score\": 0.26666666666666666}, {\"diagnosis\": \"Cluster headache\", \"agreement_score\": 0.2333333333333333}]\n",
+      "cost_usd": 0.0,
+      "target": "URTI",
+      "predictions": [
+        "SLE",
+        "HIV (initial infection)",
+        "Cluster headache"
+      ],
+      "top_1_correct": false,
+      "top_3_correct": false,
+      "pathology_in_top3": false,
+      "mrr": 0.0,
+      "rank": null
+    },
+    {
+      "case_id": 2448,
+      "pathology": "Anemia",
+      "ground_truth_differential": [
+        [
+          "Anemia",
+          0.29210816676676377
+        ],
+        [
+          "HIV (initial infection)",
+          0.17870652392582073
+        ],
+        [
+          "Anaphylaxis",
+          0.17467419335805087
+        ],
+        [
+          "Chagas",
+          0.16899127949614762
+        ],
+        [
+          "Cluster headache",
+          0.1418261284447867
+        ],
+        [
+          "Scombroid food poisoning",
+          0.043693708008430227
+        ]
+      ],
+      "initial_evidence": "Have you recently had stools that were black (like coal)?",
+      "predicted": [
+        {
+          "diagnosis": "Anemia",
+          "agreement_score": 0.942857142857143
+        }
+      ],
+      "raw_output": "===TRIAGE_RESULT===\n{\"case_complexity\": \"COMPLEX\", \"confident_diagnosis\": \"Anemia\", \"confidence\": 0.8, \"red_flags\": [\"Atypical or rapidly progressive presentation\"], \"recommended_specialties\": [\"ALL\"], \"reasoning\": \"The patient presents with black stools (melena), which is a significant red flag for gastrointestinal bleeding. While anemia is a likely diagnosis, the underlying cause of the bleeding needs to be investigated. Melena can be caused by upper GI bleeds (e.g., peptic ulcer disease, gastritis, esophageal varices) or, less commonly, by slow bleeds in the small intestine. The presence of fatigue and lightheadedness further supports anemia, but the source of blood loss is the primary concern. Given the potential for significant blood loss and the need to identify the source, gastroenterology and hematology consultations are essential. Cardiology is included due to the potential for hemodynamic compromise with significant bleeding.\"}\n===CONSILIUM_RESULT===\n[{\"diagnosis\": \"Anemia\", \"agreement_score\": 0.942857142857143}]\n",
+      "cost_usd": 0.0,
+      "target": "Anemia",
+      "predictions": [
+        "Anemia"
+      ],
+      "top_1_correct": true,
+      "top_3_correct": true,
+      "pathology_in_top3": true,
+      "mrr": 1.0,
+      "rank": 1
+    },
+    {
+      "case_id": 93335,
+      "pathology": "Pericarditis",
+      "ground_truth_differential": [
+        [
+          "Pericarditis",
+          0.42653019390260233
+        ],
+        [
+          "GERD",
+          0.33308294899424135
+        ],
+        [
+          "Anaphylaxis",
+          0.15425690261544697
+        ],
+        [
+          "Myocarditis",
+          0.08612995448770937
+        ]
+      ],
+      "initial_evidence": "Do you feel your heart is beating fast (racing), irregularly (missing a beat) or do you feel palpitations?",
+      "predicted": [
+        {
+          "diagnosis": "Pericarditis",
+          "agreement_score": 0.9
+        }
+      ],
+      "raw_output": "===TRIAGE_RESULT===\n{\"case_complexity\": \"MODERATE\", \"confident_diagnosis\": \"\", \"confidence\": 0.0, \"red_flags\": [], \"recommended_specialties\": [\"cardiology\", \"infectious_disease\", \"neurology\"], \"reasoning\": \"The patient, a 16-year-old male, presents with palpitations and chest pain described as sharp, knife-like, and radiating to the thoracic spine and posterior chest wall. The pain is located in the chest and epigastric region, with an intensity of 7/10, and appeared rapidly. The symptoms are worse when lying down and improve when sitting up. While the age and presentation might suggest a cardiac etiology like myocarditis or pericarditis, the sharp, pleuritic nature of the pain, and the relief upon sitting up are also concerning for pericarditis. The recent viral infection history is a potential trigger for pericarditis. Given the chest pain, cardiac evaluation is essential. The potential for a recent viral infection as a cause also warrants consideration of infectious disease. The atypical nature of the chest pain and its radiation could also warrant neurological input to rule out referred pain or other neurological causes.\"}\n===CONSILIUM_RESULT===\n[{\"diagnosis\": \"Pericarditis\", \"agreement_score\": 0.9}]\n",
+      "cost_usd": 0.0,
+      "target": "Pericarditis",
+      "predictions": [
+        "Pericarditis"
+      ],
+      "top_1_correct": true,
+      "top_3_correct": true,
+      "pathology_in_top3": true,
+      "mrr": 1.0,
+      "rank": 1
+    },
+    {
+      "case_id": 22296,
+      "pathology": "Chronic rhinosinusitis",
+      "ground_truth_differential": [
+        [
+          "Chronic rhinosinusitis",
+          0.20450608356146505
+        ],
+        [
+          "Bronchitis",
+          0.19169592416292036
+        ],
+        [
+          "Acute rhinosinusitis",
+          0.1825484304267558
+        ],
+        [
+          "URTI",
+          0.15555555042624075
+        ],
+        [
+          "Cluster headache",
+          0.11823533271820301
+        ],
+        [
+          "Chagas",
+          0.0737293393522075
+        ],
+        [
+          "Anemia",
+          0.0737293393522075
+        ]
+      ],
+      "initial_evidence": "Have you lost your sense of smell?",
+      "predicted": [
+        {
+          "diagnosis": "Acute rhinosinusitis",
+          "agreement_score": 0.9142857142857144
+        }
+      ],
+      "raw_output": "===TRIAGE_RESULT===\n{\"case_complexity\": \"SIMPLE\", \"confident_diagnosis\": \"Acute rhinosinusitis\", \"confidence\": 0.8, \"red_flags\": [], \"recommended_specialties\": [], \"reasoning\": \"The patient presents with a loss of sense of smell and facial pain, which are highly suggestive of acute rhinosinusitis. The absence of red flags such as fever, neurological deficits, or hemodynamic instability, and the straightforward nature of the symptoms make this a simple case for a general physician to diagnose and manage. The patient's age and symptoms are typical for this condition.\"}\n===CONSILIUM_RESULT===\n[{\"diagnosis\": \"Acute rhinosinusitis\", \"agreement_score\": 0.9142857142857144}]\n",
+      "cost_usd": 0.0,
+      "target": "Chronic rhinosinusitis",
+      "predictions": [
+        "Acute rhinosinusitis"
+      ],
+      "top_1_correct": false,
+      "top_3_correct": false,
+      "pathology_in_top3": false,
+      "mrr": 0.0,
+      "rank": null
+    },
+    {
+      "case_id": 72426,
+      "pathology": "Inguinal hernia",
+      "ground_truth_differential": [
+        [
+          "Inguinal hernia",
+          0.49628288804870224
+        ],
+        [
+          "Anaphylaxis",
+          0.3154970139362023
+        ],
+        [
+          "Scombroid food poisoning",
+          0.1882200980150955
+        ]
+      ],
+      "initial_evidence": "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?",
+      "predicted": [
+        {
+          "diagnosis": "Inguinal hernia",
+          "agreement_score": 0.9166666666666666
+        }
+      ],
+      "raw_output": "===TRIAGE_RESULT===\n{\"case_complexity\": \"MODERATE\", \"confident_diagnosis\": \"\", \"confidence\": 0.0, \"red_flags\": [], \"recommended_specialties\": [\"gastroenterology\", \"infectious_disease\", \"rheumatology\"], \"reasoning\": \"The patient presents with left iliac fossa pain, right and left hip pain, and right and left testicular pain, with an intensity of 6/10. There is also a description of a pale, swollen lesion larger than 1cm in the left iliac fossa, with associated pain of 4/10, but no itching. The pain is characterized as 'heavy' and does not radiate. The lack of fever or systemic symptoms makes simple infections less likely. The location of the pain, particularly the testicular and hip pain, alongside a palpable lesion, warrants investigation into potential inflammatory, infectious, or gastrointestinal causes that might involve multiple systems. Given the combination of pain, a skin lesion, and location, gastroenterology for potential referred pain or inflammatory bowel disease, infectious disease for potential localized infection or systemic spread, and rheumatology for inflammatory conditions are recommended.\"}\n===CONSILIUM_RESULT===\n[{\"diagnosis\": \"Inguinal hernia\", \"agreement_score\": 0.9166666666666666}]\n",
+      "cost_usd": 0.0,
+      "target": "Inguinal hernia",
+      "predictions": [
+        "Inguinal hernia"
+      ],
+      "top_1_correct": true,
+      "top_3_correct": true,
+      "pathology_in_top3": true,
+      "mrr": 1.0,
+      "rank": 1
+    },
+    {
+      "case_id": 94092,
+      "pathology": "Influenza",
+      "ground_truth_differential": [
+        [
+          "Influenza",
+          0.18433136613245812
+        ],
+        [
+          "URTI",
+          0.17918327376694648
+        ],
+        [
+          "HIV (initial infection)",
+          0.15072385074427552
+        ],
+        [
+          "Bronchitis",
+          0.12695595264939658
+        ],
+        [
+          "Chagas",
+          0.10119896304706825
+        ],
+        [
+          "Anemia",
+          0.07206002874515166
+        ],
+        [
+          "Tuberculosis",
+          0.06902996660724094
+        ],
+        [
+          "Pneumonia",
+          0.05879097405791286
+        ],
+        [
+          "Scombroid food poisoning",
+          0.057725624249549794
+        ]
+      ],
+      "initial_evidence": "Do you have a fever (either felt or measured with a thermometer)?",
+      "predicted": [
+        {
+          "diagnosis": "Influenza",
+          "agreement_score": 0.5333333333333333
+        },
+        {
+          "diagnosis": "URTI",
+          "agreement_score": 0.3
+        }
+      ],
+      "raw_output": "===TRIAGE_RESULT===\n{\"case_complexity\": \"MODERATE\", \"confident_diagnosis\": \"\", \"confidence\": 0.0, \"red_flags\": [], \"recommended_specialties\": [\"infectious_disease\", \"neurology\", \"rheumatology\"], \"reasoning\": \"The patient is 96 years old and presents with multiple symptoms including fever, chills, increased sweating, and pain in the head and neck. There is also a rash described as pink, swollen, and larger than 1cm on the neck and forehead, with associated pain. The patient also reports feeling exhausted and unable to do usual activities. Given the age, fever, systemic symptoms, and the presence of a rash with pain, there is a concern for a severe infection or an inflammatory process, necessitating input from infectious disease and rheumatology. The headache in the occiput and neck pain, coupled with exhaustion, also warrants neurological evaluation. The combination of symptoms and the patient's advanced age elevate this beyond a simple case.\"}\n===CONSILIUM_RESULT===\n[{\"diagnosis\": \"Influenza\", \"agreement_score\": 0.5333333333333333}, {\"diagnosis\": \"URTI\", \"agreement_score\": 0.3}]\n",
+      "cost_usd": 0.0,
+      "target": "Influenza",
+      "predictions": [
+        "Influenza",
+        "URTI"
+      ],
+      "top_1_correct": true,
+      "top_3_correct": true,
+      "pathology_in_top3": true,
+      "mrr": 1.0,
+      "rank": 1
+    },
+    {
+      "case_id": 19174,
+      "pathology": "Influenza",
+      "ground_truth_differential": [
+        [
+          "URTI",
+          0.17025924290489325
+        ],
+        [
+          "Influenza",
+          0.16587529343091065
+        ],
+        [
+          "HIV (initial infection)",
+          0.13101754826749706
+        ],
+        [
+          "Bronchitis",
+          0.12060823558578834
+        ],
+        [
+          "Chagas",
+          0.10155309387746166
+        ],
+        [
+          "Chronic rhinosinusitis",
+          0.0948537645810853
+        ],
+        [
+          "Tuberculosis",
+          0.0923223479158686
+        ],
+        [
+          "Scombroid food poisoning",
+          0.06237464213998336
+        ],
+        [
+          "Anemia",
+          0.06113583129651169
+        ]
+      ],
+      "initial_evidence": "Do you have a fever (either felt or measured with a thermometer)?",
+      "predicted": [
+        {
+          "diagnosis": "URTI",
+          "agreement_score": 0.31666666666666665
+        },
+        {
+          "diagnosis": "SLE",
+          "agreement_score": 0.2833333333333333
+        },
+        {
+          "diagnosis": "HIV (initial infection)",
+          "agreement_score": 0.26666666666666666
+        }
+      ],
+      "raw_output": "===TRIAGE_RESULT===\n{\"case_complexity\": \"MODERATE\", \"confident_diagnosis\": \"\", \"confidence\": 0.3, \"red_flags\": [], \"recommended_specialties\": [\"infectious_disease\", \"neurology\", \"rheumatology\"], \"reasoning\": \"The patient presents with a headache localized to the occiput, neck, and temples, described as sensitive, heavy, and exhausting with moderate intensity (5/10). There is also a rash on the left side of the neck, described as pink, swollen (3/4), larger than 1cm, with moderate pain (4/10) and mild itching (1/10). The patient also reports increased sweating and fatigue. While some symptoms like headache and rash could point towards a simple viral illness, the nature and location of the headache, coupled with the characteristics of the rash and systemic symptoms like sweating and fatigue, warrant further investigation. The combination of headache and rash is concerning for potential infectious or inflammatory processes that could benefit from specialist input. Given the headache and systemic symptoms, infectious disease and neurology are important. The rash with systemic symptoms also suggests rheumatology might be beneficial for ruling out inflammatory conditions.\"}\n===CONSILIUM_RESULT===\n[{\"diagnosis\": \"URTI\", \"agreement_score\": 0.31666666666666665}, {\"diagnosis\": \"SLE\", \"agreement_score\": 0.2833333333333333}, {\"diagnosis\": \"HIV (initial infection)\", \"agreement_score\": 0.26666666666666666}]\n",
+      "cost_usd": 0.0,
+      "target": "URTI",
+      "predictions": [
+        "URTI",
+        "SLE",
+        "HIV (initial infection)"
+      ],
+      "top_1_correct": true,
+      "top_3_correct": true,
+      "pathology_in_top3": false,
+      "mrr": 1.0,
+      "rank": 1
+    }
+  ]
+}
