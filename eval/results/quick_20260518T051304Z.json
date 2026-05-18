@@ -1,0 +1,586 @@
+{
+  "label": "quick",
+  "timestamp": "2026-05-18T05:13:04.389014+00:00",
+  "n": 10,
+  "top_1_accuracy": 0.6,
+  "top_3_accuracy": 0.7,
+  "pathology_in_top3_accuracy": 0.9,
+  "mrr": 0.65,
+  "wall_clock_seconds": 1321.4798896000002,
+  "estimated_cost_usd": 0.0,
+  "cases": [
+    {
+      "case_id": 75493,
+      "pathology": "Acute dystonic reactions",
+      "ground_truth_differential": [
+        [
+          "Acute dystonic reactions",
+          1.0
+        ]
+      ],
+      "initial_evidence": "Do you have trouble keeping your tongue in your mouth?",
+      "predicted": [
+        {
+          "diagnosis": "Acute dystonic reactions",
+          "agreement_score": 0.9357142857142857
+        }
+      ],
+      "raw_output": "\n\u001b[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new\u001b[0m\nLiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.\n\n\n\u001b[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new\u001b[0m\nLiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.\n\n\n\u001b[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new\u001b[0m\nLiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.\n\n\n\u001b[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new\u001b[0m\nLiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.\n\n\n\u001b[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new\u001b[0m\nLiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.\n\n===TRIAGE_RESULT===\n{\"case_complexity\": \"COMPLEX\", \"confident_diagnosis\": \"\", \"confidence\": 0.0, \"red_flags\": [], \"recommended_specialties\": [\"ALL\"], \"reasoning\": \"Triage failed; defaulting to full council\"}\n===CONSILIUM_RESULT===\n[{\"diagnosis\": \"Acute dystonic reactions\", \"agreement_score\": 0.9357142857142857}]\n",
+      "cost_usd": 0.0,
+      "target": "Acute dystonic reactions",
+      "predictions": [
+        "Acute dystonic reactions"
+      ],
+      "top_1_correct": true,
+      "top_3_correct": true,
+      "pathology_in_top3": true,
+      "mrr": 1.0,
+      "rank": 1
+    },
+    {
+      "case_id": 124409,
+      "pathology": "Pulmonary neoplasm",
+      "ground_truth_differential": [
+        [
+          "Pulmonary neoplasm",
+          0.12391709951421595
+        ],
+        [
+          "Tuberculosis",
+          0.10369305227008174
+        ],
+        [
+          "Bronchitis",
+          0.09952558494091525
+        ],
+        [
+          "Pneumonia",
+          0.09660626601773016
+        ],
+        [
+          "Pulmonary embolism",
+          0.0890129287802988
+        ],
+        [
+          "Bronchiectasis",
+          0.06923003558395661
+        ],
+        [
+          "Acute pulmonary edema",
+          0.06739044843724092
+        ],
+        [
+          "Guillain-Barré syndrome",
+          0.061598795336313655
+        ],
+        [
+          "Possible NSTEMI / STEMI",
+          0.06048238973720692
+        ],
+        [
+          "Bronchospasm / acute asthma exacerbation",
+          0.05977711774803558
+        ],
+        [
+          "Atrial fibrillation",
+          0.058837988589401355
+        ],
+        [
+          "Acute dystonic reactions",
+          0.04337851109393222
+        ],
+        [
+          "Myocarditis",
+          0.04337851109393222
+        ],
+        [
+          "PSVT",
+          0.02317127085673875
+        ]
+      ],
+      "initial_evidence": "Have you been coughing up blood?",
+      "predicted": [
+        {
+          "diagnosis": "Pulmonary neoplasm",
+          "agreement_score": 0.8
+        }
+      ],
+      "raw_output": "===TRIAGE_RESULT===\n{\"case_complexity\": \"MODERATE\", \"confident_diagnosis\": \"\", \"confidence\": 0.0, \"red_flags\": [], \"recommended_specialties\": [\"pulmonology\", \"infectious_disease\"], \"reasoning\": \"The patient is an elderly male presenting with hemoptysis (coughing up blood). While hemoptysis can be benign, in an elderly patient, it raises concerns for more serious conditions like pulmonary embolism, malignancy, or severe infection. The presence of risk factors such as smoking history (E8) and potential for involuntary weight loss (E10), cough (E11), and family history of lung cancer (E14) further increase suspicion for pulmonary neoplasm. Given the potential for serious underlying pathology, specialist consultation is warranted. Pulmonology is essential for evaluating the lungs, and Infectious Disease is relevant due to the possibility of infections like tuberculosis or pneumonia causing hemoptysis, especially in an elderly patient.\"}\n===CONSILIUM_RESULT===\n[{\"diagnosis\": \"Pulmonary neoplasm\", \"agreement_score\": 0.8}]\n",
+      "cost_usd": 0.0,
+      "target": "Pulmonary neoplasm",
+      "predictions": [
+        "Pulmonary neoplasm"
+      ],
+      "top_1_correct": true,
+      "top_3_correct": true,
+      "pathology_in_top3": true,
+      "mrr": 1.0,
+      "rank": 1
+    },
+    {
+      "case_id": 101404,
+      "pathology": "Myocarditis",
+      "ground_truth_differential": [
+        [
+          "Panic attack",
+          0.10943885807189667
+        ],
+        [
+          "Myocarditis",
+          0.10031375792007674
+        ],
+        [
+          "PSVT",
+          0.09722882605030236
+        ],
+        [
+          "Guillain-Barré syndrome",
+          0.09343628527556891
+        ],
+        [
+          "Pericarditis",
+          0.09067306911380546
+        ],
+        [
+          "Boerhaave",
+          0.08848238345751598
+        ],
+        [
+          "GERD",
+          0.08361036647623168
+        ],
+        [
+          "Acute dystonic reactions",
+          0.06579880199398454
+        ],
+        [
+          "Myasthenia gravis",
+          0.06579880199398454
+        ],
+        [
+          "Anaphylaxis",
+          0.06579880199398454
+        ],
+        [
+          "Chagas",
+          0.05507455505515718
+        ],
+        [
+          "Sarcoidosis",
+          0.053883788193189446
+        ],
+        [
+          "SLE",
+          0.030461704404301595
+        ],
+        [
+          "Pulmonary embolism",
+          0.0
+        ]
+      ],
+      "initial_evidence": "Have you noticed any new fatigue, generalized and vague discomfort, diffuse (widespread) muscle aches or a change in your general well-being related to your consultation today?",
+      "predicted": [
+        {
+          "diagnosis": "Myocarditis",
+          "agreement_score": 0.4
+        },
+        {
+          "diagnosis": "Influenza",
+          "agreement_score": 0.4
+        }
+      ],
+      "raw_output": "===TRIAGE_RESULT===\n{\"case_complexity\": \"MODERATE\", \"confident_diagnosis\": \"\", \"confidence\": 0.3, \"red_flags\": [], \"recommended_specialties\": [\"cardiology\", \"infectious_disease\"], \"reasoning\": \"The patient presents with generalized fatigue, vague discomfort, and diffuse muscle aches, along with chest pain described as sharp and located in the lower, right, and upper chest. While these symptoms could be related to a viral illness, the chest pain, especially given the age, warrants further investigation. The presence of chest pain and potential for cardiac involvement makes cardiology a relevant specialty. The generalized discomfort and muscle aches, alongside the possibility of a recent viral infection (implied by the initial question), suggest infectious disease as another important consideration to rule out systemic causes or complications. The presentation is not definitively SIMPLE due to the chest pain and systemic symptoms, and it does not meet the criteria for COMPLEX as there are no clear red flags like hemodynamic instability or neurological deficits.\"}\n===CONSILIUM_RESULT===\n[{\"diagnosis\": \"Myocarditis\", \"agreement_score\": 0.4}, {\"diagnosis\": \"Influenza\", \"agreement_score\": 0.4}]\n",
+      "cost_usd": 0.0,
+      "target": "Panic attack",
+      "predictions": [
+        "Myocarditis",
+        "Influenza"
+      ],
+      "top_1_correct": false,
+      "top_3_correct": false,
+      "pathology_in_top3": true,
+      "mrr": 0.0,
+      "rank": null
+    },
+    {
+      "case_id": 110495,
+      "pathology": "Influenza",
+      "ground_truth_differential": [
+        [
+          "URTI",
+          0.1666671257197593
+        ],
+        [
+          "Bronchitis",
+          0.14588748198857496
+        ],
+        [
+          "Acute rhinosinusitis",
+          0.1322706889130598
+        ],
+        [
+          "Cluster headache",
+          0.12312158520942412
+        ],
+        [
+          "Chronic rhinosinusitis",
+          0.10957146513494372
+        ],
+        [
+          "Anaphylaxis",
+          0.10882053674893538
+        ],
+        [
+          "Scombroid food poisoning",
+          0.08502823301529717
+        ],
+        [
+          "Chagas",
+          0.06929831955143304
+        ],
+        [
+          "Influenza",
+          0.033849053732889336
+        ],
+        [
+          "Anemia",
+          0.025485509985683136
+        ]
+      ],
+      "initial_evidence": "Have you had significantly increased sweating?",
+      "predicted": [
+        {
+          "diagnosis": "Scombroid food poisoning",
+          "agreement_score": 0.4
+        },
+        {
+          "diagnosis": "Cluster headache",
+          "agreement_score": 0.15
+        }
+      ],
+      "raw_output": "===TRIAGE_RESULT===\n{\"case_complexity\": \"MODERATE\", \"confident_diagnosis\": \"\", \"confidence\": 0.0, \"red_flags\": [], \"recommended_specialties\": [\"endocrinology\", \"neurology\"], \"reasoning\": \"The patient reports significantly increased sweating, which is a non-specific symptom. While it could be related to a simple condition like anxiety or a common illness, it also warrants consideration for underlying endocrine or neurological causes. The presence of headache and neck pain, though described as mild, could be associated with a range of conditions. Without further information to clarify the cause of the sweating or the nature of the pain, a MODERATE classification is appropriate to explore these possibilities with specialist input.\"}\n===CONSILIUM_RESULT===\n[{\"diagnosis\": \"Scombroid food poisoning\", \"agreement_score\": 0.4}, {\"diagnosis\": \"Cluster headache\", \"agreement_score\": 0.15}]\n",
+      "cost_usd": 0.0,
+      "target": "URTI",
+      "predictions": [
+        "Scombroid food poisoning",
+        "Cluster headache"
+      ],
+      "top_1_correct": false,
+      "top_3_correct": false,
+      "pathology_in_top3": false,
+      "mrr": 0.0,
+      "rank": null
+    },
+    {
+      "case_id": 2448,
+      "pathology": "Anemia",
+      "ground_truth_differential": [
+        [
+          "Anemia",
+          0.29210816676676377
+        ],
+        [
+          "HIV (initial infection)",
+          0.17870652392582073
+        ],
+        [
+          "Anaphylaxis",
+          0.17467419335805087
+        ],
+        [
+          "Chagas",
+          0.16899127949614762
+        ],
+        [
+          "Cluster headache",
+          0.1418261284447867
+        ],
+        [
+          "Scombroid food poisoning",
+          0.043693708008430227
+        ]
+      ],
+      "initial_evidence": "Have you recently had stools that were black (like coal)?",
+      "predicted": [
+        {
+          "diagnosis": "Anemia",
+          "agreement_score": 0.942857142857143
+        }
+      ],
+      "raw_output": "\n\u001b[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new\u001b[0m\nLiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.\n\n===TRIAGE_RESULT===\n{\"case_complexity\": \"COMPLEX\", \"confident_diagnosis\": \"Anemia\", \"confidence\": 0.7, \"red_flags\": [\"Atypical or rapidly progressive presentation\"], \"recommended_specialties\": [\"ALL\"], \"reasoning\": \"The patient's chief complaint of black stools (melena) is a significant red flag for gastrointestinal bleeding. While anemia is a likely diagnosis given the melena and potential symptoms like fatigue and lightheadedness (E11, E12), the underlying cause of bleeding needs to be investigated. The presence of melena, especially if persistent or associated with other symptoms of blood loss, warrants specialist evaluation to determine the source and severity of bleeding. Gastroenterology is essential for endoscopic evaluation, and hematology can help manage potential anemia and its underlying causes. The presentation is not definitively simple as the cause of the bleeding is unknown and could indicate a serious underlying condition.\"}\n===CONSILIUM_RESULT===\n[{\"diagnosis\": \"Anemia\", \"agreement_score\": 0.942857142857143}]\n",
+      "cost_usd": 0.0,
+      "target": "Anemia",
+      "predictions": [
+        "Anemia"
+      ],
+      "top_1_correct": true,
+      "top_3_correct": true,
+      "pathology_in_top3": true,
+      "mrr": 1.0,
+      "rank": 1
+    },
+    {
+      "case_id": 93335,
+      "pathology": "Pericarditis",
+      "ground_truth_differential": [
+        [
+          "Pericarditis",
+          0.42653019390260233
+        ],
+        [
+          "GERD",
+          0.33308294899424135
+        ],
+        [
+          "Anaphylaxis",
+          0.15425690261544697
+        ],
+        [
+          "Myocarditis",
+          0.08612995448770937
+        ]
+      ],
+      "initial_evidence": "Do you feel your heart is beating fast (racing), irregularly (missing a beat) or do you feel palpitations?",
+      "predicted": [
+        {
+          "diagnosis": "Pericarditis",
+          "agreement_score": 0.9
+        }
+      ],
+      "raw_output": "===TRIAGE_RESULT===\n{\"case_complexity\": \"MODERATE\", \"confident_diagnosis\": \"\", \"confidence\": 0.0, \"red_flags\": [], \"recommended_specialties\": [\"cardiology\", \"infectious_disease\"], \"reasoning\": \"The patient presents with palpitations and chest pain that is sharp, located in the chest, and radiates to the thoracic spine. The pain is described as intense and appeared rapidly. While palpitations can be benign, the accompanying chest pain, especially its sharp nature and radiation, alongside the potential for a recent viral infection (suggested by E0) and the history of pericarditis (E1), raises concern for cardiac or infectious causes such as myocarditis or pericarditis. Therefore, cardiology and infectious disease consultation are recommended for further evaluation.\"}\n===CONSILIUM_RESULT===\n[{\"diagnosis\": \"Pericarditis\", \"agreement_score\": 0.9}]\n",
+      "cost_usd": 0.0,
+      "target": "Pericarditis",
+      "predictions": [
+        "Pericarditis"
+      ],
+      "top_1_correct": true,
+      "top_3_correct": true,
+      "pathology_in_top3": true,
+      "mrr": 1.0,
+      "rank": 1
+    },
+    {
+      "case_id": 22296,
+      "pathology": "Chronic rhinosinusitis",
+      "ground_truth_differential": [
+        [
+          "Chronic rhinosinusitis",
+          0.20450608356146505
+        ],
+        [
+          "Bronchitis",
+          0.19169592416292036
+        ],
+        [
+          "Acute rhinosinusitis",
+          0.1825484304267558
+        ],
+        [
+          "URTI",
+          0.15555555042624075
+        ],
+        [
+          "Cluster headache",
+          0.11823533271820301
+        ],
+        [
+          "Chagas",
+          0.0737293393522075
+        ],
+        [
+          "Anemia",
+          0.0737293393522075
+        ]
+      ],
+      "initial_evidence": "Have you lost your sense of smell?",
+      "predicted": [
+        {
+          "diagnosis": "Acute rhinosinusitis",
+          "agreement_score": 0.7928571428571429
+        },
+        {
+          "diagnosis": "Chronic rhinosinusitis",
+          "agreement_score": 0.1285714285714286
+        }
+      ],
+      "raw_output": "===TRIAGE_RESULT===\n{\"case_complexity\": \"SIMPLE\", \"confident_diagnosis\": \"Acute rhinosinusitis\", \"confidence\": 0.75, \"red_flags\": [], \"recommended_specialties\": [], \"reasoning\": \"The patient presents with a chief complaint of loss of smell, and the evidence suggests localized pain in the face (forehead, cheek, nose, eye, temple) that radiates to the back of the head and nose. This presentation, along with nasal congestion or a clear runny nose, is highly suggestive of acute rhinosinusitis, a common and straightforward diagnosis for a general physician. There are no red flags indicating hemodynamic instability, neurological deficits, suspected malignancy, severe infection, multi-system involvement, or an atypical/rapidly progressive presentation. Therefore, the case is classified as SIMPLE with a confident diagnosis of acute rhinosinusitis.\"}\n===CONSILIUM_RESULT===\n[{\"diagnosis\": \"Acute rhinosinusitis\", \"agreement_score\": 0.7928571428571429}, {\"diagnosis\": \"Chronic rhinosinusitis\", \"agreement_score\": 0.1285714285714286}]\n",
+      "cost_usd": 0.0,
+      "target": "Chronic rhinosinusitis",
+      "predictions": [
+        "Acute rhinosinusitis",
+        "Chronic rhinosinusitis"
+      ],
+      "top_1_correct": false,
+      "top_3_correct": true,
+      "pathology_in_top3": true,
+      "mrr": 0.5,
+      "rank": 2
+    },
+    {
+      "case_id": 72426,
+      "pathology": "Inguinal hernia",
+      "ground_truth_differential": [
+        [
+          "Inguinal hernia",
+          0.49628288804870224
+        ],
+        [
+          "Anaphylaxis",
+          0.3154970139362023
+        ],
+        [
+          "Scombroid food poisoning",
+          0.1882200980150955
+        ]
+      ],
+      "initial_evidence": "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?",
+      "predicted": [
+        {
+          "diagnosis": "Inguinal hernia",
+          "agreement_score": 0.95
+        }
+      ],
+      "raw_output": "===TRIAGE_RESULT===\n{\"case_complexity\": \"MODERATE\", \"confident_diagnosis\": \"\", \"confidence\": 0.3, \"red_flags\": [], \"recommended_specialties\": [\"gastroenterology\", \"infectious_disease\"], \"reasoning\": \"The patient presents with abdominal pain, specifically in the left iliac fossa, and also reports pain in the right and left hip and right and left testicle. There is also mention of skin lesions described as pale and swollen, with pain associated with them. While the pain location in the iliac fossa could suggest gastrointestinal issues, the involvement of hips and testicles, along with skin lesions, introduces ambiguity. Without further information or examination, it is difficult to pinpoint a single diagnosis. The combination of abdominal pain, potential skin manifestations, and referred pain to the hips and testicles warrants further investigation by gastroenterology and infectious disease specialists to rule out various causes.\"}\n===CONSILIUM_RESULT===\n[{\"diagnosis\": \"Inguinal hernia\", \"agreement_score\": 0.95}]\n",
+      "cost_usd": 0.0,
+      "target": "Inguinal hernia",
+      "predictions": [
+        "Inguinal hernia"
+      ],
+      "top_1_correct": true,
+      "top_3_correct": true,
+      "pathology_in_top3": true,
+      "mrr": 1.0,
+      "rank": 1
+    },
+    {
+      "case_id": 94092,
+      "pathology": "Influenza",
+      "ground_truth_differential": [
+        [
+          "Influenza",
+          0.18433136613245812
+        ],
+        [
+          "URTI",
+          0.17918327376694648
+        ],
+        [
+          "HIV (initial infection)",
+          0.15072385074427552
+        ],
+        [
+          "Bronchitis",
+          0.12695595264939658
+        ],
+        [
+          "Chagas",
+          0.10119896304706825
+        ],
+        [
+          "Anemia",
+          0.07206002874515166
+        ],
+        [
+          "Tuberculosis",
+          0.06902996660724094
+        ],
+        [
+          "Pneumonia",
+          0.05879097405791286
+        ],
+        [
+          "Scombroid food poisoning",
+          0.057725624249549794
+        ]
+      ],
+      "initial_evidence": "Do you have a fever (either felt or measured with a thermometer)?",
+      "predicted": [
+        {
+          "diagnosis": "Influenza",
+          "agreement_score": 0.45
+        },
+        {
+          "diagnosis": "SLE",
+          "agreement_score": 0.375
+        }
+      ],
+      "raw_output": "===TRIAGE_RESULT===\n{\"case_complexity\": \"MODERATE\", \"confident_diagnosis\": \"\", \"confidence\": 0.3, \"red_flags\": [], \"recommended_specialties\": [\"infectious_disease\", \"rheumatology\"], \"reasoning\": \"The patient is elderly (96 years old) and presents with a constellation of symptoms including pain (head, neck), fever, chills, and a rash. The rash is described as pink, swollen, larger than 1cm, located on the neck and forehead, and causes pain. While some symptoms like fever and chills could suggest a simple infection, the presence of a rash in an elderly, potentially immunocompromised individual (though not explicitly stated, age is a factor) warrants further investigation. The combination of systemic symptoms (fever, chills, exhaustion) and a localized rash raises concerns for infectious or inflammatory processes. Given the patient's age and the atypical presentation of the rash, a specialist consultation is recommended to rule out more serious conditions. Infectious disease is recommended due to fever and chills, and rheumatology is included due to the presence of a rash with systemic symptoms, which can be seen in various rheumatological conditions.\"}\n===CONSILIUM_RESULT===\n[{\"diagnosis\": \"Influenza\", \"agreement_score\": 0.45}, {\"diagnosis\": \"SLE\", \"agreement_score\": 0.375}]\n",
+      "cost_usd": 0.0,
+      "target": "Influenza",
+      "predictions": [
+        "Influenza",
+        "SLE"
+      ],
+      "top_1_correct": true,
+      "top_3_correct": true,
+      "pathology_in_top3": true,
+      "mrr": 1.0,
+      "rank": 1
+    },
+    {
+      "case_id": 19174,
+      "pathology": "Influenza",
+      "ground_truth_differential": [
+        [
+          "URTI",
+          0.17025924290489325
+        ],
+        [
+          "Influenza",
+          0.16587529343091065
+        ],
+        [
+          "HIV (initial infection)",
+          0.13101754826749706
+        ],
+        [
+          "Bronchitis",
+          0.12060823558578834
+        ],
+        [
+          "Chagas",
+          0.10155309387746166
+        ],
+        [
+          "Chronic rhinosinusitis",
+          0.0948537645810853
+        ],
+        [
+          "Tuberculosis",
+          0.0923223479158686
+        ],
+        [
+          "Scombroid food poisoning",
+          0.06237464213998336
+        ],
+        [
+          "Anemia",
+          0.06113583129651169
+        ]
+      ],
+      "initial_evidence": "Do you have a fever (either felt or measured with a thermometer)?",
+      "predicted": [
+        {
+          "diagnosis": "Influenza",
+          "agreement_score": 0.45
+        },
+        {
+          "diagnosis": "HIV (initial infection)",
+          "agreement_score": 0.35
+        }
+      ],
+      "raw_output": "===TRIAGE_RESULT===\n{\"case_complexity\": \"MODERATE\", \"confident_diagnosis\": \"\", \"confidence\": 0.0, \"red_flags\": [], \"recommended_specialties\": [\"infectious_disease\", \"neurology\"], \"reasoning\": \"The patient presents with a fever and localized pain in the back of the head, neck, and temple, described as sensitive, heavy, and exhausting. There is also a pink, swollen lesion on the left side of the neck, larger than 1cm, with moderate pain and mild itching. The patient denies increased sweating, sore throat, skin lesions peeling, recent travel, or known immunosuppression. The combination of fever, localized headache, and a suspicious neck lesion raises concern for an infectious process, potentially involving the central nervous system or a localized infection requiring further investigation. The description of the headache and lesion warrants specialist input to rule out serious conditions.\"}\n===CONSILIUM_RESULT===\n[{\"diagnosis\": \"Influenza\", \"agreement_score\": 0.45}, {\"diagnosis\": \"HIV (initial infection)\", \"agreement_score\": 0.35}]\n",
+      "cost_usd": 0.0,
+      "target": "URTI",
+      "predictions": [
+        "Influenza",
+        "HIV (initial infection)"
+      ],
+      "top_1_correct": false,
+      "top_3_correct": false,
+      "pathology_in_top3": true,
+      "mrr": 0.0,
+      "rank": null
+    }
+  ]
+}

@@ -38,8 +38,8 @@ def consilium_get_differential(case: Case):
     jac_path = ROOT / ".venv" / "Scripts" / "jac.exe"
     jac_file = ROOT / "src" / "consilium_benchmark_runner.jac"
 
-    # pacing
-    time.sleep(2)
+    # pacing — respect rate limits
+    time.sleep(5)
 
     result = subprocess.run([str(jac_path), "run", str(jac_file)], capture_output=True, text=True)
 
