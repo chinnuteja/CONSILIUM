@@ -1,0 +1,146 @@
+{
+  "case_id": "case_b",
+  "vignette": "45-year-old male with persistent hypertension resistant to 3 medications, unexplained hypokalemia (K+ 2.9), muscle weakness, and polyuria. Labs show elevated aldosterone-to-renin ratio.",
+  "age": 45,
+  "sex": "M",
+  "ground_truth": "Possible NSTEMI / Acute coronary syndrome",
+  "compute_time_seconds": 313.1,
+  "events": [
+    {
+      "timestamp_ms": 0,
+      "type": "case_received",
+      "data": {
+        "case_id": "case_b",
+        "vignette": "45-year-old male with persistent hypertension resistant to 3 medications, unexplained hypokalemia (K+ 2.9), muscle weakness, and polyuria. Labs show elevated aldosterone-to-renin ratio.",
+        "evidence_count": 9
+      }
+    },
+    {
+      "timestamp_ms": 1500,
+      "type": "triage_decision",
+      "data": {
+        "case_complexity": "MODERATE",
+        "confident_diagnosis": "Primary Aldosteronism",
+        "confidence": 0.9,
+        "red_flags": [],
+        "recommended_specialties": [
+          "endocrinology",
+          "cardiology"
+        ],
+        "reasoning": "The patient presents with persistent hypertension resistant to multiple medications, hypokalemia, muscle weakness, and polyuria. The elevated aldosterone-to-renin ratio is a strong indicator of primary aldosteronism. While this is a specific diagnosis, the severity of the hypertension and the electrolyte imbalance warrant specialist evaluation to manage and rule out secondary complications. Endocrinology is essential for confirming and managing primary aldosteronism, and cardiology is recommended due to the significant hypertension and risk of cardiovascular complications."
+      }
+    },
+    {
+      "timestamp_ms": 3500,
+      "type": "specialist_thinking",
+      "data": {
+        "specialty": "Cardiology"
+      }
+    },
+    {
+      "timestamp_ms": 5000,
+      "type": "specialist_posted",
+      "data": {
+        "specialty": "Cardiology",
+        "diagnosis": "Pulmonary neoplasm",
+        "confidence": 0.2,
+        "reasoning": "The patient's syndrome of resistant hypertension (E0), hypokalemia (E1), and metabolic alkalosis (E5) is characteristic of mineralocorticoid excess. A pulmonary neoplasm causing a paraneoplastic syndrome (e.g., ectopic ACTH) is a potential cause. This is chosen with very low confidence as it is strongly contradicted by the elevated aldosterone-to-renin ratio (E4) and lack of cushingoid features (E7). The clinical and lab data are a classic presentation of primary aldosteronism, which was not an option.",
+        "citations": [
+          "Cardiology traversed evidence node E0: Hypertension resistant to 3 antihypertensive medications",
+          "Cardiology traversed evidence node E1: Hypokalemia: K+ 2.9 mEq/L (low)",
+          "Cardiology traversed evidence node E2: Muscle weakness, progressive over 2 months",
+          "Cardiology traversed evidence node E3: Polyuria (increased urination frequency)",
+          "Cardiology traversed evidence node E4: Elevated aldosterone-to-renin ratio",
+          "Cardiology traversed evidence node E5: Metabolic alkalosis on ABG",
+          "Cardiology traversed evidence node E6: No edema",
+          "Cardiology traversed evidence node E7: BMI 28, no cushingoid features",
+          "Cardiology traversed evidence node E8: Family history of early-onset hypertension (father)"
+        ]
+      }
+    },
+    {
+      "timestamp_ms": 7000,
+      "type": "specialist_thinking",
+      "data": {
+        "specialty": "Endocrinology"
+      }
+    },
+    {
+      "timestamp_ms": 8500,
+      "type": "specialist_posted",
+      "data": {
+        "specialty": "Endocrinology",
+        "diagnosis": "Pancreatic neoplasm",
+        "confidence": 0.2,
+        "reasoning": "The patient's presentation of resistant hypertension, hypokalemia, metabolic alkalosis, and an elevated aldosterone-to-renin ratio is pathognomonic for primary aldosteronism. This is typically caused by an adrenal adenoma (a benign neoplasm). Given the provided options, an extremely rare ectopic aldosterone-secreting pancreatic neuroendocrine tumor is the only diagnosis that could mechanistically account for all the specific hormonal findings, particularly the elevated aldosterone-to-renin ratio.",
+        "citations": [
+          "Endocrinology traversed evidence node E0: Hypertension resistant to 3 antihypertensive medications",
+          "Endocrinology traversed evidence node E1: Hypokalemia: K+ 2.9 mEq/L (low)",
+          "Endocrinology traversed evidence node E2: Muscle weakness, progressive over 2 months",
+          "Endocrinology traversed evidence node E3: Polyuria (increased urination frequency)",
+          "Endocrinology traversed evidence node E4: Elevated aldosterone-to-renin ratio",
+          "Endocrinology traversed evidence node E5: Metabolic alkalosis on ABG",
+          "Endocrinology traversed evidence node E6: No edema",
+          "Endocrinology traversed evidence node E7: BMI 28, no cushingoid features",
+          "Endocrinology traversed evidence node E8: Family history of early-onset hypertension (father)"
+        ]
+      }
+    },
+    {
+      "timestamp_ms": 10500,
+      "type": "challenge_posted",
+      "data": {
+        "from_specialty": "Cardiology",
+        "to_specialty": "Endocrinology",
+        "question": "Given that adrenal venous sampling is the gold standard for differentiating a surgically-correctable adrenal adenoma from bilateral hyperplasia—the two most common causes of this presentation—what specific evidence justifies forgoing this critical step to diagnose an exceptionally rare ectopic pancreatic source, thereby potentially delaying definitive cardiovascular risk reduction?"
+      }
+    },
+    {
+      "timestamp_ms": 12500,
+      "type": "response_posted",
+      "data": {
+        "from_specialty": "Endocrinology",
+        "action": "DEFEND",
+        "revised_diagnosis": "Pancreatic neoplasm",
+        "revised_confidence": 0.6,
+        "response_text": "I concur that an adrenal source is overwhelmingly the most probable cause of this patient's primary aldosteronism and that adrenal venous sampling is the critical next step. However, my diagnostic hypothesis was constrained by the specific options provided. Among those choices, an ectopic aldosterone-secreting pancreatic neoplasm is the only diagnosis that can mechanistically account for the patient's complete presentation of resistant hypertension, hypokalemia, and, most critically, the elevated aldosterone-to-renin ratio. While we must proceed with adrenal imaging and sampling to rule in or out the common causes, my initial hypothesis remains the only plausible, albeit exceptionally rare, neoplastic cause on the list that aligns with the specific hormonal derangement presented in evidence node E4."
+      }
+    },
+    {
+      "timestamp_ms": 14500,
+      "type": "challenge_posted",
+      "data": {
+        "from_specialty": "Endocrinology",
+        "to_specialty": "Cardiology",
+        "question": "Given that an elevated aldosterone-to-renin ratio (E4) is the classic biochemical hallmark of primary aldosteronism, how do you reconcile this finding with a diagnosis of a pulmonary neoplasm, especially in the absence of cushingoid features (E7) that would be expected from an ectopic ACTH-producing tumor?"
+      }
+    },
+    {
+      "timestamp_ms": 16500,
+      "type": "response_posted",
+      "data": {
+        "from_specialty": "Cardiology",
+        "action": "DEFEND",
+        "revised_diagnosis": "Pulmonary neoplasm",
+        "revised_confidence": 0.1,
+        "response_text": "I acknowledge your critical point regarding the elevated aldosterone-to-renin ratio (E4) and the absence of cushingoid features (E7), which indeed makes a typical ectopic ACTH-producing tumor highly unlikely. However, my initial hypothesis of a pulmonary neoplasm was intended to encompass the broader category of paraneoplastic syndromes. While exceedingly rare, non-adrenal tumors, including certain neuroendocrine tumors of pulmonary origin, have been reported to cause mineralocorticoid excess through atypical mechanisms, potentially explaining the patient's presentation without invoking ACTH. Given that the classic diagnosis of primary aldosteronism is not an available option, 'pulmonary neoplasm' remains a necessary, albeit low-probability, consideration to ensure we rule out an occult malignancy before presuming a benign adrenal source for this patient's severe secondary hypertension."
+      }
+    },
+    {
+      "timestamp_ms": 18500,
+      "type": "final_differential",
+      "data": {
+        "top_3": [
+          {
+            "diagnosis": "Pancreatic neoplasm",
+            "agreement_score": 0.3
+          },
+          {
+            "diagnosis": "Pulmonary neoplasm",
+            "agreement_score": 0.05
+          }
+        ]
+      }
+    }
+  ]
+}
