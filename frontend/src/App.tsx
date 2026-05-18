@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
-import { Header } from './components/Header';
+import { Header, type ViewMode } from './components/Header';
+import { GraphView } from './components/graph/GraphView';
 import { CaseCard } from './components/CaseCard';
 import { PlaybackControls } from './components/PlaybackControls';
 import { TriageCard } from './components/TriageCard';
@@ -12,12 +13,18 @@ import { traces } from './data/traces';
 
 function App() {
   const [selectedCase, setSelectedCase] = useState('case_b');
+  const [viewMode, setViewMode] = useState<ViewMode>('council');
   const trace = useMemo(() => traces[selectedCase] || null, [selectedCase]);
   const { state, play, pause, step, reset, setSpeed } = usePlayback(trace);
 
   return (
     <div className="h-screen flex flex-col overflow-hidden">
-      <Header selectedCase={selectedCase} onSelectCase={setSelectedCase} />
+      <Header
+        selectedCase={selectedCase}
+        onSelectCase={setSelectedCase}
+        viewMode={viewMode}
+        onViewModeChange={setViewMode}
+      />
 
       <main className="flex-1 flex overflow-hidden">
         {/* Left Panel */}
@@ -41,14 +48,20 @@ function App() {
         </aside>
 
         {/* Right Panel */}
-        <section className="flex-1 p-4 overflow-y-auto">
-          <SpecialistGrid specialists={state.specialists} />
-          <CrossExamPanel challenges={state.challenges} />
-          <DevilsAdvocatePanel data={state.devilsAdvocate} />
-          <FinalDifferential
-            data={state.finalDifferential}
-            complexity={state.triage?.case_complexity ?? null}
-          />
+        <section className="flex-1 overflow-hidden">
+          {viewMode === 'council' ? (
+            <div className="p-4 overflow-y-auto h-full">
+              <SpecialistGrid specialists={state.specialists} />
+              <CrossExamPanel challenges={state.challenges} />
+              <DevilsAdvocatePanel data={state.devilsAdvocate} />
+              <FinalDifferential
+                data={state.finalDifferential}
+                complexity={state.triage?.case_complexity ?? null}
+              />
+            </div>
+          ) : (
+            trace && <GraphView trace={trace} state={state} />
+          )}
         </section>
       </main>
     </div>

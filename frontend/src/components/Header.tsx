@@ -1,12 +1,16 @@
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, LayoutGrid, GitBranch } from 'lucide-react';
 import { caseOptions } from '../data/traces';
+
+export type ViewMode = 'council' | 'graph';
 
 interface HeaderProps {
   selectedCase: string;
   onSelectCase: (caseId: string) => void;
+  viewMode: ViewMode;
+  onViewModeChange: (mode: ViewMode) => void;
 }
 
-export function Header({ selectedCase, onSelectCase }: HeaderProps) {
+export function Header({ selectedCase, onSelectCase, viewMode, onViewModeChange }: HeaderProps) {
   return (
     <header className="h-16 flex items-center justify-between px-6 border-b border-white/5 bg-bg-surface">
       <div className="flex items-center gap-4">
@@ -17,6 +21,32 @@ export function Header({ selectedCase, onSelectCase }: HeaderProps) {
           Multi-Agent Diagnostic Council
         </span>
       </div>
+
+      <div className="flex items-center gap-4">
+        <div className="flex rounded-lg border border-white/10 overflow-hidden">
+          <button
+            onClick={() => onViewModeChange('council')}
+            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs transition-colors ${
+              viewMode === 'council'
+                ? 'bg-accent-teal/20 text-accent-teal'
+                : 'text-text-secondary hover:text-text-primary'
+            }`}
+          >
+            <LayoutGrid className="w-3.5 h-3.5" />
+            Council
+          </button>
+          <button
+            onClick={() => onViewModeChange('graph')}
+            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs transition-colors ${
+              viewMode === 'graph'
+                ? 'bg-accent-teal/20 text-accent-teal'
+                : 'text-text-secondary hover:text-text-primary'
+            }`}
+          >
+            <GitBranch className="w-3.5 h-3.5" />
+            Graph
+          </button>
+        </div>
 
       <div className="relative">
         <select
@@ -34,6 +64,7 @@ export function Header({ selectedCase, onSelectCase }: HeaderProps) {
           </option>
         </select>
         <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-secondary pointer-events-none" />
+      </div>
       </div>
     </header>
   );
