@@ -144,6 +144,10 @@ export function FinalDifferential({
           <h3 className="text-[10px] font-semibold uppercase tracking-[0.18em] text-text-secondary mb-4">
             Alternative Hypotheses
           </h3>
+          <div className="mb-2 flex items-center justify-between text-[9px] font-mono uppercase tracking-wider text-text-secondary/60">
+            <span>Diagnosis</span>
+            <span>Agreement score</span>
+          </div>
           <div className="space-y-4">
             {alternatives.map((item, i) => (
               <div key={item.diagnosis}>
@@ -151,7 +155,7 @@ export function FinalDifferential({
                   <span className="text-sm text-text-secondary">
                     {i + 2} · {item.diagnosis}
                   </span>
-                  <span className="text-[11px] font-mono text-text-secondary">
+                  <span className="text-[11px] font-mono text-accent-teal">
                     {(item.agreement_score * 100).toFixed(0)}%
                   </span>
                 </div>
