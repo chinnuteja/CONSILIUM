@@ -1,7 +1,7 @@
-import { ChevronDown, LayoutGrid, GitBranch } from 'lucide-react';
+import { ChevronDown, LayoutGrid, GitBranch, BarChart3 } from 'lucide-react';
 import { caseOptions } from '../data/traces';
 
-export type ViewMode = 'council' | 'graph';
+export type ViewMode = 'council' | 'graph' | 'benchmark';
 
 interface HeaderProps {
   selectedCase: string;
@@ -45,6 +45,17 @@ export function Header({ selectedCase, onSelectCase, viewMode, onViewModeChange 
           >
             <GitBranch className="w-3.5 h-3.5" />
             Graph
+          </button>
+          <button
+            onClick={() => onViewModeChange('benchmark')}
+            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs transition-colors ${
+              viewMode === 'benchmark'
+                ? 'bg-accent-teal/20 text-accent-teal'
+                : 'text-text-secondary hover:text-text-primary'
+            }`}
+          >
+            <BarChart3 className="w-3.5 h-3.5" />
+            Benchmark
           </button>
         </div>
 

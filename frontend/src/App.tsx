@@ -8,6 +8,7 @@ import { SpecialistGrid } from './components/SpecialistGrid';
 import { CrossExamPanel } from './components/CrossExamPanel';
 import { DevilsAdvocatePanel } from './components/DevilsAdvocatePanel';
 import { FinalDifferential } from './components/FinalDifferential';
+import { BenchmarkView } from './components/BenchmarkView';
 import { usePlayback } from './hooks/usePlayback';
 import { traces } from './data/traces';
 
@@ -27,7 +28,8 @@ function App() {
       />
 
       <main className="flex-1 flex overflow-hidden">
-        {/* Left Panel */}
+        {/* Left Panel — hidden in benchmark view */}
+        {viewMode !== 'benchmark' && (
         <aside className="w-[30%] min-w-[320px] border-r border-white/5 p-4 overflow-y-auto space-y-4">
           {trace && <CaseCard trace={trace} isComplete={state.isComplete} />}
 
@@ -48,6 +50,7 @@ function App() {
             <TriageCard triage={state.triage} />
           </div>
         </aside>
+        )}
 
         {/* Right Panel */}
         <section className="flex-1 overflow-hidden">
@@ -64,8 +67,10 @@ function App() {
                 challenges={state.challenges}
               />
             </div>
-          ) : (
+          ) : viewMode === 'graph' ? (
             trace && <GraphView trace={trace} state={state} />
+          ) : (
+            <BenchmarkView />
           )}
         </section>
       </main>
