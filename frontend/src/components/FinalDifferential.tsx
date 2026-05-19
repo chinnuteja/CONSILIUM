@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2, Minus } from 'lucide-react';
 import type { ChallengeArrow, Complexity, FinalDifferentialData, SpecialistState } from '../types';
@@ -20,6 +20,8 @@ export function FinalDifferential({
   challenges = [],
 }: FinalDifferentialProps) {
   const [typedSummary, setTypedSummary] = useState('');
+  const [showNumberHelp, setShowNumberHelp] = useState(false);
+  const numberHelpRef = useRef<HTMLDivElement | null>(null);
   const verdict = data?.top_3[0] ?? null;
   const alternatives = data?.top_3.slice(1, 3) ?? [];
   const isFocused = currentFocus?.type === 'final';
@@ -54,6 +56,19 @@ export function FinalDifferential({
 
     return () => clearInterval(timer);
   }, [data, summary]);
+
+  useEffect(() => {
+    if (!showNumberHelp) return;
+
+    const handlePointerDown = (event: PointerEvent) => {
+      if (!numberHelpRef.current?.contains(event.target as Node)) {
+        setShowNumberHelp(false);
+      }
+    };
+
+    window.addEventListener('pointerdown', handlePointerDown);
+    return () => window.removeEventListener('pointerdown', handlePointerDown);
+  }, [showNumberHelp]);
 
   if (!data || !verdict) {
     return (
@@ -90,11 +105,41 @@ export function FinalDifferential({
         className="rounded-2xl border border-accent-teal/30 bg-bg-surface p-6"
         style={{ boxShadow: isFocused ? '0 0 32px rgba(0,180,168,0.18)' : undefined }}
       >
-        <div className="flex items-center gap-2 mb-4">
+        <div className="relative flex items-center gap-2 mb-4" ref={numberHelpRef}>
           <CheckCircle2 className="w-4 h-4 text-accent-teal" />
           <h3 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-accent-teal/80">
             Council Verdict
           </h3>
+          <button
+            type="button"
+            onClick={() => setShowNumberHelp((prev) => !prev)}
+            className="flex h-5 w-5 items-center justify-center rounded-full border border-white/10 text-[11px] font-semibold text-text-secondary transition-colors hover:border-accent-teal/40 hover:text-accent-teal"
+            aria-label="About these numbers"
+          >
+            ?
+          </button>
+          {showNumberHelp && (
+            <motion.div
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="absolute left-0 top-7 z-30 w-[280px] rounded-xl border border-white/10 bg-bg-elevated p-4 shadow-2xl"
+            >
+              <h4 className="mb-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-text-primary">
+                About these numbers
+              </h4>
+              <div className="space-y-3 text-[11px] leading-relaxed text-text-secondary">
+                <p>
+                  <span className="text-text-primary">Routing certainty (Triage):</span> How confident the system is about case complexity classification.
+                </p>
+                <p>
+                  <span className="text-text-primary">Diagnostic support (Specialists):</span> How strongly each specialist's cited evidence supports their proposed diagnosis. Low values are expected for ambiguous cases.
+                </p>
+                <p>
+                  <span className="text-text-primary">Council agreement (Verdict):</span> Aggregated support across specialists for the leading diagnosis. Reflects both individual specialist confidence and inter-specialty convergence.
+                </p>
+              </div>
+            </motion.div>
+          )}
         </div>
 
         <div className="flex items-start justify-between gap-4 mb-4">
