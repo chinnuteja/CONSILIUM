@@ -114,7 +114,12 @@ export function usePlayback(trace: DemoTrace | null) {
           to: d.to_specialty,
           question: d.question,
         };
-        setChallenges((prev) => [...prev, arrow]);
+        setChallenges((prev) => {
+          const isDupe = prev.some(
+            (c) => c.from === arrow.from && c.to === arrow.to && c.question === arrow.question
+          );
+          return isDupe ? prev : [...prev, arrow];
+        });
         setSpecialists((prev) =>
           prev.map((s) =>
             s.name === d.to_specialty ? { ...s, status: 'CHALLENGED' as SpecialistStatus } : s
