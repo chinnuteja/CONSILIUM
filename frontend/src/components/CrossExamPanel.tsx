@@ -33,7 +33,8 @@ export function CrossExamPanel({ challenges }: CrossExamPanelProps) {
 
   return (
     <div className="mt-4">
-      <h3 className="text-xs font-semibold uppercase tracking-wider text-text-secondary mb-3">
+      <div className="border-t border-white/[0.08] pt-4 mb-4" />
+      <h3 className="text-[10px] font-semibold uppercase tracking-[0.18em] text-text-secondary mb-4">
         Cross-Examination
       </h3>
       <div className="space-y-3">

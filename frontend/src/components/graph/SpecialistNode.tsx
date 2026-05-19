@@ -22,18 +22,24 @@ export function SpecialistNode({ data }: { data: SpecialistNodeData }) {
   return (
     <div className="relative">
       <div
-        className={`px-3 py-1.5 rounded-lg border flex items-center gap-2 ${isThinking ? 'animate-pulse' : ''}`}
+        className={`px-3 py-2 rounded-lg border flex flex-col gap-0.5 ${isThinking ? 'animate-pulse' : ''}`}
         style={{
-          background: `${color}15`,
-          borderColor: `${color}50`,
+          background: `${color}12`,
+          borderColor: `${color}40`,
+          opacity: data.status === 'IDLE' ? 0.35 : 1,
         }}
       >
-        <span
-          className="w-2 h-2 rounded-full"
-          style={{ background: color }}
-        />
-        <span className="text-[10px] font-semibold text-text-primary">
-          {data.name.replace('InfectiousDisease', 'ID')}
+        <div className="flex items-center gap-2">
+          <span
+            className="w-2 h-2 rounded-full shrink-0"
+            style={{ background: color }}
+          />
+          <span className="text-[12px] font-semibold text-text-primary leading-none">
+            {data.name.replace('InfectiousDisease', 'Infectious Dis.')}
+          </span>
+        </div>
+        <span className="text-[9px] font-mono uppercase tracking-wider ml-4" style={{ color: `${color}99` }}>
+          {data.status === 'IDLE' ? 'standby' : data.status.toLowerCase()}
         </span>
       </div>
       <Handle type="source" position={Position.Top} className="opacity-0" />

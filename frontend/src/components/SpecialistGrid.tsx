@@ -8,7 +8,7 @@ interface SpecialistGridProps {
 export function SpecialistGrid({ specialists }: SpecialistGridProps) {
   return (
     <div>
-      <h3 className="text-xs font-semibold uppercase tracking-wider text-text-secondary mb-3">
+      <h3 className="text-[10px] font-semibold uppercase tracking-[0.18em] text-text-secondary mb-4">
         Specialist Council
       </h3>
       <div className="grid grid-cols-4 gap-3">

@@ -11,9 +11,10 @@ export function FinalDifferential({ data, complexity }: FinalDifferentialProps) 
   if (!data) {
     return (
       <div className="mt-4 bg-bg-surface rounded-xl border border-white/5 p-5">
+        <div className="border-t border-white/[0.08] mb-4" />
         <div className="flex items-center gap-2 mb-2">
           <Trophy className="w-4 h-4 text-text-secondary/40" />
-          <h3 className="text-sm font-semibold uppercase tracking-wider text-text-secondary/40">
+          <h3 className="text-[10px] font-semibold uppercase tracking-[0.18em] text-text-secondary/40">
             Final Differential
           </h3>
         </div>
@@ -36,9 +37,10 @@ export function FinalDifferential({ data, complexity }: FinalDifferentialProps) 
       transition={{ duration: 0.5 }}
       className="mt-4 bg-bg-surface rounded-xl border border-accent-teal/20 p-5"
     >
+      <div className="border-t border-white/[0.08] mb-4" />
       <div className="flex items-center gap-2 mb-4">
         <Trophy className="w-4 h-4 text-accent-teal" />
-        <h3 className="text-sm font-semibold uppercase tracking-wider text-accent-teal">
+        <h3 className="text-[10px] font-semibold uppercase tracking-[0.18em] text-accent-teal">
           Final Differential
         </h3>
       </div>
