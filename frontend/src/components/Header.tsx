@@ -48,6 +48,18 @@ export function Header({ selectedCase, onSelectCase, viewMode, onViewModeChange 
           </button>
         </div>
 
+        <div className="w-[280px] rounded-lg border border-white/10 bg-bg-surface px-3 py-2">
+          <div className="flex items-baseline gap-2">
+            <span className="text-[9px] font-semibold uppercase tracking-[0.18em] text-accent-teal/70">
+              Benchmark accuracy:
+            </span>
+            <span className="text-[16px] font-semibold text-accent-emerald">90%</span>
+          </div>
+          <p className="mt-0.5 text-[10px] leading-snug text-text-secondary">
+            Identifies underlying disease in top-3 predictions (50 cases · DDXPlus dataset)
+          </p>
+        </div>
+
       <div className="relative">
         <select
           value={selectedCase}
