@@ -26,7 +26,7 @@ export function TriageCard({ triage }: TriageCardProps) {
       <div className="bg-bg-surface rounded-xl border border-white/5 p-5">
         <div className="flex items-center gap-2 mb-3">
           <Shield className="w-4 h-4 text-text-secondary" />
-          <h3 className="text-sm font-semibold uppercase tracking-wider text-text-secondary">
+          <h3 className="text-[10px] font-semibold uppercase tracking-[0.18em] text-text-secondary">
             Triage Decision
           </h3>
         </div>
@@ -46,23 +46,23 @@ export function TriageCard({ triage }: TriageCardProps) {
     >
       <div className="flex items-center gap-2 mb-4">
         <Shield className="w-4 h-4 text-accent-teal" />
-        <h3 className="text-sm font-semibold uppercase tracking-wider text-text-secondary">
+        <h3 className="text-[10px] font-semibold uppercase tracking-[0.18em] text-text-secondary">
           Triage Decision
         </h3>
       </div>
 
-      <div className={`inline-flex px-3 py-1.5 rounded-lg ${styles.bg} border ${styles.border} mb-4`}>
-        <span className={`text-sm font-semibold ${styles.text}`}>
+      <div className={`inline-flex px-4 py-1.5 rounded-full ${styles.bg} border ${styles.border} mb-4`}>
+        <span className={`text-[14px] font-semibold ${styles.text}`}>
           {triage.case_complexity}
         </span>
       </div>
 
       <div className="mb-4">
-        <div className="flex justify-between text-xs mb-1">
-          <span className="text-text-secondary">Confidence</span>
-          <span className="font-mono text-text-primary">{(triage.confidence * 100).toFixed(0)}%</span>
+        <div className="mb-1.5">
+          <span className="text-[10px] font-mono uppercase tracking-wider text-text-secondary block">Confidence</span>
+          <span className="text-[16px] font-semibold text-text-primary block">{(triage.confidence * 100).toFixed(0)}%</span>
         </div>
-        <div className="h-1.5 bg-bg-elevated rounded-full overflow-hidden">
+        <div className="h-1.5 rounded-full overflow-hidden" style={{ background: '#1F2937' }}>
           <div
             className="h-full bg-accent-teal rounded-full transition-all duration-500"
             style={{ width: `${triage.confidence * 100}%` }}
@@ -71,7 +71,7 @@ export function TriageCard({ triage }: TriageCardProps) {
       </div>
 
       <div className="mb-4">
-        <span className="text-xs text-text-secondary block mb-2">Specialists</span>
+        <span className="text-[10px] font-mono uppercase tracking-wider text-text-secondary block mb-2">Specialists</span>
         <div className="flex gap-1.5 flex-wrap">
           {ALL_SPECIALTIES.map((spec) => {
             const isInvoked = invokedSpecs.includes(spec) || invokedSpecs.includes('all');
@@ -80,8 +80,8 @@ export function TriageCard({ triage }: TriageCardProps) {
                 key={spec}
                 className={`px-2 py-0.5 rounded text-[10px] font-mono transition-all ${
                   isInvoked
-                    ? 'bg-accent-teal/20 text-accent-teal border border-accent-teal/30'
-                    : 'bg-bg-elevated text-text-secondary/50'
+                    ? 'bg-accent-teal text-white border border-accent-teal'
+                    : 'bg-transparent text-text-secondary/50 border border-white/10'
                 }`}
               >
                 {spec.replace('_', ' ')}
@@ -107,7 +107,7 @@ export function TriageCard({ triage }: TriageCardProps) {
 
       <button
         onClick={() => setShowReasoning(!showReasoning)}
-        className="flex items-center gap-1 text-xs text-text-secondary hover:text-text-primary transition-colors"
+        className="flex items-center gap-1 text-xs text-text-secondary hover:text-accent-teal transition-colors"
       >
         {showReasoning ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
         {showReasoning ? 'Hide' : 'Show'} reasoning
