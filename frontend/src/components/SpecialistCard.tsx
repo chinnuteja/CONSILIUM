@@ -30,9 +30,10 @@ interface SpecialistCardProps {
   specialist: SpecialistState;
   isFocused?: boolean;
   isDimmed?: boolean;
+  isLeading?: boolean;
 }
 
-export function SpecialistCard({ specialist, isFocused = false, isDimmed = false }: SpecialistCardProps) {
+export function SpecialistCard({ specialist, isFocused = false, isDimmed = false, isLeading = false }: SpecialistCardProps) {
   const [expanded, setExpanded] = useState(false);
   const Icon = SPECIALTY_ICONS[specialist.name] || Stethoscope;
   const style = STATUS_STYLES[specialist.status];
@@ -47,18 +48,24 @@ export function SpecialistCard({ specialist, isFocused = false, isDimmed = false
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{
         opacity: isDimmed ? 0.6 : isActive ? 1 : 0.4,
-        scale: isFocused ? [1.02, 1] : specialist.status === 'POSTED' ? [1.03, 1] : 1,
+        scale: isLeading ? 1.05 : isFocused ? [1.02, 1] : specialist.status === 'POSTED' ? [1.03, 1] : 1,
       }}
       transition={{ duration: 0.3 }}
-      className={`relative rounded-xl border p-4 overflow-hidden ${
+      className={`relative rounded-xl p-4 overflow-hidden ${
         isActive ? 'border-white/10 bg-bg-surface' : 'border-white/5 bg-bg-surface/50'
       }`}
       style={{
+        borderWidth: isLeading ? '2px' : '1px',
         borderLeftWidth: '3px',
         borderLeftColor: style.border,
-        boxShadow: isFocused ? '0 0 20px rgba(0,180,168,0.14)' : undefined,
+        boxShadow: isLeading ? '0 0 24px rgba(0,180,168,0.15)' : isFocused ? '0 0 20px rgba(0,180,168,0.14)' : undefined,
       }}
     >
+      {isLeading && (
+        <span className="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-accent-teal/10 text-accent-teal text-[9px] font-mono uppercase tracking-wider border border-accent-teal/20">
+          Leading
+        </span>
+      )}
       {isThinking && (
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-accent-teal/5 to-transparent animate-shimmer" />
       )}
@@ -108,7 +115,9 @@ export function SpecialistCard({ specialist, isFocused = false, isDimmed = false
             transition={{ duration: 0.3 }}
             className="mt-2 relative"
           >
-            <p className="text-sm font-medium text-text-primary truncate">{specialist.diagnosis}</p>
+            <p className={`${isLeading ? 'text-[18px]' : 'text-sm'} font-semibold text-text-primary truncate`}>
+              {specialist.diagnosis}
+            </p>
 
             {specialist.confidence !== undefined && (
               <div className="mt-2">
