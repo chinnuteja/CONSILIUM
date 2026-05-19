@@ -42,3 +42,12 @@ body {
 .animate-shimmer {
   animation: shimmer 2s infinite;
 }
+
+@keyframes graph-node-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.graph-node-pulse {
+  animation: graph-node-pulse 1.2s ease-in-out infinite;
+}

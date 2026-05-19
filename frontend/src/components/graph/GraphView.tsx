@@ -49,6 +49,8 @@ function buildGraph(trace: DemoTrace, state: PlaybackState): { nodes: Node[]; ed
   const cy = 380;
   const evidenceRadius = 140;
   const specRadius = 360;
+  const finalTopDiagnoses = state.finalDifferential?.top_3.map((d) => d.diagnosis) ?? [];
+  const latestChallenge = state.challenges[state.challenges.length - 1];
 
   // Patient node at center
   nodes.push({
@@ -89,12 +91,29 @@ function buildGraph(trace: DemoTrace, state: PlaybackState): { nodes: Node[]; ed
     const x = cx + Math.cos(angle) * specRadius - 55;
     const y = cy + Math.sin(angle) * specRadius - 20;
     const specId = `spec-${spec.name}`;
+    const isFocusedSpecialist =
+      state.currentFocus?.type === 'specialist' && state.currentFocus.specialist === spec.name;
+    const isDimmedSpecialist =
+      state.currentFocus?.type === 'specialist' && state.currentFocus.specialist !== spec.name;
+    const isChallengeParticipant =
+      state.currentFocus?.type === 'cross_exam' &&
+      latestChallenge &&
+      (latestChallenge.from === spec.name || latestChallenge.to === spec.name);
+    const isFinalDimmed =
+      state.currentFocus?.type === 'final' &&
+      spec.diagnosis !== undefined &&
+      !finalTopDiagnoses.includes(spec.diagnosis);
 
     nodes.push({
       id: specId,
       type: 'specialist',
       position: { x, y },
-      data: { ...spec },
+      data: {
+        ...spec,
+        isFocused: isFocusedSpecialist,
+        isDimmed: isDimmedSpecialist || isFinalDimmed,
+        isChallengeParticipant,
+      },
     });
 
     // Edge from patient to specialist (only when active)
@@ -115,6 +134,7 @@ function buildGraph(trace: DemoTrace, state: PlaybackState): { nodes: Node[]; ed
 
     // Hypothesis node — directly adjacent to owning specialist
     if (spec.diagnosis) {
+      const isTopFinal = finalTopDiagnoses.includes(spec.diagnosis);
       const hypAngle = angle;
       const hypRadius = specRadius + 70;
       const hx = cx + Math.cos(hypAngle) * hypRadius - 70;
@@ -130,6 +150,8 @@ function buildGraph(trace: DemoTrace, state: PlaybackState): { nodes: Node[]; ed
           confidence: spec.confidence,
           specialist: spec.name,
           status: spec.status,
+          isTopFinal,
+          isDimmed: state.currentFocus?.type === 'final' && !isTopFinal,
         },
       });
 
@@ -138,7 +160,12 @@ function buildGraph(trace: DemoTrace, state: PlaybackState): { nodes: Node[]; ed
         source: specId,
         target: hypId,
         type: 'straight',
-        style: { stroke: '#00B4A8', strokeWidth: 2.5, opacity: 1 },
+        animated: state.currentFocus?.type === 'specialist' && state.currentFocus.specialist === spec.name,
+        style: {
+          stroke: isTopFinal ? '#FBBF24' : '#00B4A8',
+          strokeWidth: isTopFinal ? 3 : 2.5,
+          opacity: state.currentFocus?.type === 'final' && !isTopFinal ? 0.25 : 1,
+        },
       });
 
       // Citation edges — hypothesis to evidence (thin, curved, gray)
@@ -150,7 +177,13 @@ function buildGraph(trace: DemoTrace, state: PlaybackState): { nodes: Node[]; ed
               id: `${hypId}-ev-${evIdx}`,
               source: hypId,
               target: `ev-${evIdx}`,
-              style: { stroke: '#6B7280', strokeWidth: 0.75, opacity: 0.35 },
+              animated: isTopFinal,
+              style: {
+                stroke: isTopFinal ? '#FBBF24' : '#6B7280',
+                strokeWidth: isTopFinal ? 1.5 : 0.75,
+                opacity: isTopFinal ? 0.75 : 0.35,
+                transitionDelay: `${evIdx * 150}ms`,
+              },
               type: 'smoothstep',
             });
           }
@@ -168,6 +201,7 @@ function buildGraph(trace: DemoTrace, state: PlaybackState): { nodes: Node[]; ed
     const chx = cx + Math.cos(midAngle) * midRadius - 16;
     const chy = cy + Math.sin(midAngle) * midRadius - 16;
     const chId = `challenge-${i}`;
+    const isLatestChallenge = latestChallenge === ch && state.currentFocus?.type === 'cross_exam';
 
     nodes.push({
       id: chId,
@@ -180,8 +214,13 @@ function buildGraph(trace: DemoTrace, state: PlaybackState): { nodes: Node[]; ed
       id: `spec-${ch.from}-${chId}`,
       source: `spec-${ch.from}`,
       target: chId,
-      style: { stroke: '#F59E0B', strokeWidth: 2, opacity: 0.7, strokeDasharray: !ch.action ? '5 3' : undefined },
-      animated: !ch.action,
+      style: {
+        stroke: '#F59E0B',
+        strokeWidth: isLatestChallenge ? 2.5 : 2,
+        opacity: isLatestChallenge ? 1 : 0.7,
+        strokeDasharray: !ch.action ? '5 3' : undefined,
+      },
+      animated: !ch.action || isLatestChallenge,
     });
     edges.push({
       id: `${chId}-spec-${ch.to}`,
@@ -190,8 +229,9 @@ function buildGraph(trace: DemoTrace, state: PlaybackState): { nodes: Node[]; ed
       style: {
         stroke: ch.action === 'DEFEND' ? '#10B981' : ch.action === 'REVISE' ? '#F59E0B' : '#F59E0B',
         strokeWidth: ch.action ? 1.5 : 2,
-        opacity: 0.7,
+        opacity: isLatestChallenge ? 1 : 0.7,
       },
+      animated: isLatestChallenge,
     });
   });
 

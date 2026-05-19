@@ -4,6 +4,9 @@ import type { SpecialistStatus } from '../../types';
 interface SpecialistNodeData {
   name: string;
   status: SpecialistStatus;
+  isFocused?: boolean;
+  isDimmed?: boolean;
+  isChallengeParticipant?: boolean;
 }
 
 const STATUS_COLORS: Record<SpecialistStatus, string> = {
@@ -20,13 +23,17 @@ export function SpecialistNode({ data }: { data: SpecialistNodeData }) {
   const isThinking = data.status === 'THINKING';
 
   return (
-    <div className="relative">
+    <div
+      className={`relative transition-all duration-500 ${data.isFocused ? 'graph-node-pulse' : ''}`}
+      style={{ opacity: data.isDimmed ? 0.5 : 1 }}
+    >
       <div
         className={`px-3 py-2 rounded-lg border flex flex-col gap-0.5 ${isThinking ? 'animate-pulse' : ''}`}
         style={{
           background: `${color}12`,
-          borderColor: `${color}40`,
+          borderColor: data.isChallengeParticipant ? '#F59E0B' : `${color}40`,
           opacity: data.status === 'IDLE' ? 0.35 : 1,
+          boxShadow: data.isChallengeParticipant ? '0 0 18px rgba(245,158,11,0.2)' : data.isFocused ? '0 0 18px rgba(0,180,168,0.22)' : undefined,
         }}
       >
         <div className="flex items-center gap-2">
