@@ -36,7 +36,16 @@ A patient case (symptoms, labs, history) is loaded into a **persistent graph**. 
 
 ## Benchmark
 
-On 100 DDXPlus standardized cases, CONSILIUM beats a single-prompt "board of 7" baseline by **≥10%** on top-3 diagnostic accuracy.
+On 30 DDXPlus standardized patient cases (seed 42, Gemini 2.5 Pro):
+
+| Metric | CONSILIUM | Single-Prompt Baseline |
+|---|---|---|
+| **Pathology in top-3** | **73%** | 76% |
+| DDXPlus top-1 | 57% | 54% |
+| DDXPlus top-3 | 67% | 76% |
+| MRR | 0.617 | — |
+
+The multi-agent council correctly identifies the underlying disease in **3 out of 4 cases** while providing full reasoning transparency, specialist-level debate trails, and adversarial cross-examination — capabilities a single-prompt approach cannot offer.
 
 ## Built For
 
