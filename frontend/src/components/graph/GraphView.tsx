@@ -77,7 +77,8 @@ function buildGraph(trace: DemoTrace, state: PlaybackState): { nodes: Node[]; ed
       id: `patient-ev-${i}`,
       source: 'patient',
       target: `ev-${i}`,
-      style: { stroke: '#9CA3AF', strokeWidth: 1, opacity: 0.3 },
+      style: { stroke: '#6B7280', strokeWidth: 0.75, opacity: 0.25 },
+      type: 'straight',
       animated: false,
     });
   }
@@ -136,7 +137,8 @@ function buildGraph(trace: DemoTrace, state: PlaybackState): { nodes: Node[]; ed
         id: `${specId}-${hypId}`,
         source: specId,
         target: hypId,
-        style: { stroke: '#00B4A8', strokeWidth: 2, opacity: 0.9 },
+        type: 'straight',
+        style: { stroke: '#00B4A8', strokeWidth: 2.5, opacity: 1 },
       });
 
       // Citation edges — hypothesis to evidence (thin, curved, gray)
@@ -148,8 +150,8 @@ function buildGraph(trace: DemoTrace, state: PlaybackState): { nodes: Node[]; ed
               id: `${hypId}-ev-${evIdx}`,
               source: hypId,
               target: `ev-${evIdx}`,
-              style: { stroke: '#9CA3AF', strokeWidth: 1, opacity: 0.4 },
-              type: 'default',
+              style: { stroke: '#6B7280', strokeWidth: 0.75, opacity: 0.35 },
+              type: 'smoothstep',
             });
           }
         });
