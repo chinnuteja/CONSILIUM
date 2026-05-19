@@ -19,10 +19,10 @@ const SPECIALTY_ICONS: Record<string, React.ComponentType<{ className?: string }
 
 const STATUS_STYLES: Record<SpecialistStatus, { label: string; bg: string; text: string; dot: string; border: string }> = {
   IDLE: { label: 'Idle', bg: 'bg-white/5', text: 'text-text-secondary/50', dot: 'bg-white/20', border: 'transparent' },
-  THINKING: { label: 'Reasoning...', bg: 'bg-accent-teal/5', text: 'text-accent-teal', dot: 'bg-accent-teal', border: 'var(--color-accent-teal)' },
+  THINKING: { label: 'Reasoning', bg: 'bg-accent-teal/5', text: 'text-accent-teal', dot: 'bg-accent-teal', border: 'var(--color-accent-teal)' },
   POSTED: { label: 'Posted', bg: 'bg-accent-teal/10', text: 'text-accent-teal', dot: 'bg-accent-teal', border: 'var(--color-accent-teal)' },
-  CHALLENGED: { label: 'Under examination', bg: 'bg-accent-amber/10', text: 'text-accent-amber', dot: 'bg-accent-amber', border: 'var(--color-accent-amber)' },
-  DEFENDED: { label: 'Position held', bg: 'bg-accent-emerald/10', text: 'text-accent-emerald', dot: 'bg-accent-emerald', border: 'var(--color-accent-emerald)' },
+  CHALLENGED: { label: 'Challenged', bg: 'bg-accent-amber/10', text: 'text-accent-amber', dot: 'bg-accent-amber', border: 'var(--color-accent-amber)' },
+  DEFENDED: { label: 'Defended', bg: 'bg-accent-emerald/10', text: 'text-accent-emerald', dot: 'bg-accent-emerald', border: 'var(--color-accent-emerald)' },
   REVISED: { label: 'Revised', bg: 'bg-accent-crimson/10', text: 'text-accent-crimson', dot: 'bg-accent-crimson', border: 'var(--color-accent-crimson)' },
 };
 
@@ -109,9 +109,16 @@ export function SpecialistCard({ specialist, isFocused = false, isDimmed = false
             className="mt-2 relative"
           >
             <p className="text-sm font-medium text-text-primary truncate">{specialist.diagnosis}</p>
+
             {specialist.confidence !== undefined && (
-              <div className="mt-1.5">
-                <div className="h-1 bg-bg-elevated rounded-full overflow-hidden">
+              <div className="mt-2">
+                <div className="flex items-center justify-between mb-1">
+                  <span className="text-[9px] font-mono text-text-secondary uppercase">confidence</span>
+                  <span className="text-[14px] font-semibold text-accent-teal">
+                    {(specialist.confidence * 100).toFixed(0)}%
+                  </span>
+                </div>
+                <div className="h-1 rounded-full overflow-hidden" style={{ background: '#1F2937' }}>
                   <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: `${specialist.confidence * 100}%` }}
@@ -119,40 +126,44 @@ export function SpecialistCard({ specialist, isFocused = false, isDimmed = false
                     className="h-full bg-accent-teal/70 rounded-full"
                   />
                 </div>
-                <span className="text-[10px] font-mono text-text-secondary mt-0.5 block">
-                  {(specialist.confidence * 100).toFixed(0)}% confidence
-                </span>
               </div>
             )}
 
             {specialist.citations && specialist.citations.length > 0 && (
-              <motion.span
+              <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.3, type: 'spring', stiffness: 300 }}
-                className="inline-flex items-center mt-1.5 px-2 py-0.5 rounded bg-bg-elevated text-[10px] font-mono text-text-secondary"
+                className="mt-2"
               >
-                {specialist.citations.length} citation{specialist.citations.length > 1 ? 's' : ''}
-              </motion.span>
+                <span className="text-[9px] font-mono text-text-secondary uppercase block mb-1">Cited Evidence</span>
+                <div className="flex flex-wrap gap-1">
+                  {specialist.citations.map((cit) => (
+                    <span key={cit} className="px-1.5 py-0.5 rounded bg-bg-elevated text-[11px] font-mono text-text-secondary">
+                      {cit}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
             )}
 
             {specialist.reasoning && (
               <>
                 <button
                   onClick={() => setExpanded(!expanded)}
-                  className="flex items-center gap-1 mt-2 text-[10px] text-text-secondary hover:text-text-primary transition-colors"
+                  className="flex items-center gap-1 mt-2 text-[10px] text-accent-teal/60 hover:text-accent-teal transition-colors"
                 >
                   {expanded ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
-                  {expanded ? 'Less' : 'More'}
+                  {expanded ? 'Hide reasoning' : 'View reasoning'}
                 </button>
                 {expanded && (
-                  <motion.p
+                  <motion.blockquote
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="text-[11px] text-text-secondary mt-1 leading-relaxed line-clamp-4"
+                    className="text-[11px] text-text-secondary/80 mt-1.5 leading-relaxed italic border-l-[3px] border-accent-teal/20 pl-3 max-h-[200px] overflow-y-auto"
                   >
                     {specialist.reasoning}
-                  </motion.p>
+                  </motion.blockquote>
                 )}
               </>
             )}
