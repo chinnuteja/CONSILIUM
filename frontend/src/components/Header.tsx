@@ -56,7 +56,7 @@ export function Header({ selectedCase, onSelectCase, viewMode, onViewModeChange 
             <span className="text-[16px] font-semibold text-accent-emerald">73%</span>
           </div>
           <p className="mt-0.5 text-[10px] leading-snug text-text-secondary">
-            Identifies underlying disease in top-3 predictions (30 cases · DDXPlus dataset)
+            Correctly identifies the disease in 3 out of 4 cases (30-case DDXPlus benchmark)
           </p>
         </div>
 
