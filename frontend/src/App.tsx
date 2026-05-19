@@ -60,6 +60,8 @@ function App() {
                 data={state.finalDifferential}
                 complexity={state.triage?.case_complexity ?? null}
                 currentFocus={state.currentFocus}
+                specialists={state.specialists}
+                challenges={state.challenges}
               />
             </div>
           ) : (
