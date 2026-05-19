@@ -126,9 +126,9 @@ export function SpecialistCard({ specialist, isFocused = false, isDimmed = false
             </p>
 
             {specialist.confidence !== undefined && (
-              <div className="mt-2">
+              <div className="mt-2 group/support relative">
                 <div className="flex items-center justify-between mb-1">
-                  <span className="text-[9px] font-mono text-text-secondary uppercase">confidence</span>
+                  <span className="text-[9px] font-mono text-text-secondary uppercase">Diagnostic support</span>
                   <span className="text-[14px] font-semibold text-accent-teal">
                     {(specialist.confidence * 100).toFixed(0)}%
                   </span>
@@ -141,6 +141,14 @@ export function SpecialistCard({ specialist, isFocused = false, isDimmed = false
                     className="h-full bg-accent-teal/70 rounded-full"
                   />
                 </div>
+                <div className="pointer-events-none absolute left-0 top-full z-20 mt-2 w-64 rounded-lg border border-white/10 bg-bg-elevated p-3 text-[11px] leading-relaxed text-text-secondary opacity-0 shadow-xl transition-opacity duration-200 group-hover/support:opacity-100">
+                  How strongly the cited evidence supports this specific diagnosis. Low values mean the case has multiple plausible interpretations.
+                </div>
+                {specialist.confidence <= 0.3 && (
+                  <p className="mt-2 text-[10px] leading-relaxed italic text-text-secondary/70">
+                    Note: Low support values across specialists indicate diagnostic ambiguity — the case lacks definitive single-disease evidence. This is medically appropriate behavior.
+                  </p>
+                )}
               </div>
             )}
 
