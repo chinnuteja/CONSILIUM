@@ -28,9 +28,11 @@ const STATUS_STYLES: Record<SpecialistStatus, { label: string; bg: string; text:
 
 interface SpecialistCardProps {
   specialist: SpecialistState;
+  isFocused?: boolean;
+  isDimmed?: boolean;
 }
 
-export function SpecialistCard({ specialist }: SpecialistCardProps) {
+export function SpecialistCard({ specialist, isFocused = false, isDimmed = false }: SpecialistCardProps) {
   const [expanded, setExpanded] = useState(false);
   const Icon = SPECIALTY_ICONS[specialist.name] || Stethoscope;
   const style = STATUS_STYLES[specialist.status];
@@ -44,8 +46,8 @@ export function SpecialistCard({ specialist }: SpecialistCardProps) {
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{
-        opacity: isActive ? 1 : 0.4,
-        scale: specialist.status === 'POSTED' ? [1.03, 1] : 1,
+        opacity: isDimmed ? 0.6 : isActive ? 1 : 0.4,
+        scale: isFocused ? [1.02, 1] : specialist.status === 'POSTED' ? [1.03, 1] : 1,
       }}
       transition={{ duration: 0.3 }}
       className={`relative rounded-xl border p-4 overflow-hidden ${
@@ -54,6 +56,7 @@ export function SpecialistCard({ specialist }: SpecialistCardProps) {
       style={{
         borderLeftWidth: '3px',
         borderLeftColor: style.border,
+        boxShadow: isFocused ? '0 0 20px rgba(0,180,168,0.14)' : undefined,
       }}
     >
       {isThinking && (

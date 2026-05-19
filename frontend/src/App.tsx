@@ -44,19 +44,22 @@ function App() {
             onSetSpeed={setSpeed}
           />
 
-          <TriageCard triage={state.triage} />
+          <div className={`transition-opacity duration-500 ${state.currentFocus?.type === 'final' ? 'opacity-30' : 'opacity-100'}`}>
+            <TriageCard triage={state.triage} />
+          </div>
         </aside>
 
         {/* Right Panel */}
         <section className="flex-1 overflow-hidden">
           {viewMode === 'council' ? (
             <div className="p-4 overflow-y-auto h-full">
-              <SpecialistGrid specialists={state.specialists} />
-              <CrossExamPanel challenges={state.challenges} />
+              <SpecialistGrid specialists={state.specialists} currentFocus={state.currentFocus} />
+              <CrossExamPanel challenges={state.challenges} currentFocus={state.currentFocus} />
               <DevilsAdvocatePanel data={state.devilsAdvocate} />
               <FinalDifferential
                 data={state.finalDifferential}
                 complexity={state.triage?.case_complexity ?? null}
+                currentFocus={state.currentFocus}
               />
             </div>
           ) : (

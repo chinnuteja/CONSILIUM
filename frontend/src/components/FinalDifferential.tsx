@@ -1,13 +1,15 @@
 import { motion } from 'framer-motion';
 import { Trophy, Minus } from 'lucide-react';
 import type { FinalDifferentialData, Complexity } from '../types';
+import type { PlaybackState } from '../hooks/usePlayback';
 
 interface FinalDifferentialProps {
   data: FinalDifferentialData | null;
   complexity: Complexity | null;
+  currentFocus?: PlaybackState['currentFocus'];
 }
 
-export function FinalDifferential({ data, complexity }: FinalDifferentialProps) {
+export function FinalDifferential({ data, complexity, currentFocus }: FinalDifferentialProps) {
   if (!data) {
     return (
       <div className="mt-4 bg-bg-surface rounded-xl border border-white/5 p-5">
@@ -29,13 +31,15 @@ export function FinalDifferential({ data, complexity }: FinalDifferentialProps) 
   const maxScore = data.top_3.length > 0
     ? Math.max(...data.top_3.map((d) => d.agreement_score))
     : 1;
+  const isFocused = currentFocus?.type === 'final';
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
+      animate={{ opacity: 1, y: 0, scale: isFocused ? [1, 1.02, 1] : 1 }}
       transition={{ duration: 0.5 }}
       className="mt-4 bg-bg-surface rounded-xl border border-accent-teal/20 p-5"
+      style={{ boxShadow: isFocused ? '0 0 28px rgba(0,180,168,0.16)' : undefined }}
     >
       <div className="border-t border-white/[0.08] mb-4" />
       <div className="flex items-center gap-2 mb-4">

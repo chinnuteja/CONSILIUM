@@ -4,6 +4,7 @@ import {
   Stethoscope, BrainCircuit, Shield, RefreshCw, MessageCircle,
 } from 'lucide-react';
 import type { ChallengeArrow } from '../types';
+import type { PlaybackState } from '../hooks/usePlayback';
 
 const SPECIALTY_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
   Cardiology: Heart,
@@ -26,13 +27,15 @@ function formatSpec(name: string) {
 
 interface CrossExamPanelProps {
   challenges: ChallengeArrow[];
+  currentFocus?: PlaybackState['currentFocus'];
 }
 
-export function CrossExamPanel({ challenges }: CrossExamPanelProps) {
+export function CrossExamPanel({ challenges, currentFocus }: CrossExamPanelProps) {
   if (challenges.length === 0) return null;
+  const isFocused = currentFocus?.type === 'cross_exam';
 
   return (
-    <div className="mt-4">
+    <div className={`mt-4 transition-all duration-500 ${isFocused ? 'border-l border-accent-amber/40 pl-4 bg-accent-amber/[0.03]' : ''}`}>
       <div className="border-t border-white/[0.08] pt-4 mb-4" />
       <h3 className="text-[10px] font-semibold uppercase tracking-[0.18em] text-text-secondary mb-4">
         Cross-Examination

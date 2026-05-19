@@ -34,6 +34,10 @@ export interface PlaybackState {
   devilsAdvocate: DevilsAdvocateData | null;
   finalDifferential: FinalDifferentialData | null;
   isComplete: boolean;
+  currentFocus: {
+    type: 'triage' | 'specialist' | 'cross_exam' | 'final';
+    specialist?: string;
+  } | null;
 }
 
 const initialSpecialists: SpecialistState[] = ALL_SPECIALISTS.map((name) => ({
@@ -51,6 +55,7 @@ export function usePlayback(trace: DemoTrace | null) {
   const [devilsAdvocate, setDevilsAdvocate] = useState<DevilsAdvocateData | null>(null);
   const [finalDifferential, setFinalDifferential] = useState<FinalDifferentialData | null>(null);
   const [isComplete, setIsComplete] = useState(false);
+  const [currentFocus, setCurrentFocus] = useState<PlaybackState['currentFocus']>(null);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const isPlayingRef = useRef(false);
   const speedRef = useRef(speed);
@@ -64,6 +69,7 @@ export function usePlayback(trace: DemoTrace | null) {
     setFinalDifferential(null);
     setIsComplete(false);
     setIsPlaying(false);
+    setCurrentFocus(null);
     if (timerRef.current) clearTimeout(timerRef.current);
   }, []);
 
@@ -75,10 +81,12 @@ export function usePlayback(trace: DemoTrace | null) {
     switch (event.type) {
       case 'triage_decision':
         setTriage(event.data as unknown as TriageData);
+        setCurrentFocus({ type: 'triage' });
         break;
 
       case 'specialist_thinking': {
         const specName = (event.data as { specialty: string }).specialty;
+        setCurrentFocus({ type: 'specialist', specialist: specName });
         setSpecialists((prev) =>
           prev.map((s) =>
             s.name === specName ? { ...s, status: 'THINKING' as SpecialistStatus } : s
@@ -89,6 +97,7 @@ export function usePlayback(trace: DemoTrace | null) {
 
       case 'specialist_posted': {
         const d = event.data as unknown as SpecialistPostedData;
+        setCurrentFocus({ type: 'specialist', specialist: d.specialty });
         setSpecialists((prev) =>
           prev.map((s) =>
             s.name === d.specialty
@@ -108,6 +117,7 @@ export function usePlayback(trace: DemoTrace | null) {
 
       case 'challenge_posted': {
         const d = event.data as unknown as ChallengePostedData;
+        setCurrentFocus({ type: 'cross_exam' });
         const arrow: ChallengeArrow = {
           id: `${d.from_specialty}->${d.to_specialty}`,
           from: d.from_specialty,
@@ -130,6 +140,7 @@ export function usePlayback(trace: DemoTrace | null) {
 
       case 'response_posted': {
         const d = event.data as unknown as ResponsePostedData;
+        setCurrentFocus({ type: 'cross_exam' });
         const newStatus: SpecialistStatus = d.action === 'DEFEND' ? 'DEFENDED' : 'REVISED';
         setSpecialists((prev) =>
           prev.map((s) =>
@@ -160,6 +171,7 @@ export function usePlayback(trace: DemoTrace | null) {
 
       case 'final_differential':
         setFinalDifferential(event.data as unknown as FinalDifferentialData);
+        setCurrentFocus({ type: 'final' });
         setIsComplete(true);
         setIsPlaying(false);
         break;
@@ -253,6 +265,7 @@ export function usePlayback(trace: DemoTrace | null) {
     devilsAdvocate,
     finalDifferential,
     isComplete,
+    currentFocus,
   };
 
   return { state, play, pause, step, reset, setSpeed: changeSpeed };
