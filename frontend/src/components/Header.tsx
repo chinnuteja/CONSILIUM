@@ -53,10 +53,10 @@ export function Header({ selectedCase, onSelectCase, viewMode, onViewModeChange 
             <span className="text-[9px] font-semibold uppercase tracking-[0.18em] text-accent-teal/70">
               Benchmark accuracy:
             </span>
-            <span className="text-[16px] font-semibold text-accent-emerald">90%</span>
+            <span className="text-[16px] font-semibold text-accent-emerald">73%</span>
           </div>
           <p className="mt-0.5 text-[10px] leading-snug text-text-secondary">
-            Identifies underlying disease in top-3 predictions (50 cases · DDXPlus dataset)
+            Identifies underlying disease in top-3 predictions (30 cases · DDXPlus dataset)
           </p>
         </div>
 
