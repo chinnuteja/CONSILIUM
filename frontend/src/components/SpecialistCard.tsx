@@ -52,13 +52,17 @@ export function SpecialistCard({ specialist, isFocused = false, isDimmed = false
       }}
       transition={{ duration: 0.3 }}
       className={`relative rounded-xl p-4 overflow-hidden ${
-        isActive ? 'border-white/10 bg-bg-surface' : 'border-white/5 bg-bg-surface/50'
+        isActive ? 'bg-bg-surface' : 'bg-bg-surface/50'
       }`}
       style={{
+        borderStyle: 'solid',
         borderTopWidth: isLeading ? '2px' : '1px',
         borderRightWidth: isLeading ? '2px' : '1px',
         borderBottomWidth: isLeading ? '2px' : '1px',
         borderLeftWidth: '3px',
+        borderTopColor: isActive ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.05)',
+        borderRightColor: isActive ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.05)',
+        borderBottomColor: isActive ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.05)',
         borderLeftColor: style.border,
         boxShadow: isLeading ? '0 0 24px rgba(0,180,168,0.15)' : isFocused ? '0 0 20px rgba(0,180,168,0.14)' : undefined,
       }}
