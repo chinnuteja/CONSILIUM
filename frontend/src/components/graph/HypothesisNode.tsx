@@ -11,33 +11,49 @@ interface HypothesisNodeData {
 export function HypothesisNode({ data }: { data: HypothesisNodeData }) {
   const isDefended = data.status === 'DEFENDED';
   const isRevised = data.status === 'REVISED';
-  const borderColor = isDefended ? '#10B981' : isRevised ? '#EF4444' : '#00B4A8';
+  const accentColor = isDefended ? '#10B981' : isRevised ? '#EF4444' : '#00B4A8';
 
   return (
-    <div className="relative">
+    <div className="relative group">
       <div
-        className="px-3 py-2 rounded-lg border max-w-[160px]"
-        style={{
-          background: '#11161D',
-          borderColor: `${borderColor}60`,
-        }}
+        className="px-3 py-2.5 rounded-lg border max-w-[180px] min-w-[120px]"
+        style={{ background: '#11161D', borderColor: `${accentColor}50` }}
       >
-        <span className="text-[10px] font-medium text-text-primary block truncate">
+        {/* Status badge — top right */}
+        {(isDefended || isRevised) && (
+          <span
+            className="absolute -top-2 -right-2 px-1.5 py-0.5 rounded text-[7px] font-mono font-bold uppercase tracking-wide"
+            style={{
+              background: `${accentColor}20`,
+              color: accentColor,
+              border: `1px solid ${accentColor}40`,
+            }}
+          >
+            {isDefended ? 'DEFENDED' : 'REVISED'}
+          </span>
+        )}
+
+        {/* Diagnosis name */}
+        <span className="text-[13px] font-semibold text-text-primary block leading-tight">
           {data.diagnosis}
         </span>
+
+        {/* Confidence bar */}
         {data.confidence !== undefined && (
-          <div className="mt-1 h-1 rounded-full overflow-hidden" style={{ background: '#1A2030' }}>
-            <div
-              className="h-full rounded-full"
-              style={{ width: `${data.confidence * 100}%`, background: borderColor }}
-            />
+          <div className="mt-2">
+            <div className="flex justify-between mb-0.5">
+              <span className="text-[8px] font-mono" style={{ color: '#9CA3AF' }}>confidence</span>
+              <span className="text-[8px] font-mono" style={{ color: accentColor }}>
+                {(data.confidence * 100).toFixed(0)}%
+              </span>
+            </div>
+            <div className="h-1.5 rounded-full overflow-hidden" style={{ background: '#1A2030' }}>
+              <div
+                className="h-full rounded-full transition-all duration-500"
+                style={{ width: `${data.confidence * 100}%`, background: accentColor }}
+              />
+            </div>
           </div>
-        )}
-        {isDefended && (
-          <span className="text-[8px] text-accent-emerald mt-0.5 block">DEFENDED</span>
-        )}
-        {isRevised && (
-          <span className="text-[8px] text-accent-crimson mt-0.5 block">REVISED</span>
         )}
       </div>
       <Handle type="source" position={Position.Top} className="opacity-0" />
