@@ -65,7 +65,7 @@ export function TriageCard({ triage }: TriageCardProps) {
         </div>
         <div className="h-1.5 rounded-full overflow-hidden" style={{ background: '#1F2937' }}>
           <div
-            className="h-full bg-accent-teal rounded-full transition-all duration-500"
+            className="h-full bg-accent-teal/60 rounded-full transition-all duration-500"
             style={{ width: `${triage.confidence * 100}%` }}
           />
         </div>

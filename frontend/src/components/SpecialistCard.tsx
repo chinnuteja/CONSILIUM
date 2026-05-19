@@ -17,6 +17,16 @@ const SPECIALTY_ICONS: Record<string, React.ComponentType<{ className?: string }
   Psychiatry: BrainCircuit,
 };
 
+const SPECIALTY_COLORS: Record<string, string> = {
+  Cardiology: '#EF4444',
+  Endocrinology: '#F59E0B',
+  Neurology: '#8B5CF6',
+  Rheumatology: '#10B981',
+  InfectiousDisease: '#22C55E',
+  Gastroenterology: '#F97316',
+  Psychiatry: '#60A5FA',
+};
+
 const STATUS_STYLES: Record<SpecialistStatus, { label: string; bg: string; text: string; dot: string; border: string }> = {
   IDLE: { label: 'Idle', bg: 'bg-white/5', text: 'text-text-secondary/50', dot: 'bg-white/20', border: 'transparent' },
   THINKING: { label: 'Reasoning', bg: 'bg-accent-teal/5', text: 'text-accent-teal', dot: 'bg-accent-teal', border: 'var(--color-accent-teal)' },
@@ -37,6 +47,7 @@ export function SpecialistCard({ specialist, isFocused = false, isDimmed = false
   const [expanded, setExpanded] = useState(false);
   const Icon = SPECIALTY_ICONS[specialist.name] || Stethoscope;
   const style = STATUS_STYLES[specialist.status];
+  const specialtyColor = SPECIALTY_COLORS[specialist.name] ?? 'var(--color-accent-teal)';
   const isActive = specialist.status !== 'IDLE';
   const isThinking = specialist.status === 'THINKING';
   const isDefended = specialist.status === 'DEFENDED';
@@ -138,7 +149,8 @@ export function SpecialistCard({ specialist, isFocused = false, isDimmed = false
                     initial={{ width: 0 }}
                     animate={{ width: `${specialist.confidence * 100}%` }}
                     transition={{ duration: 0.5, ease: 'easeOut' }}
-                    className="h-full bg-accent-teal/70 rounded-full"
+                    className="h-full rounded-full"
+                    style={{ background: specialtyColor }}
                   />
                 </div>
                 <div className="pointer-events-none absolute left-0 top-full z-20 mt-2 w-64 rounded-lg border border-white/10 bg-bg-elevated p-3 text-[11px] leading-relaxed text-text-secondary opacity-0 shadow-xl transition-opacity duration-200 group-hover/support:opacity-100">

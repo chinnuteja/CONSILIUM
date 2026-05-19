@@ -156,7 +156,7 @@ export function FinalDifferential({
             initial={{ width: 0 }}
             animate={{ width: `${(verdict.agreement_score / maxScore) * 100}%` }}
             transition={{ duration: 0.9, ease: 'easeOut' }}
-            className="h-full rounded-full bg-accent-teal"
+            className="h-full rounded-full bg-gradient-to-r from-accent-teal to-accent-emerald"
           />
         </div>
         <p className="mb-4 text-[11px] leading-relaxed text-text-secondary">
