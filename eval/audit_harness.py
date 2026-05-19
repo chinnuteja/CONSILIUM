@@ -192,8 +192,8 @@ def run_benchmark(
             }
         )
 
-        # Partial save every 10 cases
-        if (idx + 1) % 10 == 0:
+        # Partial save every 5 cases
+        if (idx + 1) % 5 == 0:
             partial = {
                 "label": label, "n_completed": idx + 1, "n_total": n,
                 "top_1_accuracy": sum(r["top_1_correct"] for r in rows) / len(rows),
