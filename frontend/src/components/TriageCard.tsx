@@ -59,8 +59,9 @@ export function TriageCard({ triage }: TriageCardProps) {
 
       <div className="mb-4">
         <div className="mb-1.5">
-          <span className="text-[10px] font-mono uppercase tracking-wider text-text-secondary block">Confidence</span>
-          <span className="text-[16px] font-semibold text-text-primary block">{(triage.confidence * 100).toFixed(0)}%</span>
+          <span className="text-[16px] font-semibold text-text-primary block">
+            Routing certainty {(triage.confidence * 100).toFixed(0)}%
+          </span>
         </div>
         <div className="h-1.5 rounded-full overflow-hidden" style={{ background: '#1F2937' }}>
           <div
@@ -68,6 +69,9 @@ export function TriageCard({ triage }: TriageCardProps) {
             style={{ width: `${triage.confidence * 100}%` }}
           />
         </div>
+        <p className="mt-2 text-[11px] leading-relaxed text-text-secondary">
+          How confident the triage agent is in the complexity classification ({triage.case_complexity}).
+        </p>
       </div>
 
       <div className="mb-4">
