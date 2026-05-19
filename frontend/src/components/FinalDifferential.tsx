@@ -30,6 +30,7 @@ export function FinalDifferential({
     if (!verdict) return [];
     return specialists.filter((s) => s.diagnosis === verdict.diagnosis);
   }, [specialists, verdict]);
+  const postedSpecialistCount = specialists.filter((s) => s.diagnosis).length;
 
   const summary = useMemo(() => {
     if (!verdict) return '';
@@ -135,19 +136,19 @@ export function FinalDifferential({
                   <span className="text-text-primary">Diagnostic support (Specialists):</span> How strongly each specialist's cited evidence supports their proposed diagnosis. Low values are expected for ambiguous cases.
                 </p>
                 <p>
-                  <span className="text-text-primary">Council agreement (Verdict):</span> Aggregated support across specialists for the leading diagnosis. Reflects both individual specialist confidence and inter-specialty convergence.
+                  <span className="text-text-primary">Council convergence (Verdict):</span> Concentration of council support for the leading diagnosis. Reflects both individual specialist confidence and inter-specialty convergence.
                 </p>
               </div>
             </motion.div>
           )}
         </div>
 
-        <div className="flex items-start justify-between gap-4 mb-4">
+        <div className="mb-4">
           <h4 className="text-[22px] font-semibold text-text-primary leading-tight">
             {verdict.diagnosis}
           </h4>
-          <span className="text-right text-[15px] font-semibold text-accent-teal">
-            Council agreement: {(verdict.agreement_score * 100).toFixed(0)}%
+          <span className="mt-2 block text-[15px] font-semibold text-accent-teal">
+            Council convergence: {(verdict.agreement_score * 100).toFixed(0)}% · {supportingSpecialists.length} of {postedSpecialistCount || specialists.length} specialists
           </span>
         </div>
 
@@ -160,7 +161,7 @@ export function FinalDifferential({
           />
         </div>
         <p className="mb-4 text-[11px] leading-relaxed text-text-secondary">
-          Aggregated support across all consulted specialists. Higher values indicate stronger convergence. In this case, {(verdict.agreement_score * 100).toFixed(0)}% reflects high diagnostic uncertainty — both specialists support {verdict.diagnosis} but with low individual confidence.
+          Concentration of council support across 50 possible diagnoses. Lower values reflect distributed uncertainty across plausible alternatives, not low overall accuracy.
         </p>
 
         <div className="flex flex-wrap items-center gap-2 mb-4">
