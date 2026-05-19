@@ -101,12 +101,12 @@ export function FinalDifferential({
           <h4 className="text-[22px] font-semibold text-text-primary leading-tight">
             {verdict.diagnosis}
           </h4>
-          <span className="text-2xl font-semibold text-accent-teal font-mono">
-            {(verdict.agreement_score * 100).toFixed(0)}%
+          <span className="text-right text-[15px] font-semibold text-accent-teal">
+            Council agreement: {(verdict.agreement_score * 100).toFixed(0)}%
           </span>
         </div>
 
-        <div className="h-3 rounded-full overflow-hidden bg-bg-elevated mb-4">
+        <div className="h-3 rounded-full overflow-hidden bg-bg-elevated mb-2">
           <motion.div
             initial={{ width: 0 }}
             animate={{ width: `${(verdict.agreement_score / maxScore) * 100}%` }}
@@ -114,6 +114,9 @@ export function FinalDifferential({
             className="h-full rounded-full bg-accent-teal"
           />
         </div>
+        <p className="mb-4 text-[11px] leading-relaxed text-text-secondary">
+          Aggregated support across all consulted specialists. Higher values indicate stronger convergence. In this case, {(verdict.agreement_score * 100).toFixed(0)}% reflects high diagnostic uncertainty — both specialists support {verdict.diagnosis} but with low individual confidence.
+        </p>
 
         <div className="flex flex-wrap items-center gap-2 mb-4">
           <span className="text-[10px] font-mono uppercase tracking-wider text-text-secondary">
